@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive UPSC History Timeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Visualization & Content Choices:
+        - Overall Timeline: Report Info (Major periods: Ancient, Medieval, Modern with dates) -> Goal (Inform, Show Duration) -> Viz (Horizontal Bar Chart - Chart.js) -> Interaction (Hover for dates) -> Justification (Quick overview of scale) -> Library (Chart.js).
+        - Period Details (e.g., Mauryan): Report Info (Text, Tables on rulers, events, socio-eco, tech) -> Goal (Inform, Organize) -> Viz (Text blocks, HTML Tables styled with Tailwind, Accordion Cards) -> Interaction (Click to expand/collapse cards, tab within cards) -> Justification (Digestible presentation of dense info) -> Library/Method (HTML, Tailwind, JS).
+        - Key Events: Report Info (Lists of events) -> Goal (Inform, Highlight) -> Viz (Clickable lists/text) -> Interaction (Potentially reveal more info - kept simple here by direct display) -> Justification (Engaging event exploration) -> Library/Method (HTML, Tailwind, JS).
+        - World Contemporaries: Report Info (Text on contemporary events) -> Goal (Contextualize) -> Viz (Dedicated section, textual comparison) -> Interaction (Navigation through tabs) -> Justification (Essential for UPSC context) -> Library/Method (HTML, Tailwind, JS).
+        - All tables from the report are rendered as HTML tables for structured data presentation.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-button { transition: all 0.3s ease; }
+        .tab-button.active { background-color: #EA580C; color: white; }
+        .tab-button:not(.active):hover { background-color: #FDBA74; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .sub-period-card { border: 1px solid #FDBA74; border-radius: 0.5rem; margin-bottom: 1rem; background-color: #FFF7ED; }
+        .sub-period-header { background-color: #FED7AA; padding: 0.75rem 1rem; cursor: pointer; border-radius: 0.5rem 0.5rem 0 0; font-weight: 600; color: #7C2D12; }
+        .sub-period-header:hover { background-color: #FDBA74;}
+        .sub-period-content { padding: 1rem; display: none; }
+        .sub-period-content.open { display: block; }
+        .prose-table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
+        .prose-table th, .prose-table td { border: 1px solid #FDBA74; padding: 0.5rem; text-align: left; }
+        .prose-table th { background-color: #FED7AA; color: #7C2D12; }
+        .prose-table caption { caption-side: bottom; font-size: 0.875rem; color: #9A3412; margin-top: 0.5rem; }
+        .chart-container { position: relative; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        h1, h2, h3 { color: #9A3412; }
+        p { color: #374151; line-height: 1.6;}
+        .nav-container { position: sticky; top: 0; z-index: 50; background-color: #FFF7ED; }
+    </style>
+</head>
+<body class="bg-amber-50 text-neutral-800">
+
+    <div class="nav-container shadow-md">
+        <header class="bg-orange-600 text-white py-6 text-center">
+            <h1 class="text-4xl font-bold">Interactive UPSC History Timeline</h1>
+            <p class="text-lg mt-2">A Comprehensive Crash Course for Aspirants</p>
+        </header>
+
+        <nav class="flex justify-center space-x-2 sm:space-x-4 p-4 bg-amber-100 border-b-2 border-amber-300">
+            <button class="tab-button active text-xs sm:text-sm md:text-base px-3 py-2 sm:px-4 sm:py-2 rounded-md font-semibold bg-amber-200 text-amber-800" onclick="showSection('ancient')">Ancient India</button>
+            <button class="tab-button text-xs sm:text-sm md:text-base px-3 py-2 sm:px-4 sm:py-2 rounded-md font-semibold bg-amber-200 text-amber-800" onclick="showSection('medieval')">Medieval India</button>
+            <button class="tab-button text-xs sm:text-sm md:text-base px-3 py-2 sm:px-4 sm:py-2 rounded-md font-semibold bg-amber-200 text-amber-800" onclick="showSection('modern')">Modern India</button>
+            <button class="tab-button text-xs sm:text-sm md:text-base px-3 py-2 sm:px-4 sm:py-2 rounded-md font-semibold bg-amber-200 text-amber-800" onclick="showSection('world')">World Context</button>
+        </nav>
+    </div>
+
+    <main class="container mx-auto p-4 sm:p-6 md:p-8">
+        <section id="timelineChartSection" class="mb-8">
+            <h2 class="text-2xl font-semibold text-center mb-4">Overview of Major Indian Historical Periods</h2>
+            <div class="chart-container bg-white p-4 rounded-lg shadow">
+                <canvas id="majorPeriodsChart"></canvas>
+            </div>
+            <p class="text-center mt-2 text-sm text-gray-600">This chart visualizes the approximate durations of the major periods in Indian history. Hover over the bars for specific date ranges.</p>
+        </section>
+
+        <section id="ancient" class="content-section active">
+            <h2 class="text-3xl font-bold mb-6 text-center">Ancient India: Foundations of Civilization (c. 2 Million BCE - 700 CE)</h2>
+            <p class="mb-6 text-lg text-center text-gray-700">This section delves into the dawn of civilization on the Indian subcontinent, from the earliest human settlements through the rise and fall of foundational empires like the Indus Valley, Mauryan, and Gupta. Explore the evolution of society, economy, technology, and early interactions with the world.</p>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Pre-historic & Proto-historic Periods (c. 2 Million BCE - 1500 BCE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>The earliest phases of human habitation in India are categorized by the types of tools and materials used, reflecting a gradual progression in human ingenuity and societal organization.</p>
+                    <h4 class="font-semibold mt-2">Paleolithic Period (2 Million BC – 10,000 BC):</h4>
+                    <p>Nomadic gatherers and hunters. Rudimentary fire use, rough stone tools (hand axes, choppers). Sites: Bori, Bhimbetka. Early art (ostrich eggs, cave paintings).</p>
+                    <h4 class="font-semibold mt-2">Mesolithic Period (10,000 BC – 8,000 BC):</h4>
+                    <p>Transitional. Refined, smaller tools (flakes, blades, pointers).</p>
+                    <h4 class="font-semibold mt-2">Neolithic Period (8000 BC – 4,000 BC):</h4>
+                    <p>Shift to settled life. Polished stone tools (celts), bone tools. Agriculture (ragi, horse gram), animal domestication (cattle, sheep, goats). Pottery. Permanent settlements (mud/reed houses). Skills: boat-making, spinning, weaving. Foundation for urban civilizations.</p>
+                    <h4 class="font-semibold mt-2">Chalcolithic Period (4000 BC – 1,500 BC):</h4>
+                    <p>Concurrent use of copper and stone tools.</p>
+                    <h4 class="font-semibold mt-2">Iron Age (1500 BC – 200 BC):</h4>
+                    <p>Transformative introduction of iron, impacting agriculture and warfare.</p>
+                    <p class="mt-2"><b>Major sites:</b> Koldihwa, Mahagara (rice), Mehrgarh (earliest Neolithic, brick houses), Burzahom, Gufkral (pit dwellings, dog burials), Chirand (bone tools).</p>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Indus Valley Civilization (c. 2500 - 1750 BCE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>The Indus Valley Civilization (Harappan Civilization) was the first urban civilization in the Indian subcontinent, known for sophisticated planning and societal organization.</p>
+                    <div class="overflow-x-auto">
+                        <table class="prose-table">
+                            <caption>Indus Valley Civilization - Key Aspects & Contemporaries</caption>
+                            <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+                            <tbody>
+                                <tr><td><b>Period</b></td><td>c. 2500 - 1750 BCE</td></tr>
+                                <tr><td><b>Location</b></td><td>Punjab and Sindh regions (modern-day Pakistan, NW India)</td></tr>
+                                <tr><td><b>Key Features</b></td><td>First urban civilization, advanced urban planning (grid layout), sophisticated drainage systems, Great Bath, Granaries, Standardized weights/measures, Seal carving.</td></tr>
+                                <tr><td><b>Social Life</b></td><td>Primarily artisans & merchants, distinct neighborhoods, inferred efficient municipal government, no clear evidence of rigid caste system.</td></tr>
+                                <tr><td><b>Economic Life</b></td><td>Agriculture (wheat, barley, cotton - pioneers in cultivation), Animal husbandry (oxen, buffaloes), Extensive trade (Mesopotamia), First urban civilization.</td></tr>
+                                <tr><td><b>Technology/Metals</b></td><td>Copper, Bronze, Lead, Tin, Gold, Silver (Iron unknown); Fire-baked bricks, Wheeled transport (oxcarts), Boats, Advanced sewage/drainage.</td></tr>
+                                <tr><td><b>Decline</b></td><td>Around 1800 BCE. Theories: climate change, reduced trade, Aryan migration (debunked invasion theory).</td></tr>
+                                <tr><td><b>Contemporaries</b></td><td>Mesopotamian Civilization (3500-539 BCE), Ancient Egyptian Civilization (3100-30 BCE), Early Chinese Civilization (2070-221 BCE).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Vedic Period (c. 1500 - 500 BCE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Shaped by Indo-Aryan arrival and Vedas composition, laying foundations for Indian culture.</p>
+                    <div class="overflow-x-auto">
+                        <table class="prose-table">
+                            <caption>Vedic Period - Social, Economic & Technological Evolution</caption>
+                            <thead>
+                                <tr><th>Aspect</th><th>Early Vedic (Rig Vedic) Period (c. 1500 - 1000 BCE)</th><th>Later Vedic Period (c. 1000 - 500 BCE)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><b>Social Life</b></td><td>Tribal, village-centered, relatively egalitarian, patriarchal family, minimal class distinctions. Sanskrit language.</td><td>Varna system solidified (Brahmins dominant), Gotra system, decline of women's status, Ashramas emerging, more rigid social hierarchy.</td></tr>
+                                <tr><td><b>Economic Life</b></td><td>Primarily agro-pastoral, cattle as primary wealth/exchange, basic agriculture (barley, wheat), limited trade (Pani guilds, Mana unit).</td><td>Shift to agrarian surplus economy, extensive agriculture (rice, wheat, double cropping), regular taxes (Bali, Bhaga, Shulka), expanded trade, early forms of currency, emergence of property rights.</td></tr>
+                                <tr><td><b>Technology/Metals</b></td><td>Woodworking (chariots, boats), early metallurgy (gold, silver), basic pottery, spinning/weaving, herbal remedies.</td><td>Intensive iron use (Krishna Ayas, iron-tipped ploughshares), advanced pottery (Painted Grey Ware), early primitive towns (Hastinapur, Kaushambi), copper, bronze, tin.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Mahajanapadas & Rise of Empires (c. 600 - 321 BCE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Political consolidation and new philosophical/religious movements.</p>
+                    <p><b>Emergence of 16 Mahajanapadas:</b> Second phase of urbanization, intense competition.</p>
+                    <p><b>Rise of Heterodox Sects:</b> Buddhism (Gautama Buddha, c. 563 BCE) and Jainism (Vardhamana Mahavira, c. 540 BCE) challenged Vedic traditions.</p>
+                    <p><b>Contemporaries & Invasions:</b> Persian Darius I (c. 516 BCE), Alexander the Great (326 BCE, Battle of Hydaspes).</p>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Mauryan Empire (c. 321 - 185 BCE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>First pan-Indian empire with sophisticated administration and economy.</p>
+                    <div class="overflow-x-auto">
+                        <table class="prose-table">
+                            <caption>Mauryan Empire - Rulers, Key Events & Features</caption>
+                            <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+                            <tbody>
+                                <tr><td><b>Period</b></td><td>c. 321 - 185 BCE</td></tr>
+                                <tr><td><b>Major Rulers</b></td><td>Chandragupta Maurya (founder, advised by Kautilya), Bindusara, Ashoka (unified vast territories).</td></tr>
+                                <tr><td><b>Key Events</b></td><td>Chandragupta defeated Seleucus I Nicator (c. 305 BCE). Kalinga War (c. 265-261 BCE) led to Ashoka's conversion to Buddhism and its spread.</td></tr>
+                                <tr><td><b>Administration</b></td><td>Centralized (Kautilya's Arthashastra), state-controlled economy, uniform weights/measures. Political unification.</td></tr>
+                                <tr><td><b>Social Life</b></td><td>Agricultural slavery (dasa-karmakaras), hereditary crafts, guilds (Shrenis). Megasthenes' Indica noted no slavery.</td></tr>
+                                <tr><td><b>Economy</b></td><td>Agriculture (primary, fertile lands, state irrigation), cotton, metalwork, extensive trade (internal & overseas), state regulation. Land revenue was primary income.</td></tr>
+                                <tr><td><b>Technology</b></td><td>Intensive iron use, punch-marked coins, Northern Black Polished Ware (NBPW) pottery, burnt bricks, ring wells. Advanced urban planning (Pataliputra), extensive road networks (Grand Trunk Road precursor).</td></tr>
+                                <tr><td><b>Contemporaries</b></td><td>Hellenistic world (Seleucid Empire), Greek ambassadors (Megasthenes).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Post-Mauryan Period (c. 200 BCE - 300 CE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Political fragmentation and cultural blending.</p>
+                    <p><b>Key Dynasties:</b> North: Sunga, Kanva. Deccan: Satavahanas. Foreign powers in North/NW: Indo-Greeks, Parthians, Sakas, Kushanas.</p>
+                    <p><b>Sangam Age in South India (c. 300 BC):</b> Chera, Chola, Pandya dynasties. Rich Sangam literature.</p>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Gupta Empire: The Golden Age (c. 300 - 550 CE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Celebrated for cultural, scientific, and economic flourishing.</p>
+                     <div class="overflow-x-auto">
+                        <table class="prose-table">
+                            <caption>Gupta Empire - Golden Age Highlights</caption>
+                            <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+                            <tbody>
+                                <tr><td><b>Period</b></td><td>c. 300 - 550 CE</td></tr>
+                                <tr><td><b>Major Rulers</b></td><td>Sri Gupta (founder, c. 240 CE), Samudragupta ("Indian Napoleon"), Chandragupta II. Unified North India.</td></tr>
+                                <tr><td><b>Social Conditions</b></td><td>Rigid caste system (proliferation of sub-castes), decline of women's status (dowry, early marriage, sati), marginalization of untouchables. Relative social stability. Brahmins gained power.</td></tr>
+                                <tr><td><b>Economic Growth</b></td><td>Flourishing trade, robust agriculture, strong guild system, extensive gold coinage (Dinars), land grants (especially to Brahmins leading to priestly landlords), trade with Sassanid and Byzantine Empires.</td></tr>
+                                <tr><td><b>Science & Technology</b></td><td><b>Mathematics:</b> Aryabhata (concept of zero, decimal system). <b>Astronomy:</b> Aryabhata. <b>Metallurgy:</b> Iron Pillar of Delhi, Wootz steel. <b>Medicine:</b> Ayurveda (Sushruta Samhita, Charaka Samhita), preventive healthcare, early vaccinations. <b>Engineering:</b> Sophisticated construction, irrigation systems.</td></tr>
+                                <tr><td><b>Contemporaries</b></td><td>Roman Empire (declining), Byzantine Empire (silk trade), Hunas (opponents).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+             <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Post-Gupta & Early Medieval Transition (c. 550 - 700 CE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Decline of Gupta Empire led to political fragmentation and rise of regional powers.</p>
+                    <p><b>Political Landscape:</b> Harshavardhana (briefly unified North India). Other dynasties: Vakatakas, Pallavas, Chalukyas. New ruling clans: Hunas, Maitrakas, Rajputs, Senas, Chauhans. Kanyakubja (Kannauj) became new power center, Pataliputra declined.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="medieval" class="content-section">
+            <h2 class="text-3xl font-bold mb-6 text-center">Medieval India: Dynasties, Cultural Synthesis & Regional Powers (c. 700 - 1757 CE)</h2>
+            <p class="mb-6 text-lg text-center text-gray-700">This section covers the dynamic medieval period, marked by the rise and fall of numerous kingdoms, significant cultural exchanges, and the profound impact of Islamic dynasties like the Delhi Sultanate and the Mughals, alongside powerful regional entities.</p>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Early Medieval Period (c. 700 - 1200 CE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Political decentralization and distinct regional identities.</p>
+                    <div class="overflow-x-auto">
+                        <table class="prose-table">
+                            <caption>Early Medieval Dynasties & Key Features (c. 700 - 1200 CE)</caption>
+                            <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+                            <tbody>
+                                <tr><td><b>Period</b></td><td>c. 700 - 1200 CE</td></tr>
+                                <tr><td><b>Political Context</b></td><td>Extreme decentralization, emergence of Indian feudalism, rise of Rajputs, shattered political unity. Vulnerability to external invasions.</td></tr>
+                                <tr><td><b>Major Dynasties/Kingdoms</b></td><td>Palas, Pratiharas, Rashtrakutas (Tripartite Struggle for Kannauj), Chola Empire (South India), various Rajput states.</td></tr>
+                                <tr><td><b>Chola Empire (c. 850-1250 CE)</b></td><td>"Imperial Cholas." Influence in SE Asia. Saivite. Dravida architecture zenith. Powerful navy (controlled Bay of Bengal). Local self-governance (Sabha/Ur, Kudavolai system). Economy: cotton trade (Puhar/Kaveripattanam). Society: Brahmins in villages, peasants (Vellala) in 'Ur'.</td></tr>
+                                <tr><td><b>Turkish Conquest</b></td><td>Arab invasion of Sindh (Mohammed-bin-Qasim, 712 AD). Ghaznavid invasions (Mahmud Ghazni, 1001-1027 AD, Somnath Temple). Ghurid invasions (Mohammad Ghori, Battles of Tarain 1191-1192). Led to Delhi Sultanate.</td></tr>
+                                <tr><td><b>Contemporaries</b></td><td>Islamic Empire (birth of Prophet Muhammad, Battle of Tours, spread of Islam), Mongol Empire (founded 1206 AD).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Delhi Sultanate (c. 1206 - 1526 CE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Establishment of significant Islamic presence in Northern India.</p>
+                    <div class="overflow-x-auto">
+                        <table class="prose-table">
+                            <caption>Delhi Sultanate - Rulers, Policies & Innovations</caption>
+                            <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+                            <tbody>
+                                <tr><td><b>Period</b></td><td>c. 1206 - 1526 CE</td></tr>
+                                <tr><td><b>Dynasties</b></td><td>Slave (Qutbuddin Aibak, Razia Sultana), Khilji (Alauddin Khilji), Tughlaq (Muhammad-bin-Tughlaq, Firoz Shah Tughlaq), Sayyid, Lodi (Ibrahim Lodhi).</td></tr>
+                                <tr><td><b>Administration</b></td><td>Sultan at apex, council of ministers. Iqtas (provinces), Shiqs (districts), Parganas (blocks), villages. Efficient postal system (Uluq, Dawa), Sarais (rest houses).</td></tr>
+                                <tr><td><b>Economy</b></td><td>Land revenue (1/3-1/2 of produce). Diverse agriculture (crop rotation, double cropping, Persian wheel). Sericulture. Growth in trade, stable currency. Industries: cotton, textiles, silk (Bengal, Gujarat famous). Indian textiles popular in China.</td></tr>
+                                <tr><td><b>Social Life</b></td><td>Blend of Islamic, Persian, Central Asian, Indian cultures. Hindu caste system prominent. Muslim society stratified (Turks, Iranians, Afghans, Indian Muslims). Women's position subordinate (sati, purdah, devadasi). Religious discrimination (Hindus as "zimmis", jaziya tax). Slavery prevalent.</td></tr>
+                                <tr><td><b>Technology</b></td><td>Introduction of paper manufacturing (from Chinese), iron stirrups/armour, spinning wheels (boosted textile production). Growth in metallurgy (steel). Engineering: acoustic design, canal systems.</td></tr>
+                                <tr><td><b>Contemporaries</b></td><td>Mongol Empire (Chengiz Khan's invasion 1221 AD, Timur's invasion 1398 AD). European Middle Ages (Crusades, Black Death, Gutenberg printing press).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Mughal Empire (c. 1526 - 1857 CE) &#9662;</div>
+                <div class="sub-period-content">
+                     <p>Vast and powerful state known for administrative innovations, economic prosperity, and cultural synthesis.</p>
+                    <div class="overflow-x-auto">
+                        <table class="prose-table">
+                            <caption>Mughal Empire - Key Emperors & Contributions</caption>
+                            <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+                            <tbody>
+                                <tr><td><b>Period</b></td><td>c. 1526 - 1857 CE</td></tr>
+                                <tr><td><b>Key Emperors</b></td><td>Babur (founder, 1st Battle of Panipat), Humayun, Akbar (zenith of governance/culture), Jahangir, Shahjahan, Aurangzeb (maximum extent, start of decline). Ended with 1857 Rebellion.</td></tr>
+                                <tr><td><b>Administration</b></td><td>Highly centralized revenue collection (Zabt system/Todar Mal's Bandobast). Mansabdari system (land grants for productivity/military service). Meticulous record-keeping. Military superiority (gunpowder).</td></tr>
+                                <tr><td><b>Economy</b></td><td>Primarily agrarian (fertile lands, surplus). Cash crops (cotton, indigo). Advanced irrigation. Robust trade (Silk Road, maritime), Indian textiles in high demand. Manufacturing/handicrafts (silk, carpets, jewelry). Stable currency, standardized weights/measures. Major player in early modern global economy.</td></tr>
+                                <tr><td><b>Social Life</b></td><td>Cultural blending (Islamic, Persian, Turkish, Indian). Diverse ruling elites. Relative peace (17th c.) fostered economic expansion. New social groups (Marathas, Rajputs, Sikhs) gained ambitions. Caste system somewhat fluid.</td></tr>
+                                <tr><td><b>Technology</b></td><td><b>Military:</b> Gunpowder, firearms, artillery, advanced cannons, matchlock guns, composite bows, fortification techniques. <b>Architecture:</b> Blend of styles (Taj Mahal, Humayun's Tomb, Red Fort). Arch/dome, pietra dura, charbagh. <b>Water Management:</b> Canal systems, dams, reservoirs (Shalimar Gardens). <b>Science:</b> Astronomy observatories, medical texts, herbal remedies. Agricultural innovations (new crops, crop rotation, Northern European plough).</td></tr>
+                                <tr><td><b>Contemporaries</b></td><td>Ottoman Empire, Safavid Persia (other Islamic gunpowder empires). European trading companies (Dutch, English, French) establishing presence.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Emergence of Regional Kingdoms (15th-18th Century) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Powerful regional kingdoms challenged centralized authority.</p>
+                    <h4 class="font-semibold mt-2">Vijayanagara Empire (1336-1646 AD):</h4>
+                    <p>Founded by Harihara I & Bukka Raya I. Hindu empire in South. Capital: Hampi. Polity: King central, council of ministers, provinces (Rajyas/Mandalam) under Nayaks/Palaiyagars. Economy: Textiles, mining, metallurgy, perfumery. External trade (Persia, Arabia, SE Asia). Gold/silver coins. Irrigation vital.</p>
+                    <h4 class="font-semibold mt-2">Bahmani Kingdom (1347-1526 AD):</h4>
+                    <p>Founded by Alauddin Bahman Shah in Deccan. Zenith under Mahmud Gawan. Admin: Similar to Delhi Sultanate, feudal, Tarafs. Hindus in admin. Economy: Sea trade via Dabhol, Goa. Art/Arch: Persian, Indian, Deccan styles (Gol Gumbaz). Urdu patronized.</p>
+                    <h4 class="font-semibold mt-2">Maratha Empire (17th-18th Century):</h4>
+                    <p>Rose under Chhatrapati Shivaji. Admin: Ashta Pradhan Mandal. Sanskritized terms, merit-based, fixed salaries. Revenue: Kathi system, Chauth, Sardeshmukhi. Ryotwari system. Military: Paga cavalry, guerrilla warfare, naval force.</p>
+                    <h4 class="font-semibold mt-2">Sikhs:</h4>
+                    <p>Evolved, played crucial role in North India, especially during Mughal decline.</p>
+                    <h4 class="font-semibold mt-2">European Trading Companies:</h4>
+                    <p>Portuguese, Dutch, English, French presence intensified. "Trade revolution," shifting power balance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="modern" class="content-section">
+            <h2 class="text-3xl font-bold mb-6 text-center">Modern India: Colonial Rule, Nationalism & Independence (c. 1757 CE - Present)</h2>
+            <p class="mb-6 text-lg text-center text-gray-700">This section traces India's journey through European colonialism, the rise of the nationalist movement, the struggle for independence, and the challenges and achievements of post-independence nation-building.</p>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">European Penetration & British Expansion (18th Century) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Increasing European presence and Mughal decline.</p>
+                    <p><b>Arrival of Europeans:</b> Portuguese, Dutch, English, French trading companies. "Trade revolution" leading to political/military dominance.</p>
+                    <p><b>Decline of Mughal Empire:</b> Mid-18th c. collapse. Aurangzeb's death (1707) pivotal.</p>
+                    <p><b>Key Battles:</b> Plassey (1757, British political rule in Bengal), Buxar (1764, consolidated dominance).</p>
+                    <p><b>British Policies:</b> Regulating Act (1773), Pitt's India Act (1784). Permanent Settlement (1793). Subsidiary Alliance (1798), Doctrine of Lapse (1848) for annexation. Economic exploitation ("Drain of Wealth").</p>
+                    <p><b>Anglo-Indian Wars:</b> Anglo-Mysore, Anglo-Maratha, Anglo-Sikh wars dismantled regional powers.</p>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">British Raj (1858 - 1947) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Direct British Crown rule after Indian Rebellion of 1857.</p>
+                    <p><b>Establishment:</b> Government of India Act 1858.</p>
+                    <p><b>Major Events:</b> Indian Rebellion of 1857 ("First War of Independence"). Birth of INC (1885). Partition of Bengal (1905, "Divide and Rule"). Jallianwala Bagh Massacre (1919). Non-Cooperation Movement (1920, Gandhi). Civil Disobedience Movement (1930, Salt Satyagraha). Govt. of India Act 1935. World War II (1939-1945). Quit India Movement (1942). Indian Independence Act (1947).</p>
+                    <p><b>Social & Economic Impact:</b> Introduced modernity (bureaucracy, Western education, infrastructure like railways/telegraph) for colonial interests. Led to anti-colonial sentiment (economic exploitation, racial discrimination, communal tensions).</p>
+                    <p><b>Key Personalities:</b> Mahatma Gandhi, Jawaharlal Nehru, Sardar Patel, B.R. Ambedkar, Subhas Chandra Bose, Bhagat Singh.</p>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Partition & Post-Independence India (1947 - Present) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Partition and nation-building journey.</p>
+                    <p><b>Partition of India (1947):</b> India and Pakistan formed. Traumatic population exchange.</p>
+                    <p><b>Building a New Nation (Nehru Era):</b> Planned economic development, industrialization (socialist models, state control).</p>
+                    <p><b>Key Events:</b> India-China War (1962). Indo-Pakistani Wars (1965, 1971 - creation of Bangladesh). Green Revolution (1960s-70s). Indian Nuclear Program (1974). The Emergency (1975). Economic Liberalization (1991). Kargil War (1999). Demonetization (2016). Abrogation of Article 370 (2019). COVID-19 Pandemic (2020).</p>
+                    <p><b>Major Issues:</b> Communal tensions, caste discrimination, poverty, inequality, political instability, corruption, separatist movements, human rights violations, environmental degradation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="world" class="content-section">
+            <h2 class="text-3xl font-bold mb-6 text-center">World Historical Events: Contemporaries to Indian History</h2>
+            <p class="mb-6 text-lg text-center text-gray-700">This section provides a global context by highlighting major world events and civilizations that were contemporary with key periods in Indian history. Understanding these connections is vital for a holistic historical perspective.</p>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Ancient World Contemporaries (c. 3500 BCE - 550 CE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Indian civilizations were part of a vibrant global landscape.</p>
+                    <p><b>Indus Valley Era (c. 2500-1750 BCE):</b> Mesopotamian Civilization (writing, wheel, city-states Ur, Babylon). Ancient Egyptian Civilization (pyramids, Nile economy). Early Ancient Chinese Civilization (Shang, Zhou dynasties). Trade links (IVC-Mesopotamia).</p>
+                    <p><b>Vedic Age Era (c. 1500-500 BCE):</b> Indo-Aryan migrations. Spread of iron use, alphabetical script (from Aramaic) into India. Contemporary with Ancient Greek Civilization (democracy, philosophy, Olympics), early Roman Republic.</p>
+                    <p><b>Mauryan Empire Era (c. 321-185 BCE):</b> Alexander the Great's invasion. Interactions with Hellenistic world (Seleucid Empire - diplomatic exchanges, trade).</p>
+                    <p><b>Gupta Empire Era (c. 300-550 CE):</b> Declining Roman Empire, rising Byzantine Empire (silk trade). Gupta mathematical achievements (zero, decimal system) spread to Islamic Caliphate, then Europe.</p>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Medieval World Contemporaries (c. 500 - 1500 CE) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Intertwined with major Eurasian developments.</p>
+                    <p><b>European Middle Ages (476 AD - 1453 AD):</b> Frankish kings (Clovis, Charlemagne), Viking invasions, Norman Conquest (1066), Crusades (1096-1272), Magna Carta (1215), Hundred Years War (1337-1453), Black Death (1347-1350), Gutenberg printing press (1444).</p>
+                    <p><b>Islamic Empire:</b> Prophet Muhammad (b. 570 AD). Vast caliphate. Battle of Tours (732 AD). Islamic invasions of India (Arabs, Ghaznavids, Ghurids) led to Delhi Sultanate.</p>
+                    <p><b>Mongol Empire:</b> Founded by Genghis Khan (1206 AD). Largest contiguous land empire. Impact on India: Chengiz Khan's invasion (1221 AD), Timur's invasion (1398 AD). Facilitated Eurasian links (trade, ideas, technology like gunpowder, diseases like Black Death).</p>
+                </div>
+            </div>
+
+            <div class="sub-period-card">
+                <div class="sub-period-header" onclick="toggleContent(this)">Modern World Contemporaries (c. 15th Century - Present) &#9662;</div>
+                <div class="sub-period-content">
+                    <p>Transformation in global power dynamics, European expansion.</p>
+                    <p><b>Early Modern Period (Late 15th - 17th C):</b> Europe: Renaissance (c. 1450-1600), Reformation (Luther, 1517), Age of Discovery (Columbus, 1492), early colonial empires, mercantilism.</p>
+                    <p><b>18th Century (Enlightenment & Revolution):</b> Age of Enlightenment. American Revolution (1775-1783), French Revolution (1789-1799). Industrial Revolution in Britain (c. 1760).</p>
+                    <p><b>19th Century:</b> Global spread of Industrial Revolution. British Empire as leading power ("Pax Britannica"). Abolition of slavery. "Scramble for Africa."</p>
+                    <p><b>20th & 21st Centuries:</b> World War I (1914-1918), World War II (1939-1945). Cold War (US-USSR), proxy wars (Korean, Vietnam), fall of Communism. Other conflicts (Boer, Russian Civil, Irish Independence, Spanish Civil, Gulf, Afghanistan, Iraq, Syria, Ukraine, Yemen). Rapid globalization, technological advancements.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-orange-700 text-white text-center p-6 mt-12">
+        <p>&copy; <span id="currentYear"></span> UPSC History Interactive Timeline. For educational purposes.</p>
+    </footer>
+
+    <script>
+        let currentChart = null;
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`.tab-button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleContent(headerElement) {
+            const content = headerElement.nextElementSibling;
+            if (content.style.display === 'block' || content.classList.contains('open')) {
+                content.style.display = 'none';
+                content.classList.remove('open');
+                headerElement.innerHTML = headerElement.innerHTML.replace('&#9652;', '&#9662;');
+            } else {
+                content.style.display = 'block';
+                content.classList.add('open');
+                headerElement.innerHTML = headerElement.innerHTML.replace('&#9662;', '&#9652;');
+            }
+        }
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const ancientIndiaDuration = (700 - (-2000000))/1000; 
+        const medievalIndiaDuration = (1757 - 700);
+        const modernIndiaDuration = (new Date().getFullYear() - 1757);
+
+
+        const ctx = document.getElementById('majorPeriodsChart').getContext('2d');
+        if (currentChart) {
+            currentChart.destroy();
+        }
+        currentChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Ancient India (Approx. 2M BCE - 700 CE)', 'Medieval India (c. 700 - 1757 CE)', 'Modern India (c. 1757 CE - Present)'],
+                datasets: [{
+                    label: 'Approximate Duration (Normalized Scale)',
+                    data: [2000.7, medievalIndiaDuration, modernIndiaDuration], // Scaled for visualization
+                    backgroundColor: [
+                        'rgba(251, 146, 60, 0.7)', // amber-500
+                        'rgba(249, 115, 22, 0.7)', // orange-500
+                        'rgba(234, 88, 12, 0.7)'  // orange-600
+                    ],
+                    borderColor: [
+                        'rgba(251, 146, 60, 1)',
+                        'rgba(249, 115, 22, 1)',
+                        'rgba(234, 88, 12, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Relative Duration (Not to exact scale due to vast differences)'
+                        }
+                    },
+                    y: {
+                         ticks: {
+                            font: {
+                                size: 10
+                            },
+                            autoSkip: false,
+                             maxRotation: 0,
+                             minRotation: 0,
+                             callback: function(value, index, values) {
+                                const label = this.getLabelForValue(value);
+                                if (label.length > 30) {
+                                    return label.substring(0, 30) + '...';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                // You can customize tooltip further if needed
+                                if (context.parsed.x !== null) {
+                                     if(context.label.startsWith('Ancient')) label += 'Vast Prehistoric to Early Historic Era';
+                                     else if(context.label.startsWith('Medieval')) label += 'Significant Dynastic and Cultural Shifts';
+                                     else if(context.label.startsWith('Modern')) label += 'Colonialism to Independent Nation';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Open the first sub-period card in Ancient India by default
+        const firstAncientCard = document.querySelector('#ancient .sub-period-card .sub-period-header');
+        if(firstAncientCard){
+            toggleContent(firstAncientCard);
+        }
+
+    </script>
+</body>
+</html>
