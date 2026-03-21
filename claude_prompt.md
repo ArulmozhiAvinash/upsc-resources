@@ -5,6 +5,10 @@ material. My entire preparation, retention, and exam performance depends
 100% on the quality and accuracy of what you produce here. Treat this with 
 that level of responsibility.
 
+Use web search actively for Task 3 (PYQs), Task 5 (Current Affairs), 
+and any facts you're uncertain about. Do not rely on training data alone 
+for recent developments or exact PYQ years.
+
 Topic: [YOUR TOPIC HERE]
 
 ---
