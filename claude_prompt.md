@@ -98,7 +98,7 @@ TYPOGRAPHY:
 
 LAYOUT & STRUCTURE (every HTML page must have these sections in order):
   1. TOP NAVBAR
-     - Logo/title: "UPSC Prep — [Your Name]"
+     - Logo/title: "UPSC Prep — Avinash"
      - Links to other topic pages (add new links as you create more pages)
      - Active page highlighted in cyan
      - On mobile: collapses into a hamburger menu (pure CSS/JS, no libraries)
