@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preamble of the Indian Constitution — UPSC Prep | Avinash</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --card-bg: #1a1a2e;
+    --text: #e0e0e0;
+    --heading: #00d4ff;
+    --gold: #ffd700;
+    --prelims: #4caf50;
+    --mains: #ff7043;
+    --pyq: #7c4dff;
+    --trap-bg: #1a0a00;
+    --trap-border: #ff6f00;
+    --correct: #00e676;
+    --wrong: #ef5350;
+    --mcq-hover: #263238;
+    --border: #2a2a4a;
+    --font: 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* ── NAVBAR ─────────────────────────────────────────── */
+  nav {
+    background: #0a0a1a;
+    border-bottom: 2px solid var(--border);
+    position: sticky; top: 0; z-index: 999;
+    padding: 0 1.5rem;
+  }
+  .nav-inner {
+    max-width: 960px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 54px;
+  }
+  .nav-logo {
+    font-size: 1rem; font-weight: 700;
+    color: var(--heading); letter-spacing: 0.05em; white-space: nowrap;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 0.25rem; align-items: center; }
+  .nav-links a {
+    color: var(--text); text-decoration: none;
+    padding: 0.3rem 0.7rem; border-radius: 4px;
+    font-size: 0.85rem; transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { background: var(--border); color: var(--heading); }
+  .nav-links a.active { color: var(--heading); border-bottom: 2px solid var(--heading); }
+  .hamburger {
+    display: none; background: none; border: none;
+    color: var(--text); font-size: 1.5rem; cursor: pointer;
+    padding: 0.3rem; min-width: 44px; min-height: 44px;
+  }
+  .nav-mobile {
+    display: none; flex-direction: column;
+    background: #0a0a1a; border-top: 1px solid var(--border);
+    padding: 0.5rem 1rem 1rem;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    color: var(--text); text-decoration: none;
+    padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--border);
+    font-size: 0.9rem; transition: color 0.2s;
+  }
+  .nav-mobile a:hover, .nav-mobile a.active { color: var(--heading); }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; align-items: center; justify-content: center; }
+  }
+
+  /* ── LAYOUT ─────────────────────────────────────────── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 1.2rem 4rem; }
+
+  /* ── HERO ────────────────────────────────────────────── */
+  .hero {
+    text-align: center; padding: 3rem 1rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--heading); margin-bottom: 0.6rem;
+  }
+  .hero .tagline { color: var(--text); font-size: 1rem; margin-bottom: 1rem; opacity: 0.85; }
+  .badge-row { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; padding: 0.25rem 0.75rem;
+    border-radius: 50px; font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .badge.p { background: var(--prelims); color: #000; }
+  .badge.m { background: var(--mains); color: #000; }
+  .badge.pm { background: linear-gradient(90deg, var(--prelims), var(--mains)); color: #000; }
+
+  /* ── SECTION HEADERS ─────────────────────────────────── */
+  section { margin-top: 2.5rem; }
+  h2 {
+    font-size: 1.4rem; color: var(--gold);
+    border-left: 4px solid var(--heading);
+    padding-left: 0.75rem; margin-bottom: 1.2rem;
+  }
+  h3 { color: var(--heading); font-size: 1.05rem; margin: 1rem 0 0.5rem; }
+
+  /* ── CARDS ───────────────────────────────────────────── */
+  .card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.2rem 1.4rem; margin-bottom: 1rem;
+  }
+
+  /* ── KEY TERMS ───────────────────────────────────────── */
+  .kt { color: var(--gold); font-weight: 700; }
+  .cyan { color: var(--heading); font-weight: 600; }
+
+  /* ── TAGS ────────────────────────────────────────────── */
+  .tag-p, .tag-m, .tag-pm {
+    display: inline-block; padding: 0.1rem 0.5rem;
+    border-radius: 4px; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.05em; margin-right: 0.3rem; vertical-align: middle;
+  }
+  .tag-p { background: var(--prelims); color: #000; }
+  .tag-m { background: var(--mains); color: #000; }
+  .tag-pm { background: linear-gradient(90deg,var(--prelims),var(--mains)); color: #000; }
+  .tag-pyq {
+    display: inline-block; padding: 0.1rem 0.5rem;
+    border-radius: 4px; font-size: 0.7rem; font-weight: 700;
+    background: var(--pyq); color: #fff; margin-right: 0.3rem; vertical-align: middle;
+  }
+  .tag-trap {
+    display: inline-block; padding: 0.1rem 0.5rem;
+    border-radius: 4px; font-size: 0.7rem; font-weight: 700;
+    background: var(--trap-border); color: #000; margin-right: 0.3rem; vertical-align: middle;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── COLLAPSIBLE ─────────────────────────────────────── */
+  details { margin-bottom: 1rem; }
+  summary {
+    cursor: pointer; color: var(--heading);
+    font-weight: 600; padding: 0.6rem 0;
+    list-style: none; display: flex; align-items: center; gap: 0.4rem;
+    min-height: 44px;
+  }
+  summary::before { content: '▶'; font-size: 0.7rem; transition: transform 0.2s; }
+  details[open] summary::before { transform: rotate(90deg); }
+  summary::-webkit-details-marker { display: none; }
+
+  /* ── PREAMBLE TEXT ───────────────────────────────────── */
+  .preamble-box {
+    background: #0d1a2e; border: 2px solid var(--heading);
+    border-radius: 8px; padding: 1.4rem 1.8rem;
+    font-style: italic; line-height: 2;
+    font-size: 1rem; color: #c8e6ff;
+  }
+  .preamble-box .added { color: var(--gold); font-weight: 700; }
+  .preamble-box .original { color: var(--correct); }
+
+  /* ── TABLE ───────────────────────────────────────────── */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th { background: #1e1e3a; color: var(--heading); padding: 0.6rem 0.8rem; text-align: left; }
+  td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); }
+  tr:hover td { background: var(--mcq-hover); }
+
+  /* ── PYQ CARDS ───────────────────────────────────────── */
+  .pyq-card {
+    background: var(--card-bg); border: 1px solid var(--pyq);
+    border-radius: 8px; padding: 1.2rem 1.4rem; margin-bottom: 1.5rem;
+  }
+  .pyq-meta { margin-bottom: 0.7rem; font-size: 0.85rem; opacity: 0.8; }
+  .pyq-q { font-weight: 600; margin-bottom: 0.8rem; color: #d0e8ff; }
+  .pyq-options { list-style: none; margin-bottom: 0.8rem; }
+  .pyq-options li {
+    padding: 0.55rem 0.9rem; border-radius: 5px;
+    margin-bottom: 0.35rem; border: 1px solid var(--border);
+    font-size: 0.9rem; cursor: pointer; min-height: 44px;
+    display: flex; align-items: center;
+    transition: background 0.15s, border-color 0.15s;
+    user-select: none;
+  }
+  .pyq-options li:hover { background: var(--mcq-hover); border-color: var(--heading); }
+  .pyq-options li.pyq-selected-correct { border-color: var(--correct); background: #00e67615; color: var(--correct); font-weight: 600; cursor: default; }
+  .pyq-options li.pyq-selected-wrong   { border-color: var(--wrong);   background: #ef535015; color: var(--wrong);   cursor: default; }
+  .pyq-options li.pyq-reveal-correct   { border-color: var(--correct); background: #00e67608; color: var(--correct); cursor: default; }
+  .pyq-options li.pyq-locked           { cursor: default; pointer-events: none; }
+  .pyq-reveal { display: none; }
+  .pyq-reveal.show { display: block; }
+  .answer-box { background: #001a0a; border-left: 3px solid var(--correct); padding: 0.7rem 1rem; border-radius: 0 4px 4px 0; margin-bottom: 0.8rem; font-size: 0.92rem; }
+  .trap-box {
+    background: var(--trap-bg); border: 1px solid var(--trap-border);
+    border-radius: 6px; padding: 1rem 1.2rem; margin-top: 0.5rem;
+  }
+  .trap-label {
+    color: var(--trap-border); font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem;
+    display: block;
+  }
+  .trap-box ul { padding-left: 1.2rem; }
+  .trap-box li { margin-bottom: 0.4rem; font-size: 0.88rem; }
+  .trap-box li strong { color: var(--trap-border); }
+
+  /* ── MCQ SECTION ─────────────────────────────────────── */
+  .mcq-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem;
+    transition: border-color 0.2s;
+  }
+  .mcq-card:hover { border-color: var(--heading); }
+  .mcq-q { font-weight: 600; margin-bottom: 0.8rem; color: #d0e8ff; }
+  .mcq-options { list-style: none; }
+  .mcq-opt {
+    padding: 0.55rem 0.9rem; border-radius: 5px;
+    margin-bottom: 0.35rem; border: 1px solid var(--border);
+    cursor: pointer; font-size: 0.9rem; min-height: 44px;
+    display: flex; align-items: center;
+    transition: background 0.15s, border-color 0.15s;
+    user-select: none;
+  }
+  .mcq-opt:hover { background: var(--mcq-hover); border-color: var(--heading); }
+  .mcq-opt.selected-correct {
+    background: #00e67615; border-color: var(--correct); color: var(--correct); font-weight: 600;
+  }
+  .mcq-opt.selected-wrong {
+    background: #ef535015; border-color: var(--wrong); color: var(--wrong);
+  }
+  .mcq-opt.reveal-correct {
+    background: #00e67608; border-color: var(--correct); color: var(--correct);
+  }
+  .mcq-reveal { display: none; margin-top: 0.8rem; }
+  .mcq-reveal.show { display: block; }
+  .mcq-score { font-size: 0.8rem; color: var(--gold); margin-top: 0.3rem; }
+  .score-board {
+    background: var(--card-bg); border: 1px solid var(--gold);
+    border-radius: 8px; padding: 1rem 1.4rem; margin-bottom: 1.5rem;
+    display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;
+  }
+  .score-item { text-align: center; }
+  .score-num { font-size: 1.8rem; font-weight: 700; color: var(--heading); }
+  .score-lbl { font-size: 0.75rem; color: var(--text); opacity: 0.75; }
+
+  /* ── CURRENT AFFAIRS ─────────────────────────────────── */
+  .ca-item {
+    border-left: 3px solid var(--pyq);
+    padding: 0.6rem 0 0.6rem 1rem; margin-bottom: 0.8rem;
+  }
+  .ca-item p { font-size: 0.92rem; }
+
+  /* ── REVISED BUTTON ──────────────────────────────────── */
+  .revised-btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-top: 0.8rem; padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border); border-radius: 5px;
+    background: none; color: var(--text); cursor: pointer;
+    font-size: 0.82rem; min-height: 44px; min-width: 44px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .revised-btn:hover { border-color: var(--correct); color: var(--correct); }
+  .revised-btn.done { border-color: var(--correct); color: var(--correct); }
+  .revised-btn.done::before { content: '✓ '; }
+
+  /* ── DIAGRAM ─────────────────────────────────────────── */
+  .diagram {
+    background: #0a0f1f; border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.2rem; font-family: monospace;
+    font-size: 0.82rem; color: var(--text); overflow-x: auto;
+    line-height: 1.7;
+  }
+  .diagram .d-head { color: var(--heading); font-weight: 700; }
+  .diagram .d-gold { color: var(--gold); }
+  .diagram .d-green { color: var(--correct); }
+  .diagram .d-orange { color: var(--mains); }
+  .diagram .d-purple { color: #c084fc; }
+
+  /* ── VERIFY TAG ──────────────────────────────────────── */
+  .verify { background: #3a1a00; border: 1px solid var(--trap-border); color: var(--trap-border); font-size: 0.72rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 700; vertical-align: middle; }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  footer {
+    text-align: center; padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--text); opacity: 0.6; font-size: 0.85rem;
+    margin-top: 3rem;
+  }
+  footer a { color: var(--heading); text-decoration: none; }
+
+  /* ── LISTS ───────────────────────────────────────────── */
+  ul.content-list { padding-left: 1.3rem; }
+  ul.content-list li { margin-bottom: 0.4rem; font-size: 0.93rem; }
+  ul.content-list li::marker { color: var(--heading); }
+
+  /* ── MAINS MODEL ANSWER ──────────────────────────────── */
+  .model-answer {
+    background: #0d1820; border-left: 3px solid var(--mains);
+    border-radius: 0 6px 6px 0; padding: 1rem 1.2rem;
+    font-size: 0.9rem; line-height: 1.85;
+  }
+  .model-answer h4 { color: var(--mains); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; margin-top: 0.9rem; }
+  .model-answer h4:first-child { margin-top: 0; }
+  .wc { font-size: 0.75rem; color: var(--text); opacity: 0.6; margin-top: 0.5rem; }
+
+  /* ── QUICK SUMMARY BULLETS ───────────────────────────── */
+  .qs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; }
+  .qs-item { background: #111128; border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; }
+  .qs-item .qs-label { font-size: 0.75rem; color: var(--heading); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; font-weight: 700; }
+
+  /* ── SCROLL SMOOTH ───────────────────────────────────── */
+  html { scroll-behavior: smooth; }
+
+  /* ── MOBILE ──────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    body { font-size: 14px; }
+    h2 { font-size: 1.15rem; }
+    .pyq-card, .mcq-card, .card { padding: 0.9rem 1rem; }
+    .preamble-box { padding: 1rem 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ───────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">⚖️ UPSC Prep — Avinash</a>
+    <div class="nav-links">
+      <a href="#" class="active">Preamble</a>
+      <a href="#">Fundamental Rights</a>
+      <a href="#">DPSP</a>
+      <a href="#">Parliament</a>
+      <a href="#">Federalism</a>
+    </div>
+    <button class="hamburger" id="hambBtn" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="mobileMenu">
+    <a href="#" class="active">Preamble</a>
+    <a href="#">Fundamental Rights</a>
+    <a href="#">DPSP</a>
+    <a href="#">Parliament</a>
+    <a href="#">Federalism</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<div class="hero">
+  <h1>Preamble of the Indian Constitution</h1>
+  <p class="tagline">"Soul of the Constitution" — the introductory statement that declares India's identity, objectives, and the source of its authority.</p>
+  <div class="badge-row">
+    <span class="badge p">PRELIMS — HIGH FREQ</span>
+    <span class="badge m">MAINS GS2</span>
+    <span class="badge pm">ESSAY POTENTIAL</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ── SECTION 1: QUICK SUMMARY ─────────────────────────── -->
+<section id="summary">
+  <h2>📋 Quick Summary <small style="font-size:0.75rem;color:#aaa;font-weight:400;">(5-min revision)</small></h2>
+  <details open>
+    <summary>Prelims Fast Facts</summary>
+    <div class="card">
+      <div class="qs-grid">
+        <div class="qs-item">
+          <div class="qs-label">Adopted</div>
+          26 November 1949 (by Constituent Assembly); Enforced 26 Jan 1950
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Amended</div>
+          Only ONCE — 42nd Amendment Act, 1976 (on Swaran Singh Committee recommendation)
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Words Added in 1976</div>
+          <span class="kt">Socialist, Secular, Integrity</span>
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Original 1950 Text</div>
+          "Sovereign <span class="kt">Democratic Republic</span>" — no socialist/secular
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Key Case (1973)</div>
+          <span class="kt">Kesavananda Bharati:</span> Preamble IS part of Constitution; can be amended but basic structure cannot be destroyed
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Key Case (1960)</div>
+          <span class="kt">Berubari Union:</span> SC said Preamble is NOT part of Constitution (overruled in 1973)
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Key Case (1994)</div>
+          <span class="kt">S.R. Bommai:</span> Reaffirmed Preamble as integral part of Constitution
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">NOT in Preamble</div>
+          Welfare State, Economic Liberty, Adult Suffrage, Federal — these are NOT Preamble words
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Liberty Types (in order)</div>
+          Thought → Expression → Belief → Faith → Worship
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Justice Types (in order)</div>
+          Social → Economic → Political
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">Source Preamble Borrowed From</div>
+          Preamble of US Constitution ("We, the people…"); Objective Resolution by Nehru (1946)
+        </div>
+        <div class="qs-item">
+          <div class="qs-label">2024 SC Ruling</div>
+          <span class="kt">Dr Balram Singh v. UoI (2024)</span> — dismissed petitions to remove 'socialist'/'secular' from Preamble
+        </div>
+      </div>
+      <button class="revised-btn" onclick="markRevised(this,'sum-prelims')">Mark as Revised</button>
+    </div>
+  </details>
+
+  <details>
+    <summary>Mains Analytical Angles</summary>
+    <div class="card">
+      <ul class="content-list">
+        <li><span class="kt">Identity Card of the Constitution</span> (N.A. Palkhivala) — "Political Horoscope" (K.M. Munshi)</li>
+        <li>Preamble is <span class="kt">not enforceable</span> in court but is the <span class="kt">primary guide for interpretation</span> — courts use it to resolve ambiguities</li>
+        <li><span class="kt">Basic Structure Link:</span> Socialism, Secularism, Democratic Republic, Federalism in Preamble = part of Basic Structure (Kesavananda)</li>
+        <li>Socialist India ≠ Communist/Marxist socialism. India's "democratic socialism" = mixed economy + welfare state (not abolition of private property)</li>
+        <li>Secular in India = "positive secularism" (state neutrality + equal respect for all religions) vs Western "wall of separation"</li>
+        <li>42nd Amendment added words during <span class="kt">Emergency (1975-77)</span> — raises legitimacy debate: was it representative of the people's will?</li>
+        <li>Tension: <span class="kt">Fraternity vs Caste divisions</span>; <span class="kt">Equality vs substantive inequality</span>; <span class="kt">Liberty vs state regulation</span> — Preamble ideals still unrealised</li>
+        <li>Republic = Head of State is elected, not hereditary. Distinguishes India from UK-style constitutional monarchy</li>
+      </ul>
+      <button class="revised-btn" onclick="markRevised(this,'sum-mains')">Mark as Revised</button>
+    </div>
+  </details>
+
+  <details>
+    <summary>Preamble Text (Annotated)</summary>
+    <div class="preamble-box">
+      <span class="original">WE, THE PEOPLE OF INDIA,</span> having solemnly resolved to constitute India into a
+      <span class="original">SOVEREIGN</span> <span class="added">[SOCIALIST]</span> <span class="added">[SECULAR]</span> <span class="original">DEMOCRATIC REPUBLIC</span> and to secure to all its citizens:<br><br>
+      JUSTICE, social, economic and political;<br>
+      LIBERTY of thought, expression, belief, faith and worship;<br>
+      EQUALITY of status and of opportunity;<br>
+      and to promote among them all<br>
+      FRATERNITY assuring the dignity of the individual and the <span class="original">unity</span> and <span class="added">[INTEGRITY]</span> of the Nation;<br><br>
+      <span class="original">IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.</span>
+    </div>
+    <p style="font-size:0.78rem;margin-top:0.5rem;opacity:0.7;"><span class="added">■ Gold</span> = Added by 42nd Amendment (1976) &nbsp;|&nbsp; <span style="color:var(--correct)">■ Green</span> = Original 1950 text</p>
+    <button class="revised-btn" onclick="markRevised(this,'sum-text')">Mark as Revised</button>
+  </details>
+</section>
+
+<!-- ── SECTION 2: CORE CONCEPT ───────────────────────────── -->
+<section id="concept">
+  <h2>🧠 Core Concept</h2>
+
+  <div class="card">
+    <h3>What is the Preamble? (Build the Intuition First)</h3>
+    <p>Think of the Constitution as a massive legal contract between the State and its citizens. The Preamble is the <span class="kt">cover page</span> of that contract — it doesn't create rights or duties by itself, but it tells you <em>why</em> this document was written and <em>what kind of country</em> it aims to build.</p>
+    <p style="margin-top:0.7rem;">The Constituent Assembly didn't write the Preamble first. They drafted the entire Constitution first, then wrote the Preamble last — reflecting everything they had decided. It was based on Jawaharlal Nehru's <span class="kt">Objective Resolution</span>, moved on 13 December 1946 and adopted by the Assembly on 22 January 1947.</p>
+    <p style="margin-top:0.7rem;">Three things the Preamble tells you: <br>
+    1. <span class="kt">Source of authority</span> → "We, the People" (popular sovereignty)<br>
+    2. <span class="kt">Nature of the Indian State</span> → Sovereign Socialist Secular Democratic Republic<br>
+    3. <span class="kt">Objectives</span> → Justice, Liberty, Equality, Fraternity</p>
+    <button class="revised-btn" onclick="markRevised(this,'core1')">Mark as Revised</button>
+  </div>
+
+  <div class="card">
+    <h3>Decoding Each Word — Technical Depth</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Term</th><th>What It Means</th><th>UPSC Angle / Interlink</th></tr></thead>
+      <tbody>
+        <tr><td><span class="kt">Sovereign</span></td><td>India is supreme internally and independent externally. No external power can dictate its governance.</td><td>Link to Art. 1 "Union of States"; India's UN membership doesn't reduce sovereignty. Relates to IR and treaty-making power.</td></tr>
+        <tr><td><span class="kt">Socialist</span> (added 1976)</td><td>Not communist. India's "democratic socialism" = mixed economy, welfare orientation, equitable distribution. Private property is not abolished.</td><td>Links to DPSPs (Art 39, 41-43A), Nationalization policies. Contrast with DPSP Art. 39(b)(c) on material resources and economic inequality.</td></tr>
+        <tr><td><span class="kt">Secular</span> (added 1976)</td><td>"Positive secularism" — state treats all religions equally; no state religion. Freedom to profess, practice, propagate (Art. 25-28).</td><td>India's secularism ≠ French laïcité (strict separation). Links to Fundamental Rights (Art 25-28), SR Bommai case. Uniform Civil Code debate (Art 44 DPSP).</td></tr>
+        <tr><td><span class="kt">Democratic</span></td><td>Government derives authority from the people; free & fair elections; universal adult franchise.</td><td>Art. 324 (Election Commission); Art. 326 (Universal Adult Suffrage). Link to Representation of People Act.</td></tr>
+        <tr><td><span class="kt">Republic</span></td><td>Head of State (President) is elected, not hereditary. Public offices are open to all citizens.</td><td>Contrasts with UK (constitutional monarchy). Art. 52-54 on Presidential election.</td></tr>
+        <tr><td><span class="kt">Justice</span> (Social, Economic, Political)</td><td>Social = no discrimination; Economic = no extreme wealth/poverty gaps; Political = equal political rights</td><td>Fundamental Rights (Part III) → Social/Political Justice; DPSPs (Part IV) → Economic Justice. Art. 38 specifically uses the word "justice".</td></tr>
+        <tr><td><span class="kt">Liberty</span></td><td>Thought, Expression, Belief, Faith, Worship — 5 types. NOT "economic liberty" (common UPSC trap).</td><td>Art. 19 (6 freedoms) and Art. 25-28. Liberty is not absolute — Art. 19(2) to 19(6) allow reasonable restrictions.</td></tr>
+        <tr><td><span class="kt">Equality</span></td><td>Status and opportunity — both. Not just formal equality but substantive equality (Reservations).</td><td>Art. 14-18. Links to affirmative action debate, Indra Sawhney case (OBC reservations).</td></tr>
+        <tr><td><span class="kt">Fraternity</span></td><td>Sense of brotherhood; dignity of individual; unity & integrity of nation. Only goal, not a right/directive.</td><td>Art. 51A (Fundamental Duties) echoes fraternity. Link to Ambedkar's emphasis: Liberty-Equality are useless without Fraternity.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Legal Status — The Big Debate</h3>
+    <div class="diagram">
+      <div class="d-head">TIMELINE OF PREAMBLE'S LEGAL STATUS</div><br>
+      <span class="d-green">1960 — Berubari Union Case</span><br>
+      └─ SC: "Preamble is NOT a part of the Constitution"<br>
+      └─ "It cannot override express provisions"<br><br>
+      <span class="d-gold">1973 — Kesavananda Bharati v. State of Kerala ★★★</span><br>
+      └─ SC REVERSED Berubari: Preamble IS part of the Constitution<br>
+      └─ Preamble CAN be amended (under Art. 368)<br>
+      └─ BUT basic structure of the Constitution cannot be destroyed<br>
+      └─ Preamble itself reflects the Basic Structure<br><br>
+      <span class="d-purple">1980 — Minerva Mills Case</span><br>
+      └─ Reaffirmed Basic Structure; balance b/w FRs and DPSPs<br><br>
+      <span class="d-orange">1994 — S.R. Bommai v. Union of India</span><br>
+      └─ Preamble is an integral part of the Constitution<br>
+      └─ Secularism is part of Basic Structure<br><br>
+      <span class="d-green">2024 — Dr Balram Singh v. Union of India</span><br>
+      └─ SC dismissed petitions to remove 'socialist'/'secular'<br>
+      └─ Adoption date in Preamble doesn't curtail Art. 368 amending power
+    </div>
+    <button class="revised-btn" onclick="markRevised(this,'core2')">Mark as Revised</button>
+  </div>
+
+  <div class="card">
+    <h3>Cross-Subject Interlinkages</h3>
+    <ul class="content-list">
+      <li><span class="kt">History:</span> Nehru's Objective Resolution (Dec 1946) = direct intellectual parent of the Preamble. Influenced by American Declaration of Independence ("We the People") and French Revolution ideals (Liberty, Equality, Fraternity).</li>
+      <li><span class="kt">Economy:</span> "Socialist" in Preamble → mixed economy model; public sector enterprise; welfare state. Links to Nehruvian planning, nationalization of banks (1969), and LPG reforms (1991) which some argue created tension with Preamble's socialist goal.</li>
+      <li><span class="kt">International Relations:</span> "Sovereign" has implications — India's sovereignty over J&K (Art. 370 abrogation), Siachen, Aksai Chin; India's stance in international forums is premised on sovereignty doctrine.</li>
+      <li><span class="kt">Environment:</span> "Fraternity" and "Dignity of Individual" increasingly linked to environmental rights — SC has read Art. 21 (right to life) to include right to clean environment, consistent with Preamble objectives.</li>
+      <li><span class="kt">Society:</span> The gap between Preamble's ideals and ground reality (caste discrimination, gender inequality, communal tensions) is a persistent Mains theme — "How far have we traveled toward the goals in the Preamble?"</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── SECTION 3: PYQs ────────────────────────────────────── -->
+<section id="pyqs">
+  <h2>📜 Previous Year Questions</h2>
+  <p style="font-size:0.85rem;opacity:0.7;margin-bottom:1.2rem;">All options and answers shown. <span class="verify">Verify</span> = cross-check before exam day.</p>
+
+  <!-- PYQ 1 -->
+  <div class="pyq-card">
+    <div class="pyq-meta"><span class="tag-pyq">PRELIMS 2021</span> <span class="tag-p">P</span> <span class="tag-trap">TRICK SEQUENCE</span></div>
+    <div class="pyq-q">Q1. What was the exact constitutional status of India on 26th January 1950?</div>
+    <ul class="pyq-options" id="pyq1-opts">
+      <li onclick="checkPYQ(this,'pyq1','a','b')">(a) A Democratic Republic</li>
+      <li onclick="checkPYQ(this,'pyq1','b','b')">(b) A Sovereign Democratic Republic</li>
+      <li onclick="checkPYQ(this,'pyq1','c','b')">(c) A Sovereign Secular Democratic Republic</li>
+      <li onclick="checkPYQ(this,'pyq1','d','b')">(d) A Sovereign Socialist Secular Democratic Republic</li>
+    </ul>
+    <div class="pyq-reveal" id="pyq1-reveal">
+      <div class="answer-box">
+        <strong style="color:var(--correct)">Correct: (b) A Sovereign Democratic Republic</strong> — The original Preamble of 1950 described India as a "Sovereign Democratic Republic." The words 'Socialist' and 'Secular' were added only in 1976 by the 42nd Amendment. Therefore, on 26 January 1950, India was NOT yet described as Socialist or Secular in the Preamble.
+      </div>
+      <details>
+        <summary><span class="trap-label" style="display:inline;">⚠ UPSC TRAP ANALYSIS</span></summary>
+        <div class="trap-box">
+          <span class="trap-label">Trap Type: [TRICK SEQUENCE] — Tests knowledge of chronological order of words</span>
+          <ul>
+            <li><strong>The Trap Set:</strong> Most students know India is a "Sovereign Socialist Secular Democratic Republic" (the current form). They pick (d) automatically, forgetting the question asks about January 26, <em>1950</em> — 26 years before the 42nd Amendment.</li>
+            <li><strong>Most Popular Wrong Choice:</strong> (d) — Because students associate India's description with the current Preamble text. This is the most dangerous trap on this topic.</li>
+            <li><strong>Why (c) is also wrong:</strong> 'Secular' was also added in 1976. Even option (c) is wrong for the same reason.</li>
+            <li><strong>Elimination Strategy:</strong> The moment you see "26th January 1950" in the question, mentally move to PRE-42nd Amendment knowledge. Original 1950 = Sovereign + Democratic + Republic only. Strip out Socialist and Secular.</li>
+            <li><strong>Recurring UPSC Trick:</strong> UPSC uses dates strategically. Any question with a specific year related to constitutional provisions tests your knowledge of "what the constitution said THEN vs NOW."</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- PYQ 2 -->
+  <div class="pyq-card">
+    <div class="pyq-meta"><span class="tag-pyq">PRELIMS 2020</span> <span class="tag-p">P</span> <span class="tag-trap">STATEMENT COMBO</span></div>
+    <div class="pyq-q">Q2. The Preamble to the Constitution of India is:</div>
+    <ul class="pyq-options" id="pyq2-opts">
+      <li onclick="checkPYQ(this,'pyq2','a','d')">(a) A part of the Constitution but has no legal effect</li>
+      <li onclick="checkPYQ(this,'pyq2','b','d')">(b) Not a part of the Constitution and has no legal effect either</li>
+      <li onclick="checkPYQ(this,'pyq2','c','d')">(c) Part of the Constitution and has the same legal effect as any other part</li>
+      <li onclick="checkPYQ(this,'pyq2','d','d')">(d) A part of the Constitution but has no legal effect independently of other parts</li>
+    </ul>
+    <div class="pyq-reveal" id="pyq2-reveal">
+      <div class="answer-box">
+        <strong style="color:var(--correct)">Correct: (d)</strong> — Post-Kesavananda Bharati (1973), the Preamble IS part of the Constitution. However, it cannot be used independently to override specific provisions — it serves as an interpretive guide. It is NOT enforceable on its own (unlike Fundamental Rights). Hence, option (d) is the most accurate and nuanced statement.
+      </div>
+      <details>
+        <summary><span class="trap-label" style="display:inline;">⚠ UPSC TRAP ANALYSIS</span></summary>
+        <div class="trap-box">
+          <span class="trap-label">Trap Type: [PARTIAL TRUTH] — Each option contains a half-truth</span>
+          <ul>
+            <li><strong>The Trap Set:</strong> Options (a) and (b) split two facts incorrectly. UPSC knows students confuse "no legal effect" (pre-1973 position) with the post-1973 position. Option (c) over-states — the Preamble does NOT have the same legal effect as other Articles.</li>
+            <li><strong>Most Popular Wrong Choice:</strong> (a) — Students who remember "Preamble is part of Constitution" from Kesavananda stop there, but accept the wrong second half ("no legal effect").</li>
+            <li><strong>The Precision Demanded:</strong> UPSC is testing whether you know the <em>qualified</em> legal status — part of Constitution YES, but independently enforceable NO. Option (d) captures this nuance exactly.</li>
+            <li><strong>Elimination Strategy:</strong> Eliminate (b) — Kesavananda established Preamble IS part. Eliminate (c) — it's not equivalent to other Articles. Between (a) and (d), the word "independently" in (d) is the key differentiator.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- PYQ 3 -->
+  <div class="pyq-card">
+    <div class="pyq-meta"><span class="tag-pyq">PRELIMS 2015</span> <span class="tag-p">P</span> <span class="tag-trap">OUT OF SCOPE</span></div>
+    <div class="pyq-q">Q3. Which one of the following objectives is NOT embodied in the Preamble to the Constitution of India?</div>
+    <ul class="pyq-options" id="pyq3-opts">
+      <li onclick="checkPYQ(this,'pyq3','a','b')">(a) Liberty of thought</li>
+      <li onclick="checkPYQ(this,'pyq3','b','b')">(b) Economic liberty</li>
+      <li onclick="checkPYQ(this,'pyq3','c','b')">(c) Liberty of expression</li>
+      <li onclick="checkPYQ(this,'pyq3','d','b')">(d) Liberty of belief</li>
+    </ul>
+    <div class="pyq-reveal" id="pyq3-reveal">
+      <div class="answer-box">
+        <strong style="color:var(--correct)">Correct: (b) Economic liberty</strong> — The Preamble lists five specific liberties: Thought, Expression, Belief, Faith, and Worship. "Economic liberty" is NOT one of them. Economic justice is mentioned under Justice — not under Liberty.
+      </div>
+      <details>
+        <summary><span class="trap-label" style="display:inline;">⚠ UPSC TRAP ANALYSIS</span></summary>
+        <div class="trap-box">
+          <span class="trap-label">Trap Type: [OUT OF SCOPE] — Inserting a plausible but absent term</span>
+          <ul>
+            <li><strong>The Trap Set:</strong> Students who conflate the goals of Preamble (liberty + economic justice) assume "economic liberty" must be there. UPSC inserts a term that <em>sounds</em> like it belongs. Economic justice yes, economic liberty no.</li>
+            <li><strong>Most Popular Wrong Choice:</strong> Any of (a)(c)(d) — students mark these because they can't recall which liberty is not there, rather than confidently knowing the exact list.</li>
+            <li><strong>Memory Hook:</strong> The 5 liberties in order: <span class="kt">T-E-B-F-W</span> → <em>"The Elephant Brings Fresh Water"</em> → Thought, Expression, Belief, Faith, Worship. No 'Economic' in this list.</li>
+            <li><strong>Recurring UPSC Trick:</strong> UPSC frequently asks "which is NOT in the Preamble" — common traps include: Welfare, Federal, Economic liberty, Adult suffrage, Fraternal.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- PYQ 4 -->
+  <div class="pyq-card">
+    <div class="pyq-meta"><span class="tag-pyq">PRELIMS ~2018</span> <span class="tag-p">P</span> <span class="tag-trap">STATEMENT COMBO</span> <span class="verify">Verify Year</span></div>
+    <div class="pyq-q">Q4. Consider the following statements regarding the Preamble of the Indian Constitution:<br>
+    1. The Preamble of the Constitution of India is not justiciable.<br>
+    2. The Preamble has been amended twice since its adoption in 1949.<br>
+    3. The ideals in the Preamble cannot be amended under Article 368.<br>
+    Which of the statements given above is/are correct?</div>
+    <ul class="pyq-options" id="pyq4-opts">
+      <li onclick="checkPYQ(this,'pyq4','a','a')">(a) 1 only</li>
+      <li onclick="checkPYQ(this,'pyq4','b','a')">(b) 1 and 2 only</li>
+      <li onclick="checkPYQ(this,'pyq4','c','a')">(c) 2 and 3 only</li>
+      <li onclick="checkPYQ(this,'pyq4','d','a')">(d) 1, 2 and 3</li>
+    </ul>
+    <div class="pyq-reveal" id="pyq4-reveal">
+      <div class="answer-box">
+        <strong style="color:var(--correct)">Correct: (a) 1 only</strong> — Statement 1 is correct: Preamble is not independently justiciable. Statement 2 is WRONG: the Preamble has been amended only ONCE (42nd Amendment, 1976). Statement 3 is WRONG: the Preamble CAN be amended under Art. 368 (Kesavananda Bharati) — though the basic structure reflected in it cannot be destroyed.
+      </div>
+      <details>
+        <summary><span class="trap-label" style="display:inline;">⚠ UPSC TRAP ANALYSIS</span></summary>
+        <div class="trap-box">
+          <span class="trap-label">Trap Type: [STATEMENT COMBO] — One wrong fact hidden among plausible statements</span>
+          <ul>
+            <li><strong>The Trap Set:</strong> Statement 3 sounds constitutionally principled — many students confuse "basic structure cannot be amended" with "Preamble cannot be amended." These are different things.</li>
+            <li><strong>Statement 2 Trap:</strong> The number "twice" is a deliberate false insertion. The Preamble has been amended only ONCE. Never confuse with the total number of constitutional amendments.</li>
+            <li><strong>Elimination Strategy:</strong> Start with the easiest fact — "amended twice" (Statement 2) is definitively wrong. Any option containing Statement 2 is eliminated → eliminates (b), (c), (d). Answer must be (a).</li>
+            <li><strong>Key Anchor Fact:</strong> The Preamble has been amended EXACTLY ONCE. Burn it in.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- MAINS PYQ 1 -->
+  <div class="pyq-card" style="border-color:var(--mains);">
+    <div class="pyq-meta"><span class="tag-pyq">MAINS GS2 2016</span> <span class="tag-m">M</span> 10 Marks (~150 words)</div>
+    <div class="pyq-q">Q5. Discuss each adjective attached to the word 'Republic' in the Preamble. Are they defendable in the present circumstances?</div>
+    <details open>
+      <summary>Model Answer</summary>
+      <div class="model-answer">
+        <h4>Introduction</h4>
+        The Preamble declares India a 'Sovereign Socialist Secular Democratic Republic' — five adjectives that together define the constitutional character of the Indian state. Each carries substantive content and faces real-world challenges.
+
+        <h4>Each Adjective</h4>
+        <strong>Sovereign:</strong> India exercises supreme authority — internally through its constitutional framework and externally through independent foreign policy. Defendable: India's participation in WTO, UN, and bilateral treaties is self-determined. Challenge: Economic dependencies and international pressures occasionally test this.<br><br>
+        <strong>Socialist:</strong> Reflects democratic socialism — a mixed economy with welfare orientation, not Marxist communism. Partially defendable: welfare schemes (MGNREGS, PM-KISAN) demonstrate commitment. Challenge: rising inequality (Oxfam data showing top 1% holding disproportionate wealth) reveals implementation gaps.<br><br>
+        <strong>Secular:</strong> State neutrality toward all religions; no state religion. Defendable: constitutional architecture (Art 25-28) is robust. Challenge: rising communal tensions, debates on UCC, and state-religion interactions test this ideal.<br><br>
+        <strong>Democratic:</strong> Representational governance through free and fair elections. Strongly defendable: Election Commission's independence, consistent democratic transitions. Challenge: electoral financing opacity and criminalization of politics.<br><br>
+        <strong>Republic:</strong> Elected Head of State accessible to all citizens regardless of birth. Fully defendable — the office of President remains open to all citizens by merit.
+
+        <h4>Conclusion</h4>
+        The adjectives represent aspirational constitutional commitments rather than achieved realities. India's challenge lies not in constitutional design but in ensuring governance consistently honours these foundational ideals. The Preamble remains a living standard against which national performance must be measured.
+        <div class="wc">~175 words</div>
+      </div>
+    </details>
+    <button class="revised-btn" onclick="markRevised(this,'mains1')">Mark as Revised</button>
+  </div>
+
+  <!-- MAINS PYQ 2 -->
+  <div class="pyq-card" style="border-color:var(--mains);">
+    <div class="pyq-meta"><span class="tag-pyq">MAINS GS2 ~2014</span> <span class="tag-m">M</span> 15 Marks (~250 words) <span class="verify">Verify Year</span></div>
+    <div class="pyq-q">Q6. "The Preamble is the key to the minds of the makers of the Constitution." Critically examine this statement in the light of relevant judgments.</div>
+    <details>
+      <summary>Model Answer</summary>
+      <div class="model-answer">
+        <h4>Introduction</h4>
+        The Preamble encapsulates the aspirations crystallized in Nehru's Objective Resolution (1946) — making it the most authentic expression of the Constituent Assembly's constitutional vision. Its interpretive role has been progressively elevated through landmark judicial pronouncements.
+
+        <h4>Preamble as Interpretive Guide</h4>
+        The Preamble is not merely decorative text. Courts use it as a primary tool of constitutional interpretation — when statutory provisions admit multiple meanings, the interpretation aligned with the Preamble's goals prevails. In Maneka Gandhi v. Union of India (1978), the SC used the Preamble's liberty and dignity ideals to give Art. 21 a wide interpretation, reading 'procedure established by law' to also require 'due process.'
+
+        <h4>Judicial Evolution of its Status</h4>
+        Initially in Berubari Union (1960), the SC held the Preamble was outside the Constitution's operative part. This restrictive view was overturned in Kesavananda Bharati v. State of Kerala (1973), where a 13-judge bench recognized the Preamble as an integral part, capable of amendment but with its basic structure protected. The S.R. Bommai case (1994) further embedded secularism — a Preamble value — within the Basic Structure doctrine, demonstrating the Preamble's concrete constitutional effect.
+
+        <h4>Limitations</h4>
+        The Preamble is NOT a source of rights — citizens cannot invoke it directly in court to claim rights (Union of India v. Madan Gopal, 1954). It cannot override clear legislative text. Its role is guiding interpretation, not creating justiciable entitlements.
+
+        <h4>Conclusion</h4>
+        The Preamble serves as the Constitution's moral compass — not mechanically enforceable, but indispensable as a guide. Its true power lies in its influence on judicial reasoning and legislative discourse, ensuring that India's constitutional journey remains anchored in the collective vision of its founders. The challenge is translating Preamble ideals into lived constitutional realities for every citizen.
+        <div class="wc">~255 words</div>
+      </div>
+    </details>
+    <button class="revised-btn" onclick="markRevised(this,'mains2')">Mark as Revised</button>
+  </div>
+</section>
+
+<!-- ── SECTION 4: CURRENT AFFAIRS ───────────────────────── -->
+<section id="ca">
+  <h2>🗞️ Current Affairs (2023–2025)</h2>
+
+  <div class="card">
+    <div class="ca-item">
+      <p><span class="tag-pm">P+M</span> <strong style="color:var(--gold)">Dr Balram Singh v. Union of India (Nov 2024):</strong> A Supreme Court constitution bench dismissed petitions challenging the inclusion of 'socialist' and 'secular' in the Preamble through the 42nd Amendment (1976). The Court held that the date of adoption (26 Nov 1949) mentioned in the Preamble does not restrict Parliament's amending power under Article 368. The bench also noted that petitioners had delayed by ~44 years, raising the issue of laches.</p>
+    </div>
+    <div class="ca-item">
+      <p><span class="tag-pm">P+M</span> <strong style="color:var(--gold)">Constitution Day / Samvidhan Divas (26 Nov):</strong> The government has been actively observing 26 November as "Constitution Day" since 2015 to mark the adoption of the Constitution in 1949. In 2023 and 2024, the 75th anniversary of the Constitution (Amrit Mahotsav of the Constitution) saw nationwide programs on constitutional values including Preamble readings in schools and institutions.</p>
+    </div>
+    <div class="ca-item">
+      <p><span class="tag-m">M</span> <strong style="color:var(--gold)">Welfare State Debate (2024):</strong> Supreme Court's ruling in State of Telangana v. Mohd. Abdul Qasim reemphasized that Art. 39(b) — equitable distribution of material resources — is a valid socialistic goal and does not necessarily require state ownership. The Court held that what constitutes 'material resources of the community' must be interpreted in context, connecting it to the Preamble's socialist ideal. This has implications for understanding the scope of 'socialist' in the Preamble.</p>
+    </div>
+    <div class="ca-item">
+      <p><span class="tag-m">M</span> <strong style="color:var(--gold)">Secularism Debates (2023-2024):</strong> Several High Court and SC judgments continued to reinforce secularism as a Basic Structure feature. Debates around Places of Worship (Special Provisions) Act 1991, Gyanvapi mosque case, and various Waqf-related controversies have brought the 'secular' character of the Preamble into sharp political and judicial focus. The Waqf (Amendment) Act 2024 faced challenge partly on secularism grounds.</p>
+    </div>
+    <div class="ca-item">
+      <p><span class="tag-p">P</span> <strong style="color:var(--gold)">75th Constitution Anniversary (2024):</strong> India completed 75 years of its Constitution on 26 November 2024. The Preamble was read aloud in the joint sitting of Parliament on Constitution Day 2024, marking its symbolic centrality. Key fact: The Constitution has been amended 106 times as of 2024.</p>
+    </div>
+    <div class="ca-item">
+      <p><span class="tag-m">M</span> <strong style="color:var(--gold)">One Nation One Election (2024):</strong> The High Level Committee on ONOE (Ram Nath Kovind Committee, 2024) recommended simultaneous elections. Debates around this touched on the democratic and republican nature of India's governance — testing Preamble values of democracy and popular sovereignty.</p>
+    </div>
+    <button class="revised-btn" onclick="markRevised(this,'ca-main')">Mark as Revised</button>
+  </div>
+</section>
+
+<!-- ── SECTION 5: MCQ QUIZ ───────────────────────────────── -->
+<section id="quiz">
+  <h2>🎯 Progressive MCQ Practice (10 Questions)</h2>
+
+  <div class="score-board" id="scoreboard" style="display:none;">
+    <div class="score-item"><div class="score-num" id="scoreNum">0</div><div class="score-lbl">Score</div></div>
+    <div class="score-item"><div class="score-num" id="correctNum">0</div><div class="score-lbl">Correct</div></div>
+    <div class="score-item"><div class="score-num" id="wrongNum">0</div><div class="score-lbl">Wrong</div></div>
+    <div class="score-item"><div class="score-num" id="totalNum">0/10</div><div class="score-lbl">Attempted</div></div>
+  </div>
+
+  <!-- MCQ 1 -->
+  <div class="mcq-card" id="mcq1">
+    <div class="mcq-q">Q1. <span class="tag-p">P</span> How many times has the Preamble of the Indian Constitution been amended?</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,1,'a','b')">a) Never — it is unamendable</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,1,'b','b')">b) Once — by the 42nd Amendment Act, 1976</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,1,'c','b')">c) Twice — by the 42nd and 44th Amendment Acts</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,1,'d','b')">d) Three times — 42nd, 44th, and 86th Amendments</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal1">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (b) — Once, by the 42nd Amendment, 1976.</strong> The Preamble has been amended exactly once. The 44th Amendment (1978) reversed several 42nd Amendment provisions (like extending Lok Sabha terms) but did NOT touch the Preamble. Option (a) is wrong — the Preamble can be amended (Kesavananda).</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [PARTIAL TRUTH] + [ABSOLUTE WORD]</span>
+        <ul>
+          <li><strong>Trap:</strong> Option (a) uses the absolute word "unamendable" — a red flag in UPSC MCQs. Option (c) is the most dangerous distractor: students know the 44th Amendment reversed the 42nd but don't know it left the Preamble unchanged.</li>
+          <li><strong>Memory:</strong> Preamble amended = exactly 1 time. Period. If you ever see "twice" in options related to Preamble amendment, it's wrong.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 2 -->
+  <div class="mcq-card" id="mcq2">
+    <div class="mcq-q">Q2. <span class="tag-p">P</span> Which committee's recommendations led to the 42nd Amendment that added words to the Preamble?</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,2,'a','b')">a) Balwantrai Mehta Committee</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,2,'b','b')">b) Swaran Singh Committee</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,2,'c','b')">c) L.M. Singhvi Committee</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,2,'d','b')">d) Ashok Mehta Committee</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal2">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (b) — Swaran Singh Committee.</strong> The Swaran Singh Committee (1976) recommended the addition of Fundamental Duties and the changes to the Preamble that were enacted through the 42nd Amendment. The other committees relate to Panchayati Raj (Balwantrai Mehta, Ashok Mehta) and local governance (L.M. Singhvi).</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [LOOKALIKE TERM]</span>
+        <ul>
+          <li><strong>Trap:</strong> Multiple committees appear in UPSC options. L.M. Singhvi Committee recommended constitutional status for Panchayati Raj — commonly confused. Balwantrai Mehta and Ashok Mehta are the two major Panchayati Raj committee names you must distinguish.</li>
+          <li><strong>Hook:</strong> Swaran Singh → 42nd Amendment → Preamble + Fundamental Duties. Link Swaran (sounds like "Sovereign") with the Preamble's first word.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 3 -->
+  <div class="mcq-card" id="mcq3">
+    <div class="mcq-q">Q3. <span class="tag-p">P</span> Which of the following is described in the Preamble as the source of all authority of the Constitution of India?</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,3,'a','c')">a) The Parliament of India</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,3,'b','c')">b) The Constituent Assembly</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,3,'c','c')">c) We, the People of India</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,3,'d','c')">d) The President of India</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal3">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (c) — "We, the People of India."</strong> The Preamble begins with "WE, THE PEOPLE OF INDIA" and ends with "…do hereby adopt, enact and give to ourselves this Constitution." This clearly establishes the people as the ultimate source of constitutional authority — the doctrine of popular sovereignty.</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [REVERSAL]</span>
+        <ul>
+          <li><strong>Trap:</strong> (b) is the most tempting wrong answer. The Constituent Assembly is the body that ADOPTED the Constitution, but the Preamble explicitly says the people give themselves this Constitution. The Assembly was a representative body — authority still derives from the people it represented.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 4 -->
+  <div class="mcq-card" id="mcq4">
+    <div class="mcq-q">Q4. <span class="tag-p">P</span> The term 'Republic' in the Preamble of India's Constitution primarily signifies that:</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,4,'a','b')">a) India has a written constitution</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,4,'b','b')">b) The Head of State is elected and not hereditary</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,4,'c','b')">c) India has a bicameral legislature</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,4,'d','b')">d) India follows a parliamentary form of government</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal4">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (b)</strong> — "Republic" specifically means the head of state holds a publicly elected office, not a hereditary one. This distinguishes India from constitutional monarchies like the UK, where the head of state is a hereditary monarch. Options (a)(c)(d) are features of India's Constitution but are NOT what 'Republic' specifically denotes.</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [OUT OF SCOPE] — Related but irrelevant options</span>
+        <ul>
+          <li><strong>Trap:</strong> Options (c) and (d) describe real features of India's constitutional setup, making them feel correct. But the question asks what 'Republic' <em>primarily signifies</em> — this tests knowledge of word-specific meaning, not general constitutional features.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 5 -->
+  <div class="mcq-card" id="mcq5">
+    <div class="mcq-q">Q5. <span class="tag-p">P</span> In the Preamble, the types of 'Liberty' secured to citizens include which of the following?<br>1. Liberty of thought<br>2. Economic liberty<br>3. Liberty of faith<br>4. Liberty of worship<br>5. Liberty of movement</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,5,'a','c')">a) 1, 2 and 4 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,5,'b','c')">b) 1, 3, 4 and 5 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,5,'c','c')">c) 1, 3 and 4 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,5,'d','c')">d) 1, 2, 3 and 4</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal5">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (c) — 1, 3, and 4 only.</strong> The five liberties in the Preamble are: Thought, Expression, Belief, Faith, and Worship. Item 2 (Economic liberty) is NOT in the Preamble — economic justice is, but under 'Justice' not 'Liberty.' Item 5 (Liberty of movement) is a Fundamental Right under Art. 19(1)(d) — not in the Preamble.</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [OUT OF SCOPE] + [STATEMENT COMBO]</span>
+        <ul>
+          <li><strong>Traps:</strong> Statement 2 (economic liberty) is the classic distractor. Statement 5 (movement) is cleverly inserted because it IS a constitutional liberty — just not in the Preamble.</li>
+          <li><strong>Elimination:</strong> Eliminate anything with statement 2 → eliminates (a) and (d). Between (b) and (c), statement 5 (movement) is the differentiator — not in Preamble → eliminate (b). Answer: (c).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 6 -->
+  <div class="mcq-card" id="mcq6">
+    <div class="mcq-q">Q6. <span class="tag-p">P</span> Which Supreme Court case FIRST held that the Preamble is an integral part of the Indian Constitution?</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,6,'a','c')">a) Berubari Union Case, 1960</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,6,'b','c')">b) Golaknath Case, 1967</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,6,'c','c')">c) Kesavananda Bharati Case, 1973</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,6,'d','c')">d) Minerva Mills Case, 1980</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal6">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (c) — Kesavananda Bharati, 1973.</strong> Berubari (1960) actually said the opposite — Preamble is NOT part. Kesavananda (1973) overruled this and established that the Preamble IS part of the Constitution. Golaknath (1967) dealt with Parliament's power to amend Fundamental Rights. Minerva Mills (1980) dealt with balance between FRs and DPSPs.</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [REVERSAL] — Most students pick Berubari because it's the first famous case on the Preamble</span>
+        <ul>
+          <li><strong>Trap:</strong> Berubari is the most commonly remembered case in the context of Preamble's legal status — but it held the OPPOSITE view. Students who remember "Berubari + Preamble" without remembering the holding get trapped.</li>
+          <li><strong>Hook:</strong> Berubari = DENIED Preamble's status as part of Constitution. Kesavananda = CONFIRMED it. Timeline: 1960 (denial) → 1973 (affirmation).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 7 -->
+  <div class="mcq-card" id="mcq7">
+    <div class="mcq-q">Q7. <span class="tag-pm">P+M</span> India's concept of secularism as reflected in the Preamble is BEST described as:</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,7,'a','b')">a) A strict wall of separation between religion and state affairs, similar to France</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,7,'b','b')">b) Positive secularism — equal respect for all religions with state neutrality</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,7,'c','b')">c) A constitutional mandate that religion must not influence any government decisions</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,7,'d','b')">d) State-sponsored promotion of all minority religions</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal7">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (b)</strong> — India follows "positive secularism" — the state maintains equal respect and neutrality toward all religions, and individuals have the freedom to practice their faith. This is different from French-style strict separation (laïcité). The Indian state can and does engage with religious matters (like administering temple trusts, banning Sati, etc.) in pursuit of social reform — making option (c) too absolute.</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [ABSOLUTE WORD] + [LOOKALIKE TERM]</span>
+        <ul>
+          <li><strong>Trap in (c):</strong> "Religion must not influence ANY government decisions" is too absolute. The Indian state can engage with religion for reform (e.g. Hindu temple administration, personal laws) — option (c) is an overstatement of secularism.</li>
+          <li><strong>Mains Use:</strong> This distinction (positive secularism vs. strict separation) is excellent for GS2 answers on secularism, Uniform Civil Code, and Preamble amendments.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 8 -->
+  <div class="mcq-card" id="mcq8">
+    <div class="mcq-q">Q8. <span class="tag-p">P</span> Consider the following statements about the 42nd Constitutional Amendment Act, 1976:<br>1. It added 'Socialist', 'Secular', and 'Integrity' to the Preamble.<br>2. It also added Fundamental Duties to the Constitution under Art. 51A.<br>3. All provisions of the 42nd Amendment were subsequently reversed by the 44th Amendment.<br>4. It is often called the 'Mini-Constitution' due to the large number of changes it introduced.<br><br>Which of the above statements are CORRECT?</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,8,'a','c')">a) 1, 2 and 4 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,8,'b','c')">b) 1, 2 and 3 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,8,'c','c')">c) 1, 2, 3 and 4</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,8,'d','c')">d) 2 and 4 only</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal8">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (a) — 1, 2, and 4 only.</strong> Statements 1, 2, and 4 are correct. Statement 3 is WRONG: The 44th Amendment reversed several provisions (e.g. extended terms for Lok Sabha and State Assemblies) but DID NOT reverse the Preamble changes or Fundamental Duties. Those remain in force.</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [PARTIAL TRUTH] — One wrong statement hidden among three correct ones</span>
+        <ul>
+          <li><strong>Trap:</strong> Statement 3 ("all provisions reversed by 44th Amendment") is the hidden false statement. Students who know the 44th Amendment reversed the 42nd often incorrectly apply this to ALL provisions including the Preamble.</li>
+          <li><strong>Key Fact:</strong> The 44th Amendment specifically reversed: extended Lok Sabha/Assembly terms, restrictions on judicial review, and Article 352 emergency provisions. It did NOT touch Preamble words or Fundamental Duties.</li>
+          <li><strong>Elimination:</strong> Statement 3 is false → any option containing Statement 3 is wrong → eliminate (b) and (c). Between (a) and (d), verify Statement 1 is correct → confirms (a).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 9 -->
+  <div class="mcq-card" id="mcq9">
+    <div class="mcq-q">Q9. <span class="tag-pm">P+M</span> (Eliminator Level) Consider the following statements:<br>1. The Preamble is enforceable in a court of law independently.<br>2. Parliament can amend the Preamble under Article 368 as long as it does not damage the basic structure.<br>3. The word 'Fraternity' in the Preamble is associated with the dignity of the individual only, not national unity.<br>4. The Objective Resolution moved by Nehru in 1946 served as the direct basis for drafting the Preamble.<br><br>Which of the statements given above is/are CORRECT?</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,9,'a','c')">a) 1 and 3 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,9,'b','c')">b) 2 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,9,'c','c')">c) 2 and 4 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,9,'d','c')">d) 1, 2 and 4 only</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal9">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (c) — 2 and 4 only.</strong><br>
+      S1 WRONG: Preamble is NOT independently enforceable — cannot be used alone to claim rights in court.<br>
+      S2 CORRECT: Parliament can amend Preamble under Art. 368, subject to Basic Structure doctrine.<br>
+      S3 WRONG: The Preamble explicitly associates Fraternity with BOTH "dignity of the individual" AND "unity and integrity of the Nation."<br>
+      S4 CORRECT: Nehru's Objective Resolution (13 December 1946) directly formed the basis of the Preamble.</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [STATEMENT COMBO] + [PARTIAL TRUTH] — Classic high-difficulty format</span>
+        <ul>
+          <li><strong>S1 Trap:</strong> Students who know "Preamble is part of Constitution" incorrectly infer it must be enforceable. These are two separate questions — being part of the Constitution ≠ independently enforceable.</li>
+          <li><strong>S3 Trap:</strong> The word 'only' in statement 3 should immediately flag suspicion. The Preamble explicitly says fraternity assures "dignity of the individual and the unity and integrity of the Nation" — both, not one.</li>
+          <li><strong>Strategy:</strong> On statement-combo questions, immediately hunt for absolute words like 'only', 'never', 'always', 'all' — these are usually traps. Verify each statement independently before combining.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 10 -->
+  <div class="mcq-card" id="mcq10">
+    <div class="mcq-q">Q10. <span class="tag-pm">P+M</span> (Hardest — Integrative) With reference to the Supreme Court's ruling in Dr Balram Singh v. Union of India (2024), consider the following statements:<br>1. The Court upheld the removal of the words 'socialist' and 'secular' from the Preamble.<br>2. The Court held that the date of adoption (26 November 1949) in the Preamble does not restrict Parliament's amending power under Article 368.<br>3. The petition was filed challenging the inclusion of these words during the Emergency period.<br>4. The Court ruled that 'socialist' and 'secular' are inconsistent with the Basic Structure of the Constitution.<br><br>Which of the above statements are correct?</div>
+    <ul class="mcq-options">
+      <li class="mcq-opt" onclick="checkMCQ(this,10,'a','c')">a) 1 and 4 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,10,'b','c')">b) 1, 2 and 3 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,10,'c','c')">c) 2 and 3 only</li>
+      <li class="mcq-opt" onclick="checkMCQ(this,10,'d','c')">d) 1, 2, 3 and 4</li>
+    </ul>
+    <div class="mcq-reveal" id="reveal10">
+      <div class="answer-box"><strong style="color:var(--correct)">Answer: (c) — 2 and 3 only.</strong><br>
+      S1 WRONG: The Court DISMISSED the petitions — it did NOT uphold removal of 'socialist' and 'secular'. They remain in the Preamble.<br>
+      S2 CORRECT: The Court explicitly held that the 1949 adoption date does not freeze the Preamble against future amendments.<br>
+      S3 CORRECT: The petitions were indeed filed on the ground that these words were inserted during Emergency and thus lacked democratic legitimacy.<br>
+      S4 WRONG: The Court held the opposite — socialist and secular are consistent with (not inconsistent with) the Constitution's Basic Structure.</div>
+      <div class="trap-box">
+        <span class="trap-label">⚠ Trap Type: [REVERSAL] + [CURRENT AFFAIRS INTEGRATION]</span>
+        <ul>
+          <li><strong>S1 Trap:</strong> This is the most dangerous option. The question says "removal" — the petition sought removal, but the Court DISMISSED it. Many students confuse the prayer in the petition with the Court's actual ruling.</li>
+          <li><strong>S4 Trap:</strong> Statement 4 directly reverses the Court's holding. The Court upheld socialist/secular as consistent with Basic Structure — not inconsistent.</li>
+          <li><strong>Why This Matters:</strong> This question tests both current affairs (2024 SC ruling) AND the ability to distinguish between "what a petition argued" vs "what the Court decided" — a real UPSC pattern in recent years.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <button onclick="showAllAnswers()" style="background:var(--pyq);color:#fff;border:none;padding:0.6rem 1.4rem;border-radius:6px;cursor:pointer;font-size:0.9rem;margin-top:0.5rem;min-height:44px;">Reveal All Answers</button>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <p>Last updated: March 2026 &nbsp;|&nbsp; <a href="#">↑ Back to top</a></p>
+  <p style="margin-top:0.4rem;font-size:0.8rem;">UPSC Prep — Avinash &nbsp;|&nbsp; Topic 1 of Series: Preamble of the Indian Constitution</p>
+</footer>
+
+</div><!-- .container -->
+
+<script>
+  // PYQ click-to-reveal logic
+  var pyqAttempted = new Set();
+
+  function checkPYQ(el, qId, chosen, correctOpt) {
+    if (pyqAttempted.has(qId)) return;
+    pyqAttempted.add(qId);
+
+    var opts = document.querySelectorAll('#' + qId + '-opts li');
+    var letters = ['a','b','c','d'];
+
+    opts.forEach(function(opt, i) {
+      opt.classList.add('pyq-locked');
+      if (letters[i] === correctOpt) {
+        opt.classList.add('pyq-reveal-correct');
+      }
+    });
+
+    if (chosen === correctOpt) {
+      el.classList.add('pyq-selected-correct');
+    } else {
+      el.classList.add('pyq-selected-wrong');
+      // Also highlight the correct one distinctly
+    }
+
+    document.getElementById(qId + '-reveal').classList.add('show');
+  }
+
+  // Hamburger menu
+  document.getElementById('hambBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  // MCQ logic
+  var attempted = new Set();
+  var correct_count = 0;
+  var wrong_count = 0;
+
+  function checkMCQ(el, qNum, chosen, correctOpt) {
+    if (attempted.has(qNum)) return;
+    attempted.add(qNum);
+
+    var card = document.getElementById('mcq' + qNum);
+    var opts = card.querySelectorAll('.mcq-opt');
+    var letters = ['a','b','c','d'];
+
+    opts.forEach((opt, i) => {
+      opt.style.cursor = 'default';
+      opt.onclick = null;
+      if (letters[i] === correctOpt) {
+        opt.classList.add('reveal-correct');
+      }
+    });
+
+    if (chosen === correctOpt) {
+      el.classList.add('selected-correct');
+      correct_count++;
+    } else {
+      el.classList.add('selected-wrong');
+      wrong_count++;
+    }
+
+    document.getElementById('reveal' + qNum).classList.add('show');
+    updateScore();
+  }
+
+  function updateScore() {
+    var total = attempted.size;
+    if (total > 0) {
+      document.getElementById('scoreboard').style.display = 'flex';
+    }
+    var pct = Math.round((correct_count / Math.max(total, 1)) * 100);
+    document.getElementById('scoreNum').textContent = pct + '%';
+    document.getElementById('correctNum').textContent = correct_count;
+    document.getElementById('wrongNum').textContent = wrong_count;
+    document.getElementById('totalNum').textContent = total + '/10';
+  }
+
+  function showAllAnswers() {
+    for (var i = 1; i <= 10; i++) {
+      document.getElementById('reveal' + i).classList.add('show');
+    }
+  }
+
+  // Mark as revised
+  function markRevised(btn, key) {
+    var stored = localStorage.getItem('revised_' + key);
+    if (!stored) {
+      localStorage.setItem('revised_' + key, '1');
+      btn.classList.add('done');
+      btn.textContent = '✓ Revised';
+    } else {
+      localStorage.removeItem('revised_' + key);
+      btn.classList.remove('done');
+      btn.textContent = 'Mark as Revised';
+    }
+  }
+
+  // Restore revised states on load
+  window.addEventListener('DOMContentLoaded', () => {
+    var keys = ['sum-prelims','sum-mains','sum-text','core1','core2','mains1','mains2','ca-main'];
+    keys.forEach(k => {
+      if (localStorage.getItem('revised_' + k)) {
+        var btns = document.querySelectorAll('.revised-btn');
+        btns.forEach(b => {
+          if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(k)) {
+            b.classList.add('done');
+            b.textContent = '✓ Revised';
+          }
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
