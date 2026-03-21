@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPSC Prep — Avinash</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --card-bg: #1a1a2e;
+    --text: #e0e0e0;
+    --heading: #00d4ff;
+    --gold: #ffd700;
+    --prelims: #4caf50;
+    --mains: #ff7043;
+    --border: #2a2a4a;
+    --done: #00e676;
+    --font: 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ────────────────────────────────────────── */
+  header {
+    background: #0a0a1a;
+    border-bottom: 2px solid var(--border);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+  header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: var(--heading);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+  }
+  header p {
+    color: var(--text); opacity: 0.7;
+    font-size: 0.95rem; margin-bottom: 1.2rem;
+  }
+
+  /* ── PROGRESS BAR ──────────────────────────────────── */
+  .progress-wrap {
+    max-width: 480px; margin: 0 auto;
+    background: var(--border); border-radius: 50px; height: 8px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; border-radius: 50px;
+    background: linear-gradient(90deg, var(--heading), var(--done));
+    transition: width 0.5s ease;
+  }
+  .progress-label {
+    font-size: 0.78rem; color: var(--heading);
+    margin-top: 0.5rem; letter-spacing: 0.05em;
+  }
+
+  /* ── CONTAINER ─────────────────────────────────────── */
+  .container {
+    max-width: 960px; margin: 0 auto;
+    padding: 2rem 1.2rem 4rem;
+  }
+
+  /* ── SECTION TITLE ─────────────────────────────────── */
+  .section-title {
+    font-size: 1.1rem; color: var(--gold);
+    border-left: 4px solid var(--heading);
+    padding-left: 0.75rem;
+    margin: 2.5rem 0 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── TOPIC GRID ────────────────────────────────────── */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  /* ── TOPIC CARD ────────────────────────────────────── */
+  .topic-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    text-decoration: none;
+    color: var(--text);
+    display: flex; flex-direction: column; gap: 0.5rem;
+    transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    position: relative;
+    min-height: 110px;
+  }
+  .topic-card:hover {
+    border-color: var(--heading);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px #00d4ff18;
+  }
+  .topic-card.done {
+    border-color: #00e67640;
+  }
+  .topic-card.done::after {
+    content: '✓';
+    position: absolute; top: 0.7rem; right: 0.9rem;
+    color: var(--done); font-size: 1rem; font-weight: 700;
+  }
+  .topic-card.coming-soon {
+    opacity: 0.45; cursor: not-allowed; pointer-events: none;
+  }
+  .topic-card.coming-soon::after {
+    content: 'Soon';
+    position: absolute; top: 0.7rem; right: 0.9rem;
+    color: var(--border); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .card-subject {
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--heading); opacity: 0.8;
+  }
+  .card-title {
+    font-size: 0.97rem; font-weight: 700;
+    color: #d0e8ff; line-height: 1.4;
+  }
+  .card-tags {
+    display: flex; gap: 0.35rem; flex-wrap: wrap; margin-top: auto;
+  }
+  .tag {
+    font-size: 0.65rem; font-weight: 700;
+    padding: 0.15rem 0.5rem; border-radius: 50px;
+    letter-spacing: 0.05em;
+  }
+  .tag-p  { background: #4caf5022; color: var(--prelims); border: 1px solid #4caf5044; }
+  .tag-m  { background: #ff704322; color: var(--mains);   border: 1px solid #ff704344; }
+  .tag-pm { background: #ffd70018; color: var(--gold);    border: 1px solid #ffd70033; }
+  .tag-hs { background: #ab47bc22; color: #ce93d8;        border: 1px solid #ab47bc44; }
+
+  /* ── SEARCH ────────────────────────────────────────── */
+  .search-wrap {
+    max-width: 400px; margin: 0 auto 0;
+    position: relative;
+  }
+  .search-wrap input {
+    width: 100%; padding: 0.55rem 1rem 0.55rem 2.4rem;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 50px; color: var(--text);
+    font-size: 0.9rem; font-family: var(--font);
+    outline: none; transition: border-color 0.2s;
+  }
+  .search-wrap input:focus { border-color: var(--heading); }
+  .search-wrap input::placeholder { opacity: 0.45; }
+  .search-icon {
+    position: absolute; left: 0.85rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--heading); font-size: 0.9rem; pointer-events: none;
+  }
+
+  /* ── STATS BAR ─────────────────────────────────────── */
+  .stats-bar {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-size: 1.6rem; font-weight: 700; color: var(--heading); }
+  .stat-lbl { font-size: 0.72rem; opacity: 0.65; letter-spacing: 0.05em; }
+
+  /* ── FOOTER ────────────────────────────────────────── */
+  footer {
+    text-align: center; padding: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem; opacity: 0.5;
+  }
+
+  /* ── MOBILE ────────────────────────────────────────── */
+  @media (max-width: 480px) {
+    .topic-grid { grid-template-columns: 1fr; }
+    .stats-bar { gap: 1rem; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ────────────────────────────────────────── -->
+<header>
+  <h1>⚖️ UPSC Prep — Avinash</h1>
+  <p>Civil Services 2026 · GS1 · GS2 · GS3 · History · Polity · Economy</p>
+
+  <div class="search-wrap" style="margin-bottom:1rem;">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchBox" placeholder="Search topics..." oninput="filterCards()" />
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+  <div class="progress-label" id="progressLabel">0 of 0 topics added</div>
+</header>
+
+<div class="container">
+
+  <!-- ── STATS ────────────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num" id="statTotal">2</div><div class="stat-lbl">TOPICS ADDED</div></div>
+    <div class="stat"><div class="stat-num" id="statDone">2</div><div class="stat-lbl">AVAILABLE NOW</div></div>
+    <div class="stat"><div class="stat-num">35</div><div class="stat-lbl">DAYS TO EXAM</div></div>
+    <div class="stat"><div class="stat-num">2026</div><div class="stat-lbl">TARGET YEAR</div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- HISTORY -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="section-title">📜 History &amp; Art &amp; Culture</div>
+  <div class="topic-grid" id="grid-history">
+
+    <a href="history_overview.html" class="topic-card done" data-title="History Overview Ancient Medieval Modern">
+      <div class="card-subject">History</div>
+      <div class="card-title">History Overview — Ancient, Medieval &amp; Modern</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS1</span>
+      </div>
+    </a>
+
+    <div class="topic-card coming-soon" data-title="Art Culture Architecture Sculpture Painting">
+      <div class="card-subject">Art &amp; Culture</div>
+      <div class="card-title">Art, Architecture &amp; Cultural Heritage</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS1</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Modern History Freedom Struggle Independence">
+      <div class="card-subject">Modern History</div>
+      <div class="card-title">Freedom Struggle &amp; Modern India</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS1</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Post Independence India Integration Five Year Plans">
+      <div class="card-subject">Post-Independence</div>
+      <div class="card-title">Post-Independence Consolidation &amp; Integration</div>
+      <div class="card-tags">
+        <span class="tag tag-m">MAINS GS1</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- POLITY -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="section-title">🏛️ Indian Polity &amp; Constitution</div>
+  <div class="topic-grid" id="grid-polity">
+
+    <a href="preamble.html" class="topic-card done" data-title="Preamble Constitution Sovereign Socialist Secular Democratic Republic">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Preamble of the Indian Constitution</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </a>
+
+    <div class="topic-card coming-soon" data-title="Fundamental Rights Part III Articles 12-35">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Fundamental Rights (Part III)</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="DPSP Directive Principles State Policy Part IV">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Directive Principles of State Policy (DPSP)</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Fundamental Duties Part IVA Article 51A">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Fundamental Duties (Part IV-A)</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Parliament Lok Sabha Rajya Sabha Legislative">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Parliament — Structure, Powers &amp; Functions</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Federalism Centre State Relations Article 356 356">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Federalism &amp; Centre-State Relations</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Judiciary Supreme Court High Court Judicial Review">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Judiciary — Supreme Court &amp; Judicial Review</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Emergency Provisions Article 352 356 360">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Emergency Provisions (Art. 352, 356, 360)</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Constitutional Amendments Article 368 Basic Structure">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Constitutional Amendments &amp; Basic Structure</div>
+      <div class="card-tags">
+        <span class="tag tag-pm">P+M</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Local Government Panchayati Raj 73rd 74th Amendment">
+      <div class="card-subject">Polity</div>
+      <div class="card-title">Local Government — 73rd &amp; 74th Amendments</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- ECONOMY -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="section-title">📈 Indian Economy</div>
+  <div class="topic-grid" id="grid-economy">
+
+    <div class="topic-card coming-soon" data-title="Economic Planning Five Year Plans NITI Aayog">
+      <div class="card-subject">Economy</div>
+      <div class="card-title">Economic Planning &amp; NITI Aayog</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS3</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Budget Fiscal Policy Taxation GST Revenue Expenditure">
+      <div class="card-subject">Economy</div>
+      <div class="card-title">Union Budget, Fiscal Policy &amp; Taxation</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS3</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Banking RBI Monetary Policy Inflation">
+      <div class="card-subject">Economy</div>
+      <div class="card-title">Banking System, RBI &amp; Monetary Policy</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS3</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Agriculture Food Security MSP PDS Schemes">
+      <div class="card-subject">Economy</div>
+      <div class="card-title">Agriculture &amp; Food Security</div>
+      <div class="card-tags">
+        <span class="tag tag-pm">P+M</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="International Trade WTO Balance of Payments FDI">
+      <div class="card-subject">Economy</div>
+      <div class="card-title">International Trade, WTO &amp; Balance of Payments</div>
+      <div class="card-tags">
+        <span class="tag tag-pm">P+M</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- GEOGRAPHY -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="section-title">🌏 Geography</div>
+  <div class="topic-grid" id="grid-geography">
+
+    <div class="topic-card coming-soon" data-title="Physical Geography Monsoon Soil Rivers Mountains">
+      <div class="card-subject">Geography</div>
+      <div class="card-title">Physical Geography of India</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS1</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Climate Monsoon Weather Cyclone Jet Streams">
+      <div class="card-subject">Geography</div>
+      <div class="card-title">Climate &amp; Monsoon System</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="World Geography Continents Oceans Economic Geography">
+      <div class="card-subject">Geography</div>
+      <div class="card-title">World Geography — Economic &amp; Physical</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- ENVIRONMENT -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="section-title">🌿 Environment &amp; Ecology</div>
+  <div class="topic-grid" id="grid-environment">
+
+    <div class="topic-card coming-soon" data-title="Biodiversity Wildlife Forests Protected Areas National Parks">
+      <div class="card-subject">Environment</div>
+      <div class="card-title">Biodiversity &amp; Wildlife Conservation</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS3</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Climate Change UNFCCC Paris Agreement Carbon Net Zero">
+      <div class="card-subject">Environment</div>
+      <div class="card-title">Climate Change &amp; International Agreements</div>
+      <div class="card-tags">
+        <span class="tag tag-pm">P+M</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Environment Laws Acts Pollution Control Environmental Impact">
+      <div class="card-subject">Environment</div>
+      <div class="card-title">Environmental Laws &amp; Pollution Control</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS3</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- SCIENCE & TECHNOLOGY -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="section-title">🔬 Science &amp; Technology</div>
+  <div class="topic-grid" id="grid-science">
+
+    <div class="topic-card coming-soon" data-title="Space ISRO Missions Satellites Rockets">
+      <div class="card-subject">Science &amp; Tech</div>
+      <div class="card-title">Space Technology &amp; ISRO Missions</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Defence Technology Missiles Nuclear DRDO">
+      <div class="card-subject">Science &amp; Tech</div>
+      <div class="card-title">Defence Technology &amp; Nuclear Policy</div>
+      <div class="card-tags">
+        <span class="tag tag-pm">P+M</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="Biotechnology Genetics GMO Health Pharmaceutical">
+      <div class="card-subject">Science &amp; Tech</div>
+      <div class="card-title">Biotechnology, Health &amp; Pharma</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- IR -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="section-title">🌐 International Relations</div>
+  <div class="topic-grid" id="grid-ir">
+
+    <div class="topic-card coming-soon" data-title="India Foreign Policy Neighbours SAARC Act East">
+      <div class="card-subject">IR</div>
+      <div class="card-title">India's Foreign Policy &amp; Neighbourhood</div>
+      <div class="card-tags">
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+    <div class="topic-card coming-soon" data-title="International Organisations UN WTO IMF World Bank">
+      <div class="card-subject">IR</div>
+      <div class="card-title">International Organisations — UN, WTO, IMF</div>
+      <div class="card-tags">
+        <span class="tag tag-p">PRELIMS</span>
+        <span class="tag tag-m">MAINS GS2</span>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- .container -->
+
+<footer>
+  UPSC Civil Services 2026 · Last updated March 2026 · Built by Avinash
+</footer>
+
+<script>
+  // ── Search filter ───────────────────────────────────
+  function filterCards() {
+    var q = document.getElementById('searchBox').value.toLowerCase();
+    var cards = document.querySelectorAll('.topic-card');
+    cards.forEach(function(card) {
+      var text = (card.dataset.title || '') + ' ' + card.innerText;
+      card.style.display = text.toLowerCase().includes(q) ? '' : 'none';
+    });
+    // Hide section titles if all cards in that grid are hidden
+    document.querySelectorAll('.topic-grid').forEach(function(grid) {
+      var visible = Array.from(grid.querySelectorAll('.topic-card'))
+        .some(c => c.style.display !== 'none');
+      var title = grid.previousElementSibling;
+      if (title && title.classList.contains('section-title')) {
+        title.style.display = visible ? '' : 'none';
+      }
+    });
+  }
+
+  // ── Progress bar ────────────────────────────────────
+  function updateProgress() {
+    var all   = document.querySelectorAll('.topic-card').length;
+    var avail = document.querySelectorAll('.topic-card.done').length;
+    var pct   = all > 0 ? Math.round((avail / all) * 100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent =
+      avail + ' of ' + all + ' topics available (' + pct + '%)';
+    document.getElementById('statTotal').textContent = all;
+    document.getElementById('statDone').textContent  = avail;
+  }
+
+  updateProgress();
+</script>
+</body>
+</html>
