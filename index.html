@@ -4,18 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UPSC Prep — Avinash</title>
+<script>if(localStorage.getItem('upsc-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
 <style>
   :root {
-    --bg: #0f0f0f;
-    --card-bg: #1a1a2e;
-    --text: #e0e0e0;
-    --heading: #00d4ff;
-    --gold: #ffd700;
-    --prelims: #4caf50;
-    --mains: #ff7043;
-    --border: #2a2a4a;
-    --done: #00e676;
-    --font: 'Segoe UI', system-ui, sans-serif;
+    --bg:           #0f0f0f;
+    --card-bg:      #1a1a2e;
+    --text:         #e0e0e0;
+    --heading:      #00d4ff;
+    --gold:         #ffd700;
+    --prelims:      #4caf50;
+    --mains:        #ff7043;
+    --border:       #2a2a4a;
+    --done:         #00e676;
+    --font:         'Segoe UI', system-ui, sans-serif;
+    /* Extended */
+    --navbar-bg:       #0a0a1a;
+    --q-text:          #d0e8ff;
+    --done-border:     rgba(0,230,118,0.25);
+    --heading-glow:    rgba(0,212,255,0.09);
+    --tag-p-bg:        rgba(76,175,80,0.13);
+    --tag-p-border:    rgba(76,175,80,0.27);
+    --tag-m-bg:        rgba(255,112,67,0.13);
+    --tag-m-border:    rgba(255,112,67,0.27);
+    --tag-pm-bg:       rgba(255,215,0,0.09);
+    --tag-pm-border:   rgba(255,215,0,0.2);
+    --tag-hs-bg:       rgba(171,71,188,0.13);
+    --tag-hs-color:    #ce93d8;
+    --tag-hs-border:   rgba(171,71,188,0.27);
+  }
+
+  [data-theme="light"] {
+    --bg:           #f5f4ef;
+    --card-bg:      #ffffff;
+    --text:         #1a1a2e;
+    --heading:      #0077b6;
+    --gold:         #c8860a;
+    --prelims:      #2d6a4f;
+    --mains:        #c1440e;
+    --border:       #dde1e7;
+    --done:         #1b5e20;
+    --navbar-bg:    #ffffff;
+    --q-text:       #1a3a5c;
+    --done-border:     rgba(27,94,32,0.3);
+    --heading-glow:    rgba(0,119,182,0.1);
+    --tag-p-bg:        rgba(45,106,79,0.1);
+    --tag-p-border:    rgba(45,106,79,0.25);
+    --tag-m-bg:        rgba(193,68,14,0.1);
+    --tag-m-border:    rgba(193,68,14,0.25);
+    --tag-pm-bg:       rgba(200,134,10,0.09);
+    --tag-pm-border:   rgba(200,134,10,0.22);
+    --tag-hs-bg:       rgba(123,31,162,0.08);
+    --tag-hs-color:    #7b1fa2;
+    --tag-hs-border:   rgba(123,31,162,0.22);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,7 +71,7 @@
 
   /* ── HEADER ────────────────────────────────────────── */
   header {
-    background: #0a0a1a;
+    background: var(--navbar-bg);
     border-bottom: 2px solid var(--border);
     padding: 2.5rem 1.5rem 2rem;
     text-align: center;
@@ -101,10 +141,10 @@
   .topic-card:hover {
     border-color: var(--heading);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px #00d4ff18;
+    box-shadow: 0 4px 20px var(--heading-glow);
   }
   .topic-card.done {
-    border-color: #00e67640;
+    border-color: var(--done-border);
   }
   .topic-card.done::after {
     content: '✓';
@@ -128,7 +168,7 @@
   }
   .card-title {
     font-size: 0.97rem; font-weight: 700;
-    color: #d0e8ff; line-height: 1.4;
+    color: var(--q-text); line-height: 1.4;
   }
   .card-tags {
     display: flex; gap: 0.35rem; flex-wrap: wrap; margin-top: auto;
@@ -138,10 +178,10 @@
     padding: 0.15rem 0.5rem; border-radius: 50px;
     letter-spacing: 0.05em;
   }
-  .tag-p  { background: #4caf5022; color: var(--prelims); border: 1px solid #4caf5044; }
-  .tag-m  { background: #ff704322; color: var(--mains);   border: 1px solid #ff704344; }
-  .tag-pm { background: #ffd70018; color: var(--gold);    border: 1px solid #ffd70033; }
-  .tag-hs { background: #ab47bc22; color: #ce93d8;        border: 1px solid #ab47bc44; }
+  .tag-p  { background: var(--tag-p-bg);  color: var(--prelims); border: 1px solid var(--tag-p-border); }
+  .tag-m  { background: var(--tag-m-bg);  color: var(--mains);   border: 1px solid var(--tag-m-border); }
+  .tag-pm { background: var(--tag-pm-bg); color: var(--gold);    border: 1px solid var(--tag-pm-border); }
+  .tag-hs { background: var(--tag-hs-bg); color: var(--tag-hs-color); border: 1px solid var(--tag-hs-border); }
 
   /* ── SEARCH ────────────────────────────────────────── */
   .search-wrap {
@@ -192,6 +232,9 @@
 
 <!-- ── HEADER ────────────────────────────────────────── -->
 <header>
+  <div style="display:flex;justify-content:flex-end;max-width:960px;margin:0 auto -1.5rem;">
+    <button id="theme-toggle" aria-label="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:1.3rem;padding:8px;min-width:44px;min-height:44px;color:var(--text);">🌙</button>
+  </div>
   <h1>⚖️ UPSC Prep — Avinash</h1>
   <p>Civil Services 2026 · GS1 · GS2 · GS3 · History · Polity · Economy</p>
 
@@ -569,6 +612,31 @@
   }
 
   updateProgress();
+</script>
+
+<script>
+  // ── Theme toggle ────────────────────────────────────
+  (function() {
+    var saved = localStorage.getItem('upsc-theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      var btn = document.getElementById('theme-toggle');
+      if (btn) btn.textContent = '☀️';
+    }
+  })();
+
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('upsc-theme', 'dark');
+      document.getElementById('theme-toggle').textContent = '🌙';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('upsc-theme', 'light');
+      document.getElementById('theme-toggle').textContent = '☀️';
+    }
+  });
 </script>
 </body>
 </html>

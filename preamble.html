@@ -4,23 +4,79 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Preamble of the Indian Constitution — UPSC Prep | Avinash</title>
+<script>if(localStorage.getItem('upsc-theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
 <style>
   :root {
-    --bg: #0f0f0f;
-    --card-bg: #1a1a2e;
-    --text: #e0e0e0;
-    --heading: #00d4ff;
-    --gold: #ffd700;
-    --prelims: #4caf50;
-    --mains: #ff7043;
-    --pyq: #7c4dff;
-    --trap-bg: #1a0a00;
-    --trap-border: #ff6f00;
-    --correct: #00e676;
-    --wrong: #ef5350;
-    --mcq-hover: #263238;
-    --border: #2a2a4a;
-    --font: 'Segoe UI', system-ui, sans-serif;
+    /* ── Core palette ─── */
+    --bg:              #0f0f0f;
+    --card-bg:         #1a1a2e;
+    --text:            #e0e0e0;
+    --heading:         #00d4ff;
+    --gold:            #ffd700;
+    --prelims:         #4caf50;
+    --mains:           #ff7043;
+    --pyq:             #7c4dff;
+    --trap-bg:         #1a0a00;
+    --trap-border:     #ff6f00;
+    --correct:         #00e676;
+    --wrong:           #ef5350;
+    --mcq-hover:       #263238;
+    --border:          #2a2a4a;
+    --font:            'Segoe UI', system-ui, sans-serif;
+    /* ── Extended ─── */
+    --navbar-bg:       #0a0a1a;
+    --q-text:          #d0e8ff;
+    --preamble-bg:     #0d1a2e;
+    --preamble-text:   #c8e6ff;
+    --table-head-bg:   #1e1e3a;
+    --answer-bg:       #001a0a;
+    --diagram-bg:      #0a0f1f;
+    --model-answer-bg: #0d1820;
+    --qs-item-bg:      #111128;
+    --verify-bg:       #3a1a00;
+    --diagram-purple:  #c084fc;
+    --correct-soft:    rgba(0,230,118,0.08);
+    --correct-mid:     rgba(0,230,118,0.13);
+    --wrong-soft:      rgba(239,83,80,0.08);
+    --text-muted:      #aaaaaa;
+    --shadow:          rgba(0,0,0,0.4);
+    --heading-glow:    rgba(0,212,255,0.09);
+    --done-border:     rgba(0,230,118,0.25);
+  }
+
+  [data-theme="light"] {
+    --bg:              #f5f4ef;
+    --card-bg:         #ffffff;
+    --text:            #1a1a2e;
+    --heading:         #0077b6;
+    --gold:            #c8860a;
+    --prelims:         #2d6a4f;
+    --mains:           #c1440e;
+    --pyq:             #5a2d82;
+    --trap-bg:         #fff3e0;
+    --trap-border:     #e65100;
+    --correct:         #1b5e20;
+    --wrong:           #b71c1c;
+    --mcq-hover:       #e8f4f8;
+    --border:          #dde1e7;
+    --navbar-bg:       #ffffff;
+    --q-text:          #1a3a5c;
+    --preamble-bg:     #e8f4fd;
+    --preamble-text:   #1a3a5c;
+    --table-head-bg:   #e0eaf2;
+    --answer-bg:       #e8f5e9;
+    --diagram-bg:      #f0f4f8;
+    --model-answer-bg: #fff8f0;
+    --qs-item-bg:      #f5f5fa;
+    --verify-bg:       #fff3e0;
+    --diagram-purple:  #7b1fa2;
+    --correct-soft:    rgba(27,94,32,0.07);
+    --correct-mid:     rgba(27,94,32,0.12);
+    --wrong-soft:      rgba(183,28,28,0.08);
+    --text-muted:      #888888;
+    --shadow:          rgba(0,0,0,0.08);
+    --heading-glow:    rgba(0,119,182,0.1);
+    --done-border:     rgba(27,94,32,0.3);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,7 +91,7 @@
 
   /* ── NAVBAR ─────────────────────────────────────────── */
   nav {
-    background: #0a0a1a;
+    background: var(--navbar-bg);
     border-bottom: 2px solid var(--border);
     position: sticky; top: 0; z-index: 999;
     padding: 0 1.5rem;
@@ -66,7 +122,7 @@
   }
   .nav-mobile {
     display: none; flex-direction: column;
-    background: #0a0a1a; border-top: 1px solid var(--border);
+    background: var(--navbar-bg); border-top: 1px solid var(--border);
     padding: 0.5rem 1rem 1rem;
   }
   .nav-mobile.open { display: flex; }
@@ -159,10 +215,10 @@
 
   /* ── PREAMBLE TEXT ───────────────────────────────────── */
   .preamble-box {
-    background: #0d1a2e; border: 2px solid var(--heading);
+    background: var(--preamble-bg); border: 2px solid var(--heading);
     border-radius: 8px; padding: 1.4rem 1.8rem;
     font-style: italic; line-height: 2;
-    font-size: 1rem; color: #c8e6ff;
+    font-size: 1rem; color: var(--preamble-text);
   }
   .preamble-box .added { color: var(--gold); font-weight: 700; }
   .preamble-box .original { color: var(--correct); }
@@ -170,7 +226,7 @@
   /* ── TABLE ───────────────────────────────────────────── */
   .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-  th { background: #1e1e3a; color: var(--heading); padding: 0.6rem 0.8rem; text-align: left; }
+  th { background: var(--table-head-bg); color: var(--heading); padding: 0.6rem 0.8rem; text-align: left; }
   td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); }
   tr:hover td { background: var(--mcq-hover); }
 
@@ -180,7 +236,7 @@
     border-radius: 8px; padding: 1.2rem 1.4rem; margin-bottom: 1.5rem;
   }
   .pyq-meta { margin-bottom: 0.7rem; font-size: 0.85rem; opacity: 0.8; }
-  .pyq-q { font-weight: 600; margin-bottom: 0.8rem; color: #d0e8ff; }
+  .pyq-q { font-weight: 600; margin-bottom: 0.8rem; color: var(--q-text); }
   .pyq-options { list-style: none; margin-bottom: 0.8rem; }
   .pyq-options li {
     padding: 0.55rem 0.9rem; border-radius: 5px;
@@ -191,13 +247,13 @@
     user-select: none;
   }
   .pyq-options li:hover { background: var(--mcq-hover); border-color: var(--heading); }
-  .pyq-options li.pyq-selected-correct { border-color: var(--correct); background: #00e67615; color: var(--correct); font-weight: 600; cursor: default; }
-  .pyq-options li.pyq-selected-wrong   { border-color: var(--wrong);   background: #ef535015; color: var(--wrong);   cursor: default; }
-  .pyq-options li.pyq-reveal-correct   { border-color: var(--correct); background: #00e67608; color: var(--correct); cursor: default; }
+  .pyq-options li.pyq-selected-correct { border-color: var(--correct); background: var(--correct-mid); color: var(--correct); font-weight: 600; cursor: default; }
+  .pyq-options li.pyq-selected-wrong   { border-color: var(--wrong);   background: var(--wrong-soft);  color: var(--wrong);   cursor: default; }
+  .pyq-options li.pyq-reveal-correct   { border-color: var(--correct); background: var(--correct-soft); color: var(--correct); cursor: default; }
   .pyq-options li.pyq-locked           { cursor: default; pointer-events: none; }
   .pyq-reveal { display: none; }
   .pyq-reveal.show { display: block; }
-  .answer-box { background: #001a0a; border-left: 3px solid var(--correct); padding: 0.7rem 1rem; border-radius: 0 4px 4px 0; margin-bottom: 0.8rem; font-size: 0.92rem; }
+  .answer-box { background: var(--answer-bg); border-left: 3px solid var(--correct); padding: 0.7rem 1rem; border-radius: 0 4px 4px 0; margin-bottom: 0.8rem; font-size: 0.92rem; }
   .trap-box {
     background: var(--trap-bg); border: 1px solid var(--trap-border);
     border-radius: 6px; padding: 1rem 1.2rem; margin-top: 0.5rem;
@@ -218,7 +274,7 @@
     transition: border-color 0.2s;
   }
   .mcq-card:hover { border-color: var(--heading); }
-  .mcq-q { font-weight: 600; margin-bottom: 0.8rem; color: #d0e8ff; }
+  .mcq-q { font-weight: 600; margin-bottom: 0.8rem; color: var(--q-text); }
   .mcq-options { list-style: none; }
   .mcq-opt {
     padding: 0.55rem 0.9rem; border-radius: 5px;
@@ -230,13 +286,13 @@
   }
   .mcq-opt:hover { background: var(--mcq-hover); border-color: var(--heading); }
   .mcq-opt.selected-correct {
-    background: #00e67615; border-color: var(--correct); color: var(--correct); font-weight: 600;
+    background: var(--correct-mid); border-color: var(--correct); color: var(--correct); font-weight: 600;
   }
   .mcq-opt.selected-wrong {
-    background: #ef535015; border-color: var(--wrong); color: var(--wrong);
+    background: var(--wrong-soft); border-color: var(--wrong); color: var(--wrong);
   }
   .mcq-opt.reveal-correct {
-    background: #00e67608; border-color: var(--correct); color: var(--correct);
+    background: var(--correct-soft); border-color: var(--correct); color: var(--correct);
   }
   .mcq-reveal { display: none; margin-top: 0.8rem; }
   .mcq-reveal.show { display: block; }
@@ -272,7 +328,7 @@
 
   /* ── DIAGRAM ─────────────────────────────────────────── */
   .diagram {
-    background: #0a0f1f; border: 1px solid var(--border);
+    background: var(--diagram-bg); border: 1px solid var(--border);
     border-radius: 8px; padding: 1.2rem; font-family: monospace;
     font-size: 0.82rem; color: var(--text); overflow-x: auto;
     line-height: 1.7;
@@ -281,10 +337,10 @@
   .diagram .d-gold { color: var(--gold); }
   .diagram .d-green { color: var(--correct); }
   .diagram .d-orange { color: var(--mains); }
-  .diagram .d-purple { color: #c084fc; }
+  .diagram .d-purple { color: var(--diagram-purple); }
 
   /* ── VERIFY TAG ──────────────────────────────────────── */
-  .verify { background: #3a1a00; border: 1px solid var(--trap-border); color: var(--trap-border); font-size: 0.72rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 700; vertical-align: middle; }
+  .verify { background: var(--verify-bg); border: 1px solid var(--trap-border); color: var(--trap-border); font-size: 0.72rem; padding: 0.1rem 0.5rem; border-radius: 4px; font-weight: 700; vertical-align: middle; }
 
   /* ── FOOTER ──────────────────────────────────────────── */
   footer {
@@ -302,7 +358,7 @@
 
   /* ── MAINS MODEL ANSWER ──────────────────────────────── */
   .model-answer {
-    background: #0d1820; border-left: 3px solid var(--mains);
+    background: var(--model-answer-bg); border-left: 3px solid var(--mains);
     border-radius: 0 6px 6px 0; padding: 1rem 1.2rem;
     font-size: 0.9rem; line-height: 1.85;
   }
@@ -312,7 +368,7 @@
 
   /* ── QUICK SUMMARY BULLETS ───────────────────────────── */
   .qs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; }
-  .qs-item { background: #111128; border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; }
+  .qs-item { background: var(--qs-item-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; }
   .qs-item .qs-label { font-size: 0.75rem; color: var(--heading); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; font-weight: 700; }
 
   /* ── SCROLL SMOOTH ───────────────────────────────────── */
@@ -340,7 +396,10 @@
       <a href="#">Parliament</a>
       <a href="#">Federalism</a>
     </div>
-    <button class="hamburger" id="hambBtn" aria-label="Menu">☰</button>
+    <div style="display:flex;align-items:center;gap:0.25rem;">
+      <button class="hamburger" id="hambBtn" aria-label="Menu">☰</button>
+      <button id="theme-toggle" aria-label="Toggle theme" style="background:none;border:none;cursor:pointer;font-size:1.3rem;padding:8px;min-width:44px;min-height:44px;color:var(--text);">🌙</button>
+    </div>
   </div>
   <div class="nav-mobile" id="mobileMenu">
     <a href="#" class="active">Preamble</a>
@@ -366,7 +425,7 @@
 
 <!-- ── SECTION 1: QUICK SUMMARY ─────────────────────────── -->
 <section id="summary">
-  <h2>📋 Quick Summary <small style="font-size:0.75rem;color:#aaa;font-weight:400;">(5-min revision)</small></h2>
+  <h2>📋 Quick Summary <small style="font-size:0.75rem;color:var(--text-muted);font-weight:400;">(5-min revision)</small></h2>
   <details open>
     <summary>Prelims Fast Facts</summary>
     <div class="card">
@@ -1088,6 +1147,30 @@
         });
       }
     });
+  });
+</script>
+<script>
+  // ── Theme toggle ────────────────────────────────────
+  (function() {
+    var saved = localStorage.getItem('upsc-theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      var btn = document.getElementById('theme-toggle');
+      if (btn) btn.textContent = '☀️';
+    }
+  })();
+
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('upsc-theme', 'dark');
+      document.getElementById('theme-toggle').textContent = '🌙';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('upsc-theme', 'light');
+      document.getElementById('theme-toggle').textContent = '☀️';
+    }
   });
 </script>
 </body>
