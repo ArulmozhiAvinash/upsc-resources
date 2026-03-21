@@ -29,18 +29,23 @@ List all known Prelims MCQs and Mains questions on this topic from the past
 20 years.
 
   FOR PRELIMS PYQs — for every question, provide:
-    a) The question and all 4 options
-    b) The correct answer with explanation
-    c) A dedicated "UPSC TRAP ANALYSIS" block that covers:
-         - What trap UPSC set (e.g. partial truth, absolute language, 
-           lookalike terms, reversal of cause-effect, one wrong statement 
-           hidden among correct ones)
-         - Which option most students pick wrongly and exactly why
-         - The elimination strategy to arrive at the answer confidently
-         - Any recurring trick UPSC uses for this topic specifically
-    d) Tag each question with the trap type:
+    a) The question and all 4 options — visible by default
+    b) A "Reveal Answer" button — when clicked, shows:
+         - The correct answer highlighted in green
+         - Wrong options highlighted in red
+         - Full explanation of why the correct answer is right
+         - A dedicated "UPSC TRAP ANALYSIS" block that covers:
+              - What trap UPSC set (e.g. partial truth, absolute language, 
+                lookalike terms, reversal of cause-effect, one wrong statement 
+                hidden among correct ones)
+              - Which option most students pick wrongly and exactly why
+              - The elimination strategy to arrive at the answer confidently
+              - Any recurring trick UPSC uses for this topic specifically
+    c) Tag each question with the trap type (shown always, above the button):
          [PARTIAL TRUTH] [ABSOLUTE WORD] [STATEMENT COMBO] 
          [LOOKALIKE TERM] [REVERSAL] [OUT OF SCOPE] [TRICK SEQUENCE]
+    d) Behaviour: once revealed, the button changes to "Hide Answer" 
+       so the student can reset and attempt again
 
   FOR MAINS PYQs — write model answers in UPSC format:
     - Intro (1–2 lines, no generic opener)
@@ -53,9 +58,9 @@ List all known Prelims MCQs and Mains questions on this topic from the past
 TASK 4 — PROGRESSIVE MCQs (10 Questions)
 Write 10 MCQs in UPSC Prelims style. Start straightforward, end with 
 statement-based eliminators (the tricky "which of the following is correct" 
-format). Apply the same TRAP ANALYSIS format from Task 3 to each MCQ as 
-well — this is practice not just for answers but for cracking UPSC's 
-question design patterns.
+format). Apply the same reveal-on-click behaviour and TRAP ANALYSIS format 
+from Task 3 to each MCQ — this is practice not just for answers but for 
+cracking UPSC's question design patterns.
 
 TASK 5 — CURRENT AFFAIRS (Last 2 Years)
 Summarize recent developments — government schemes, Supreme Court rulings, 
@@ -110,15 +115,20 @@ LAYOUT & STRUCTURE (every HTML page must have these sections in order):
      relevance badge
   3. QUICK SUMMARY — collapsible card, 5-min review content
   4. CORE CONCEPT — full explanation with interlinkages
-  5. PYQs — each question in a styled card with year, marks, model answer,
-     and Trap Analysis block (amber bordered, collapsible)
+  5. PYQs — each question in a styled card with year and marks visible.
+     All 4 options visible. Trap type tag visible. Answer, explanation 
+     and Trap Analysis hidden behind a "Reveal Answer" button — identical 
+     reveal/hide toggle behaviour as the MCQ section.
   6. CURRENT AFFAIRS — items with [P], [M], [P+M] badges
   7. MCQ QUIZ SECTION — interactive, answers + trap analysis hidden 
      until clicked
   8. FOOTER — "Last updated: [date]" + link back to home
 
 INTERACTIVITY (pure HTML/CSS/JS, no external libraries):
-  - MCQ options: click to reveal correct answer + explanation + trap analysis
+  - PYQ Prelims cards AND MCQ options: identical reveal-on-click behaviour.
+    Click "Reveal Answer" → correct option turns green, wrong options turn 
+    red, explanation + Trap Analysis slides in below. Button text flips to 
+    "Hide Answer" to allow reset.
   - Collapsible sections using <details><summary>
   - "Mark as Revised" button per section (toggles green checkmark, 
     stores state in localStorage)
