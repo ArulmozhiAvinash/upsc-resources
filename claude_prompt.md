@@ -22,8 +22,7 @@ Use visuals wherever they aid memory or understanding. Follow these rules:
     - Timelines (historical events, policy evolution)
     - Hierarchy/org diagrams (constitutional bodies, classifications)
     - Maps or spatial relationships described in text form
-    Use cyan (#00d4ff) for primary elements, gold (#ffd700) for labels,
-    amber (#ff6f00) for warnings/traps — consistent with the color scheme.
+    SVG colors must respect the active theme using CSS variables.
 
   EXTERNAL IMAGES — use reliable public URLs (Wikipedia Commons, 
   government sites, PIB, UN, World Bank) for:
@@ -81,7 +80,7 @@ List all known Prelims MCQs and Mains questions on this topic from the past
     c) Tag each question with the trap type (shown always, above the button):
          [PARTIAL TRUTH] [ABSOLUTE WORD] [STATEMENT COMBO] 
          [LOOKALIKE TERM] [REVERSAL] [OUT OF SCOPE] [TRICK SEQUENCE]
-    d) Behaviour: once revealed, the button changes to "Hide Answer" 
+    d) Behaviour: once revealed, button changes to "Hide Answer" 
        so the student can reset and attempt again
     e) Where the question involves a map, species, monument, or any 
        visual subject — embed a relevant image or SVG next to the question
@@ -124,69 +123,100 @@ between topic pages.
 
 STANDARD HTML DESIGN SPEC (follow this for every topic page):
 
-COLOR SCHEME (memory-optimized, no distractions):
-  - Background:       #0f0f0f (near black — reduces eye strain for long reads)
-  - Card/Section bg:  #1a1a2e (dark navy — separates sections visually)
-  - Primary text:     #e0e0e0 (soft white)
-  - Headings:         #00d4ff (cyan — high contrast, signals new section)
-  - Key terms/bold:   #ffd700 (gold — draws eye to important words)
-  - Prelims tags:     #4caf50 (green badge)
-  - Mains tags:       #ff7043 (orange badge)
-  - PYQ highlight:    #7c4dff (purple — distinct from content)
-  - Trap Analysis bg: #1a0a00 (dark amber tint — visually distinct warning zone)
-  - Trap Analysis 
-    border/accent:    #ff6f00 (amber — signals danger/caution)
-  - Correct answer:   #00e676 (bright green)
-  - Wrong options:    #ef5350 (red, shown only after reveal)
-  - MCQ hover:        #263238 (subtle highlight)
-  - Borders/dividers: #2a2a4a
+THEME SYSTEM — DUAL MODE (dark default, light toggle):
+  Implement using CSS custom properties on :root and a [data-theme="light"] 
+  override. A toggle button (🌙 / ☀️) in the top-right of the navbar 
+  switches between modes. Save preference in localStorage so it persists 
+  across page loads and across all topic pages.
+
+  DARK MODE (default) — #dark-vars:
+  Research-backed: reduces eye strain in low-light, high focus for 
+  long night study sessions.
+    --bg:           #0f0f0f   (near black)
+    --bg-card:      #1a1a2e   (dark navy)
+    --text:         #e0e0e0   (soft white)
+    --heading:      #00d4ff   (cyan)
+    --key-term:     #ffd700   (gold)
+    --tag-prelims:  #4caf50   (green)
+    --tag-mains:    #ff7043   (orange)
+    --pyq-accent:   #7c4dff   (purple)
+    --trap-bg:      #1a0a00   (dark amber tint)
+    --trap-border:  #ff6f00   (amber)
+    --correct:      #00e676   (bright green)
+    --wrong:        #ef5350   (red)
+    --hover:        #263238   (subtle)
+    --border:       #2a2a4a
+    --shadow:       rgba(0,0,0,0.4)
+
+  LIGHT MODE — [data-theme="light"]:
+  Research-backed: warm off-white base (not pure white) improves reading 
+  accuracy by 26%, deep blue headings build focus and trust, warm amber 
+  for key terms remains visible without harshness.
+    --bg:           #f5f4ef   (warm paper white — easier than pure white,
+                               reduces halation for astigmatic readers)
+    --bg-card:      #ffffff   (clean card surface with shadow for depth)
+    --text:         #1a1a2e   (dark navy — softer than pure black, 
+                               high contrast without harshness)
+    --heading:      #0077b6   (deep academic blue — trust + focus)
+    --key-term:     #c8860a   (warm amber-gold — visible on light bg)
+    --tag-prelims:  #2d6a4f   (deep forest green)
+    --tag-mains:    #c1440e   (deep burnt orange)
+    --pyq-accent:   #5a2d82   (deep purple)
+    --trap-bg:      #fff3e0   (light amber tint — warm caution signal)
+    --trap-border:  #e65100   (deep amber)
+    --correct:      #1b5e20   (dark green — readable on white)
+    --wrong:        #b71c1c   (dark red — readable on white)
+    --hover:        #e8f4f8   (light blue tint)
+    --border:       #dde1e7
+    --shadow:       rgba(0,0,0,0.08)
 
 TYPOGRAPHY:
   - Font: 'Segoe UI', system-ui, sans-serif
   - Body size: 16px, line-height 1.8
-  - H1 (topic title): 2rem, cyan, centered
-  - H2 (section headers): 1.4rem, gold, border-left: 4px solid cyan
-  - Key terms: bold + gold color, no underline
-  - Trap Analysis label: uppercase, amber, letter-spacing: 0.1em
+  - H1 (topic title): 2rem, var(--heading), centered
+  - H2 (section headers): 1.4rem, var(--key-term), 
+    border-left: 4px solid var(--heading)
+  - Key terms: bold + var(--key-term) color, no underline
+  - Trap Analysis label: uppercase, var(--trap-border), letter-spacing: 0.1em
+  - All colors must use CSS variables — no hardcoded hex values in elements
 
-IMAGE STYLING (consistent across all images):
-  - All images: border-radius 8px, border 1px solid #2a2a4a
+IMAGE STYLING (theme-aware):
+  - All images: border-radius 8px, border: 1px solid var(--border)
   - Max width: 100% (never overflow container)
-  - SVG diagrams: background #1a1a2e, padding 16px, border-radius 8px
-  - Image captions: font-size 0.85rem, color #a0a0a0, italic, 
-    centered below image
+  - SVG diagrams: background var(--bg-card), padding 16px, border-radius 8px
+  - Image captions: font-size 0.85rem, color: var(--text) at 60% opacity, 
+    italic, centered below image
   - On mobile: images full width, stacked above related text
-  - On tablet/desktop: images float right or sit in a 2-column 
-    layout alongside text where space allows
+  - On tablet/desktop: images float right or sit in 2-column layout 
+    alongside text where space allows
 
 LAYOUT & STRUCTURE (every HTML page must have these sections in order):
   1. TOP NAVBAR
      - Logo/title: "UPSC Prep — Avinash"
      - Links to other topic pages (add new links as you create more pages)
-     - Active page highlighted in cyan
-     - On mobile: collapses into a hamburger menu (pure CSS/JS, no libraries)
+     - Active page highlighted with var(--heading)
+     - Right side: 🌙/☀️ theme toggle button
+     - On mobile: collapses into hamburger menu (pure CSS/JS, no libraries)
   2. HERO SECTION — Topic name + one-line definition + Prelims/Mains 
      relevance badge + 1 relevant header image or SVG banner
-  3. QUICK SUMMARY — collapsible card, 5-min review content + 
-     1 mind-map or flowchart SVG
+  3. QUICK SUMMARY — collapsible card, 5-min review + mind-map SVG
   4. CORE CONCEPT — full explanation with interlinkages + 
-     images/SVGs embedded per sub-concept
-  5. PYQs — each question in a styled card with year and marks visible.
-     All 4 options visible. Trap type tag visible. Answer, explanation 
-     and Trap Analysis hidden behind a "Reveal Answer" button — identical 
-     reveal/hide toggle behaviour as the MCQ section.
-     Visual questions include an embedded image or SVG.
-  6. CURRENT AFFAIRS — items with [P], [M], [P+M] badges + 
-     1 image or SVG per major item
-  7. MCQ QUIZ SECTION — interactive, answers + trap analysis hidden 
-     until clicked. Images embedded where relevant.
+     images/SVGs per sub-concept
+  5. PYQs — styled cards with year, marks, all options visible, trap tag 
+     visible. Answer + explanation + Trap Analysis behind "Reveal Answer" 
+     button. Visual questions include embedded image or SVG.
+  6. CURRENT AFFAIRS — [P] [M] [P+M] badges + image or SVG per item
+  7. MCQ QUIZ SECTION — reveal-on-click, trap analysis, images where helpful
   8. FOOTER — "Last updated: [date]" + link back to home
 
 INTERACTIVITY (pure HTML/CSS/JS, no external libraries):
+  - Theme toggle: clicking 🌙/☀️ toggles data-theme on <html>, saves to 
+    localStorage as 'upsc-theme'. On page load, read localStorage and 
+    apply saved theme before first paint (prevents flash).
   - PYQ Prelims cards AND MCQ options: identical reveal-on-click behaviour.
-    Click "Reveal Answer" → correct option turns green, wrong options turn 
-    red, explanation + Trap Analysis slides in below. Button text flips to 
-    "Hide Answer" to allow reset.
+    Click "Reveal Answer" → correct option turns var(--correct), wrong 
+    options turn var(--wrong), explanation + Trap Analysis slides in below. 
+    Button text flips to "Hide Answer" to allow reset.
   - Collapsible sections using <details><summary>
   - "Mark as Revised" button per section (toggles green checkmark, 
     stores state in localStorage)
@@ -199,13 +229,12 @@ RESPONSIVENESS (must work cleanly on mobile, tablet and desktop):
     hamburger icon (☰) that toggles a vertical dropdown menu via JS
   - Cards and PYQ blocks: full width on mobile, 2-column grid on tablet 
     (≥600px), max 900px centered column on desktop
-  - Font sizes: scale down gracefully on small screens using clamp() or 
-    media queries — minimum 14px body, 1.4rem H1 on mobile
-  - Trap Analysis blocks: full width, scrollable horizontally if table 
-    content overflows on mobile (overflow-x: auto)
+  - Font sizes: clamp() or media queries — minimum 14px body, 
+    1.4rem H1 on mobile
+  - Trap Analysis blocks: full width, overflow-x: auto on mobile
   - Touch-friendly tap targets: min 44x44px for all buttons and MCQ options
-  - No horizontal scroll on any screen size — test layout at 320px width
-  - Images: never overflow their container, always scale with max-width 100%
+  - No horizontal scroll at any screen size — test at 320px width
+  - Images: max-width 100%, never overflow container
 
 ---
 
