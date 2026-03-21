@@ -13,16 +13,53 @@ Topic: [YOUR TOPIC HERE]
 
 ---
 
+IMAGE STRATEGY (apply across all tasks):
+Use visuals wherever they aid memory or understanding. Follow these rules:
+
+  INLINE SVG DIAGRAMS — generate these directly in the HTML for:
+    - Flowcharts (processes, cycles, cause-effect chains)
+    - Comparison tables with visual structure
+    - Timelines (historical events, policy evolution)
+    - Hierarchy/org diagrams (constitutional bodies, classifications)
+    - Maps or spatial relationships described in text form
+    Use cyan (#00d4ff) for primary elements, gold (#ffd700) for labels,
+    amber (#ff6f00) for warnings/traps — consistent with the color scheme.
+
+  EXTERNAL IMAGES — use reliable public URLs (Wikipedia Commons, 
+  government sites, PIB, UN, World Bank) for:
+    - Photographs of places, species, monuments, people
+    - Official maps (river systems, biodiversity hotspots, tectonic plates)
+    - Infographics from government reports (Economic Survey, 
+      India State of Forest Report, etc.)
+    Always add alt text describing the image for accessibility.
+    If a reliable image URL cannot be found, generate an SVG placeholder 
+    instead — never use broken or uncertain links.
+
+  WHERE TO ADD IMAGES — mandatory image placements:
+    - Task 1 (Core Concept): at least 1 diagram or image per major concept
+    - Task 2 (Summary): 1 visual summary diagram (flowchart or mind-map SVG)
+    - Task 3 (PYQs): relevant image next to questions where the topic 
+      is visual (maps, species, monuments, constitutional diagrams)
+    - Task 5 (Current Affairs): 1 image or SVG per major news item 
+      where visual context helps
+    - Hero Section: 1 relevant header image or SVG banner for the topic
+
+---
+
 TASK 1 — CORE CONCEPT (Simple Language)
 Explain the topic in plain terms. Build intuition first, then layer in 
 technical depth. Interlink with related UPSC subjects (Polity, Economy, 
 Geography, Environment, History, IR) wherever relevant.
+Include at least 1 SVG diagram or image per major sub-concept to 
+reinforce visual memory.
 
 TASK 2 — ONE-PAGE SUMMARY
 A crisp summary using bullet points, a simple ASCII/HTML diagram or 
 comparison table, and 2–3 real-world examples. Must be reviewable in under 
 5 minutes. Cover both Prelims (fact-heavy) and Mains (analytical) angles 
 separately.
+Include 1 visual summary SVG — a mind-map or flowchart that connects all 
+key points of the topic at a glance.
 
 TASK 3 — PYQs WITH MODEL ANSWERS
 List all known Prelims MCQs and Mains questions on this topic from the past 
@@ -46,6 +83,8 @@ List all known Prelims MCQs and Mains questions on this topic from the past
          [LOOKALIKE TERM] [REVERSAL] [OUT OF SCOPE] [TRICK SEQUENCE]
     d) Behaviour: once revealed, the button changes to "Hide Answer" 
        so the student can reset and attempt again
+    e) Where the question involves a map, species, monument, or any 
+       visual subject — embed a relevant image or SVG next to the question
 
   FOR MAINS PYQs — write model answers in UPSC format:
     - Intro (1–2 lines, no generic opener)
@@ -61,6 +100,8 @@ statement-based eliminators (the tricky "which of the following is correct"
 format). Apply the same reveal-on-click behaviour and TRAP ANALYSIS format 
 from Task 3 to each MCQ — this is practice not just for answers but for 
 cracking UPSC's question design patterns.
+Add a relevant image or SVG to any MCQ where a visual would make the 
+concept stickier in memory.
 
 TASK 5 — CURRENT AFFAIRS (Last 2 Years)
 Summarize recent developments — government schemes, Supreme Court rulings, 
@@ -69,6 +110,9 @@ item clearly:
   [P] = Prelims-relevant (factual, data-based)
   [M] = Mains-relevant (analytical, policy angle)
   [P+M] = Both
+Include 1 image or SVG per major current affairs item — official government 
+images, maps of affected regions, or a simple timeline SVG for 
+policy evolution.
 
 TASK 6 — HTML STUDY PAGE
 Compile everything above into a single, well-structured HTML file following 
@@ -105,6 +149,16 @@ TYPOGRAPHY:
   - Key terms: bold + gold color, no underline
   - Trap Analysis label: uppercase, amber, letter-spacing: 0.1em
 
+IMAGE STYLING (consistent across all images):
+  - All images: border-radius 8px, border 1px solid #2a2a4a
+  - Max width: 100% (never overflow container)
+  - SVG diagrams: background #1a1a2e, padding 16px, border-radius 8px
+  - Image captions: font-size 0.85rem, color #a0a0a0, italic, 
+    centered below image
+  - On mobile: images full width, stacked above related text
+  - On tablet/desktop: images float right or sit in a 2-column 
+    layout alongside text where space allows
+
 LAYOUT & STRUCTURE (every HTML page must have these sections in order):
   1. TOP NAVBAR
      - Logo/title: "UPSC Prep — Avinash"
@@ -112,16 +166,20 @@ LAYOUT & STRUCTURE (every HTML page must have these sections in order):
      - Active page highlighted in cyan
      - On mobile: collapses into a hamburger menu (pure CSS/JS, no libraries)
   2. HERO SECTION — Topic name + one-line definition + Prelims/Mains 
-     relevance badge
-  3. QUICK SUMMARY — collapsible card, 5-min review content
-  4. CORE CONCEPT — full explanation with interlinkages
+     relevance badge + 1 relevant header image or SVG banner
+  3. QUICK SUMMARY — collapsible card, 5-min review content + 
+     1 mind-map or flowchart SVG
+  4. CORE CONCEPT — full explanation with interlinkages + 
+     images/SVGs embedded per sub-concept
   5. PYQs — each question in a styled card with year and marks visible.
      All 4 options visible. Trap type tag visible. Answer, explanation 
      and Trap Analysis hidden behind a "Reveal Answer" button — identical 
      reveal/hide toggle behaviour as the MCQ section.
-  6. CURRENT AFFAIRS — items with [P], [M], [P+M] badges
+     Visual questions include an embedded image or SVG.
+  6. CURRENT AFFAIRS — items with [P], [M], [P+M] badges + 
+     1 image or SVG per major item
   7. MCQ QUIZ SECTION — interactive, answers + trap analysis hidden 
-     until clicked
+     until clicked. Images embedded where relevant.
   8. FOOTER — "Last updated: [date]" + link back to home
 
 INTERACTIVITY (pure HTML/CSS/JS, no external libraries):
@@ -147,6 +205,7 @@ RESPONSIVENESS (must work cleanly on mobile, tablet and desktop):
     content overflows on mobile (overflow-x: auto)
   - Touch-friendly tap targets: min 44x44px for all buttons and MCQ options
   - No horizontal scroll on any screen size — test layout at 320px width
+  - Images: never overflow their container, always scale with max-width 100%
 
 ---
 
