@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundamental Rights | UPSC Prep — Avinash</title>
+<style>
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg: #0f0f0f;
+  --bg-card: #1a1a2e;
+  --text: #e0e0e0;
+  --heading: #00d4ff;
+  --key-term: #ffd700;
+  --tag-prelims: #4caf50;
+  --tag-mains: #ff7043;
+  --pyq-accent: #7c4dff;
+  --trap-bg: #1a0a00;
+  --trap-border: #ff6f00;
+  --correct: #00e676;
+  --wrong: #ef5350;
+  --hover: #263238;
+  --border: #2a2a4a;
+  --shadow: rgba(0,0,0,0.4);
+  --nav-bg: #0d0d1f;
+  --btn-bg: #1e1e3a;
+  --btn-hover: #2a2a50;
+}
+[data-theme="light"] {
+  --bg: #f5f4ef;
+  --bg-card: #ffffff;
+  --text: #1a1a2e;
+  --heading: #0077b6;
+  --key-term: #c8860a;
+  --tag-prelims: #2d6a4f;
+  --tag-mains: #c1440e;
+  --pyq-accent: #5a2d82;
+  --trap-bg: #fff3e0;
+  --trap-border: #e65100;
+  --correct: #1b5e20;
+  --wrong: #b71c1c;
+  --hover: #e8f4f8;
+  --border: #dde1e7;
+  --shadow: rgba(0,0,0,0.08);
+  --nav-bg: #1a1a2e;
+  --btn-bg: #e8f4f8;
+  --btn-hover: #d0e8f0;
+}
+
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.8;min-height:100vh;transition:background 0.3s,color 0.3s}
+a{color:var(--heading);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+h1{font-size:2rem;color:var(--heading);text-align:center}
+h2{font-size:1.4rem;color:var(--key-term);border-left:4px solid var(--heading);padding-left:12px;margin:2rem 0 1rem}
+h3{font-size:1.1rem;color:var(--heading);margin:1.2rem 0 0.5rem}
+p{margin-bottom:1rem}
+ul,ol{margin-left:1.5rem;margin-bottom:1rem}
+li{margin-bottom:0.3rem}
+strong{color:var(--key-term)}
+
+/* ===== LAYOUT ===== */
+.container{max-width:960px;margin:0 auto;padding:0 1.2rem}
+
+/* ===== NAVBAR ===== */
+.navbar{background:var(--nav-bg);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px var(--shadow);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.2rem;max-width:1100px;margin:0 auto;gap:1rem}
+.nav-brand{font-size:1rem;font-weight:700;color:var(--heading);white-space:nowrap;letter-spacing:0.03em}
+.nav-links{display:flex;align-items:center;gap:0.3rem;flex-wrap:wrap}
+.nav-links a{color:var(--text);font-size:0.85rem;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:background 0.2s,color 0.2s}
+.nav-links a:hover,.nav-links a.active{background:var(--hover);color:var(--heading);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:0.6rem;flex-shrink:0}
+.theme-btn{background:var(--btn-bg);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:1rem;transition:background 0.2s;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.theme-btn:hover{background:var(--btn-hover)}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.mobile-menu{display:none;flex-direction:column;gap:0.4rem;padding:0.8rem 1.2rem;background:var(--nav-bg);border-top:1px solid var(--border)}
+.mobile-menu a{color:var(--text);font-size:0.95rem;padding:8px 12px;border-radius:6px;display:block;transition:background 0.2s}
+.mobile-menu a:hover{background:var(--hover);color:var(--heading)}
+.mobile-menu.open{display:flex}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,#0d0d2b 0%,#1a1a2e 60%,#0f2027 100%);padding:3rem 1.2rem;text-align:center;border-bottom:2px solid var(--border);position:relative;overflow:hidden}
+[data-theme="light"] .hero{background:linear-gradient(135deg,#e8f4f8 0%,#f0f8ff 60%,#e0f0ff 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,0.08),transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:0.5rem;text-shadow:0 0 30px rgba(0,212,255,0.3)}
+.hero-sub{font-size:1.05rem;color:var(--text);opacity:0.85;max-width:600px;margin:0 auto 1.2rem}
+.badge-row{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap}
+.badge{font-size:0.78rem;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:0.05em;text-transform:uppercase}
+.badge-prelims{background:var(--tag-prelims);color:#fff}
+.badge-mains{background:var(--tag-mains);color:#fff}
+.badge-part{background:var(--pyq-accent);color:#fff}
+
+/* ===== CARDS ===== */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 4px 16px var(--shadow);transition:box-shadow 0.2s}
+.card:hover{box-shadow:0 6px 24px var(--shadow)}
+.section{padding:2rem 0}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.5rem}
+
+/* ===== REVISED BUTTON ===== */
+.revised-btn{background:var(--btn-bg);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:0.82rem;transition:all 0.2s;min-height:36px}
+.revised-btn.done{background:rgba(0,230,118,0.15);border-color:var(--correct);color:var(--correct)}
+.revised-btn:hover{background:var(--btn-hover)}
+
+/* ===== SUMMARY TABLE ===== */
+.summary-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.9rem}
+.summary-table th{background:var(--heading);color:#0f0f0f;padding:8px 12px;text-align:left;font-weight:700}
+[data-theme="light"] .summary-table th{color:#ffffff}
+.summary-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.summary-table tr:hover{background:var(--hover)}
+.summary-table .art{color:var(--heading);font-weight:700;white-space:nowrap}
+
+/* ===== PYQ CARDS ===== */
+.pyq-card{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--pyq-accent);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1.2rem}
+.pyq-meta{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.8rem;font-size:0.82rem}
+.pyq-year{background:var(--pyq-accent);color:#fff;padding:2px 10px;border-radius:12px;font-weight:700}
+.pyq-marks{background:var(--btn-bg);border:1px solid var(--border);padding:2px 10px;border-radius:12px}
+.trap-tag{font-size:0.72rem;font-weight:800;letter-spacing:0.08em;padding:2px 8px;border-radius:6px;background:var(--trap-bg);border:1px solid var(--trap-border);color:var(--trap-border);text-transform:uppercase}
+.pyq-q{font-weight:600;margin-bottom:1rem;line-height:1.6}
+.options{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem}
+.option{display:flex;align-items:flex-start;gap:0.5rem;padding:8px 12px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-size:0.9rem;line-height:1.5;transition:background 0.15s;min-height:44px}
+.option.correct{background:rgba(0,230,118,0.15);border-color:var(--correct);color:var(--correct)}
+.option.wrong{background:rgba(239,83,80,0.12);border-color:var(--wrong);color:var(--wrong)}
+.option-label{font-weight:700;flex-shrink:0;min-width:18px}
+.reveal-btn{background:var(--pyq-accent);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:0.88rem;font-weight:600;transition:opacity 0.2s;min-height:44px}
+.reveal-btn:hover{opacity:0.85}
+.explanation{display:none;margin-top:1rem;background:var(--hover);border-radius:8px;padding:1rem}
+.explanation.open{display:block}
+.trap-block{background:var(--trap-bg);border:1px solid var(--trap-border);border-radius:8px;padding:1rem;margin-top:0.8rem}
+.trap-label{color:var(--trap-border);font-weight:800;letter-spacing:0.1em;text-transform:uppercase;font-size:0.78rem;margin-bottom:0.5rem}
+.correct-line{color:var(--correct);font-weight:700;margin-bottom:0.5rem}
+
+/* ===== MAINS PYQ ===== */
+.mains-card{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--tag-mains);border-radius:10px;padding:1.4rem;margin-bottom:1.4rem}
+.mains-q{font-weight:700;color:var(--key-term);margin-bottom:1rem}
+.answer-body h4{color:var(--heading);font-size:0.95rem;margin:0.8rem 0 0.3rem;border-bottom:1px solid var(--border);padding-bottom:2px}
+.word-count{font-size:0.78rem;color:var(--text);opacity:0.6;font-style:italic;margin-top:0.5rem}
+
+/* ===== CURRENT AFFAIRS ===== */
+.ca-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1.2rem}
+.ca-meta{display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;margin-bottom:0.6rem}
+.ca-badge{font-size:0.72rem;font-weight:800;padding:3px 10px;border-radius:12px;letter-spacing:0.05em}
+.ca-p{background:var(--tag-prelims);color:#fff}
+.ca-m{background:var(--tag-mains);color:#fff}
+.ca-pm{background:var(--pyq-accent);color:#fff}
+.ca-year{font-size:0.8rem;color:var(--text);opacity:0.65}
+
+/* ===== SVG DIAGRAMS ===== */
+.svg-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin:1rem 0;overflow-x:auto}
+.svg-caption{font-size:0.85rem;color:var(--text);opacity:0.6;font-style:italic;text-align:center;margin-top:0.5rem}
+
+/* ===== MCQ ===== */
+.mcq-card{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--tag-prelims);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1.2rem}
+.mcq-num{font-size:0.78rem;font-weight:800;color:var(--tag-prelims);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem}
+
+/* ===== DETAILS/SUMMARY ===== */
+details{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;margin-bottom:1rem;overflow:hidden}
+summary{padding:1rem 1.4rem;cursor:pointer;font-weight:700;color:var(--key-term);list-style:none;display:flex;align-items:center;justify-content:space-between;min-height:44px}
+summary::after{content:'▼';font-size:0.75rem;transition:transform 0.2s}
+details[open] summary::after{transform:rotate(180deg)}
+details[open] summary{border-bottom:1px solid var(--border)}
+.details-body{padding:1.2rem 1.4rem}
+
+/* ===== CONCEPT BOXES ===== */
+.concept-box{background:var(--hover);border:1px solid var(--border);border-radius:8px;padding:1rem;margin:1rem 0}
+.concept-box.highlight{border-left:4px solid var(--key-term)}
+.concept-box.warn{border-left:4px solid var(--trap-border);background:var(--trap-bg)}
+.concept-box.info{border-left:4px solid var(--heading)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-size:0.85rem;color:var(--text);opacity:0.7;margin-top:3rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{display:none}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  .hero{padding:2rem 1rem}
+  .summary-table{font-size:0.8rem}
+}
+@media(min-width:600px){
+  .options-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <span class="nav-brand">⚖️ UPSC Prep — Avinash</span>
+    <div class="nav-links">
+      <a href="fundamental-rights.html" class="active">Fundamental Rights</a>
+      <a href="dpsp.html">DPSP</a>
+      <a href="parliament.html">Parliament</a>
+      <a href="federalism.html">Federalism</a>
+      <a href="judiciary.html">Judiciary</a>
+      <a href="index.html">🏠 Home</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="fundamental-rights.html">Fundamental Rights</a>
+    <a href="dpsp.html">DPSP</a>
+    <a href="parliament.html">Parliament</a>
+    <a href="federalism.html">Federalism</a>
+    <a href="judiciary.html">Judiciary</a>
+    <a href="index.html">🏠 Home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Fundamental Rights</h1>
+    <p class="hero-sub">Part III · Articles 12–35 · The Conscience of the Constitution · Shield of Every Indian</p>
+    <div class="badge-row">
+      <span class="badge badge-prelims">Prelims High-Yield</span>
+      <span class="badge badge-mains">Mains GS-II</span>
+      <span class="badge badge-part">Part III</span>
+      <span class="badge" style="background:#0077b6;color:#fff">Articles 12–35</span>
+    </div>
+    <div class="svg-wrap" style="margin-top:1.5rem;max-width:700px;margin-left:auto;margin-right:auto">
+      <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#7c4dff" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#00d4ff" stop-opacity="0.7"/>
+          </linearGradient>
+        </defs>
+        <rect width="700" height="120" fill="none"/>
+        <!-- Timeline bar -->
+        <line x1="20" y1="60" x2="680" y2="60" stroke="url(#hg)" stroke-width="3"/>
+        <!-- Dots and labels -->
+        <circle cx="20" cy="60" r="7" fill="#7c4dff"/>
+        <text x="20" y="50" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">Art.12</text>
+        <text x="20" y="80" text-anchor="middle" fill="#e0e0e0" font-size="9">State</text>
+
+        <circle cx="120" cy="60" r="7" fill="#5c6bc0"/>
+        <text x="120" y="50" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">14–18</text>
+        <text x="120" y="80" text-anchor="middle" fill="#e0e0e0" font-size="9">Equality</text>
+
+        <circle cx="240" cy="60" r="7" fill="#4fc3f7"/>
+        <text x="240" y="50" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">19–22</text>
+        <text x="240" y="80" text-anchor="middle" fill="#e0e0e0" font-size="9">Freedom</text>
+
+        <circle cx="360" cy="60" r="7" fill="#4db6ac"/>
+        <text x="360" y="50" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">23–24</text>
+        <text x="360" y="80" text-anchor="middle" fill="#e0e0e0" font-size="9">Anti-Exploit</text>
+
+        <circle cx="460" cy="60" r="7" fill="#81c784"/>
+        <text x="460" y="50" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">25–28</text>
+        <text x="460" y="80" text-anchor="middle" fill="#e0e0e0" font-size="9">Religion</text>
+
+        <circle cx="560" cy="60" r="7" fill="#ffb74d"/>
+        <text x="560" y="50" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">29–30</text>
+        <text x="560" y="80" text-anchor="middle" fill="#e0e0e0" font-size="9">Cultural</text>
+
+        <circle cx="680" cy="60" r="9" fill="#ff5252"/>
+        <text x="680" y="50" text-anchor="middle" fill="#ff5252" font-size="10" font-weight="bold">Art.32</text>
+        <text x="680" y="80" text-anchor="middle" fill="#e0e0e0" font-size="9">♥ Soul</text>
+      </svg>
+      <p class="svg-caption">Article map of Part III — Left to Right: Definition → Six FR Categories → Heart &amp; Soul</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+<!-- TASK 2: QUICK SUMMARY -->
+<section class="section" id="summary">
+  <div class="section-head">
+    <h2>📋 Quick 5-Minute Summary</h2>
+    <button class="revised-btn" onclick="toggleRevised(this,'summary')">✓ Mark Revised</button>
+  </div>
+  <details open>
+    <summary>Prelims Angle — Fast Facts</summary>
+    <div class="details-body">
+      <table class="summary-table">
+        <tr><th>Category</th><th>Articles</th><th>Available to</th><th>Key Point</th></tr>
+        <tr><td>Right to Equality</td><td class="art">14–18</td><td>All persons</td><td>Art.14 equality before law + equal protection; Art.17 untouchability abolished; Art.18 no titles (except military/academic)</td></tr>
+        <tr><td>Right to Freedom</td><td class="art">19–22</td><td>Citizens (19); All persons (20,21,22)</td><td>Art.19: 6 freedoms (speech, assemble, associate, move, reside, profession); Art.21: life &amp; liberty; Art.21A: RTE (86th Amdt, 2002)</td></tr>
+        <tr><td>Right Against Exploitation</td><td class="art">23–24</td><td>All persons</td><td>Art.23: no traffic/forced labour; Art.24: no child labour in factories (below 14)</td></tr>
+        <tr><td>Freedom of Religion</td><td class="art">25–28</td><td>All persons (25,26); Citizens (29,30)</td><td>Art.25: conscience &amp; free profession; Art.28: no religious instruction in state-funded schools</td></tr>
+        <tr><td>Cultural &amp; Educational Rights</td><td class="art">29–30</td><td>Minorities / Citizens</td><td>Art.29: right to conserve culture; Art.30: minorities can establish &amp; administer educational institutions</td></tr>
+        <tr><td>Right to Constitutional Remedies</td><td class="art">32</td><td>All persons</td><td>Dr. Ambedkar: "Heart &amp; Soul of Constitution"; 5 writs; itself a FR</td></tr>
+      </table>
+      <div class="concept-box warn" style="margin-top:1rem">
+        <strong>⚠️ Classic UPSC Traps:</strong><br>
+        • Art.19 freedoms → Only 6 (not 7; Right to Property removed 1978)<br>
+        • Art.20 &amp; 21 → Cannot be suspended even during National Emergency<br>
+        • Art.22 (Preventive Detention) → Not available to aliens<br>
+        • Right to Property → Now a <em>legal</em> right under Art.300A, NOT a FR<br>
+        • Writs can be issued under Art.32 (SC) AND Art.226 (HC) — but Art.226 is wider scope
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary>Mains Angle — Analytical Points</summary>
+    <div class="details-body">
+      <ul>
+        <li><strong>FR vs DPSP:</strong> FRs are justiciable, DPSPs are not. But SC has evolved the <em>harmonious construction</em> doctrine — both must be read together.</li>
+        <li><strong>Basic Structure:</strong> FRs cannot be abrogated even by constitutional amendment (Kesavananda Bharati, 1973). Parliament can abridge but not destroy.</li>
+        <li><strong>Expansion of Art.21:</strong> Maneka Gandhi (1978) expanded it to include all rights that make life meaningful — right to livelihood, education, health, privacy, clean environment, bail, speedy trial.</li>
+        <li><strong>Horizontal vs Vertical:</strong> FRs are primarily against the State (vertical), but Art.17 &amp; Art.23 operate against private persons too (horizontal effect).</li>
+        <li><strong>Three Doctrines:</strong>
+          <ul>
+            <li><em>Severability</em> — Only the offending part of a law is struck down, not the whole law</li>
+            <li><em>Eclipse</em> — Pre-constitutional laws inconsistent with FRs become dormant, revivable if FR is amended</li>
+            <li><em>Waiver</em> — FRs cannot be waived (Behram Khurshid, 1955)</li>
+          </ul>
+        </li>
+        <li><strong>Art.32 vs Art.226:</strong> SC's Art.32 is restricted to FR enforcement; HC's Art.226 extends to any legal right + can issue writs even outside India's territory in some cases.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>🕸️ Mind-Map — All Key Points at a Glance</summary>
+    <div class="details-body">
+      <div class="svg-wrap">
+        <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+          <!-- Center node -->
+          <ellipse cx="400" cy="260" rx="90" ry="36" fill="#7c4dff" opacity="0.9"/>
+          <text x="400" y="255" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Fundamental</text>
+          <text x="400" y="272" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Rights</text>
+
+          <!-- Branch: Art 12 State -->
+          <line x1="314" y1="244" x2="200" y2="180" stroke="#00d4ff" stroke-width="2"/>
+          <rect x="100" y="155" width="110" height="40" rx="8" fill="#1a1a3e" stroke="#00d4ff" stroke-width="1.5"/>
+          <text x="155" y="170" text-anchor="middle" fill="#00d4ff" font-size="10" font-weight="bold">Art.12: State</text>
+          <text x="155" y="185" text-anchor="middle" fill="#e0e0e0" font-size="9">Govt,Parliament,</text>
+
+          <!-- Branch: Art 13 -->
+          <line x1="320" y1="228" x2="200" y2="130" stroke="#4fc3f7" stroke-width="2"/>
+          <rect x="100" y="105" width="120" height="40" rx="8" fill="#1a1a3e" stroke="#4fc3f7" stroke-width="1.5"/>
+          <text x="160" y="121" text-anchor="middle" fill="#4fc3f7" font-size="10" font-weight="bold">Art.13: Void Laws</text>
+          <text x="160" y="136" text-anchor="middle" fill="#e0e0e0" font-size="9">Severability,Eclipse</text>
+
+          <!-- Branch: Equality -->
+          <line x1="400" y1="224" x2="300" y2="90" stroke="#ffd700" stroke-width="2"/>
+          <rect x="210" y="60" width="130" height="45" rx="8" fill="#1a1a3e" stroke="#ffd700" stroke-width="1.5"/>
+          <text x="275" y="78" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">Art.14-18 Equality</text>
+          <text x="275" y="93" text-anchor="middle" fill="#e0e0e0" font-size="9">Equal law,No discrim,</text>
+          <text x="275" y="105" text-anchor="middle" fill="#e0e0e0" font-size="9">No untouchability,No titles</text>
+
+          <!-- Branch: Freedom -->
+          <line x1="460" y1="228" x2="530" y2="90" stroke="#81c784" stroke-width="2"/>
+          <rect x="460" y="55" width="145" height="55" rx="8" fill="#1a1a3e" stroke="#81c784" stroke-width="1.5"/>
+          <text x="533" y="73" text-anchor="middle" fill="#81c784" font-size="10" font-weight="bold">Art.19-22 Freedom</text>
+          <text x="533" y="88" text-anchor="middle" fill="#e0e0e0" font-size="9">6 freedoms (citizens)</text>
+          <text x="533" y="100" text-anchor="middle" fill="#e0e0e0" font-size="9">Art.20: Ex-post facto</text>
+          <text x="533" y="112" text-anchor="middle" fill="#e0e0e0" font-size="9">Art.21: Life &amp; Liberty</text>
+
+          <!-- Branch: Anti-Exploit -->
+          <line x1="488" y1="260" x2="640" y2="200" stroke="#ff7043" stroke-width="2"/>
+          <rect x="585" y="175" width="130" height="40" rx="8" fill="#1a1a3e" stroke="#ff7043" stroke-width="1.5"/>
+          <text x="650" y="192" text-anchor="middle" fill="#ff7043" font-size="10" font-weight="bold">Art.23-24 Exploit</text>
+          <text x="650" y="207" text-anchor="middle" fill="#e0e0e0" font-size="9">No bonded labour,No child</text>
+
+          <!-- Branch: Religion -->
+          <line x1="488" y1="275" x2="640" y2="310" stroke="#4db6ac" stroke-width="2"/>
+          <rect x="585" y="285" width="140" height="45" rx="8" fill="#1a1a3e" stroke="#4db6ac" stroke-width="1.5"/>
+          <text x="655" y="303" text-anchor="middle" fill="#4db6ac" font-size="10" font-weight="bold">Art.25-28 Religion</text>
+          <text x="655" y="318" text-anchor="middle" fill="#e0e0e0" font-size="9">Conscience,Propagate</text>
+          <text x="655" y="330" text-anchor="middle" fill="#e0e0e0" font-size="9">No relig. instruc. in state sch</text>
+
+          <!-- Branch: Cultural -->
+          <line x1="460" y1="290" x2="530" y2="400" stroke="#ffb74d" stroke-width="2"/>
+          <rect x="460" y="390" width="140" height="45" rx="8" fill="#1a1a3e" stroke="#ffb74d" stroke-width="1.5"/>
+          <text x="530" y="408" text-anchor="middle" fill="#ffb74d" font-size="10" font-weight="bold">Art.29-30 Cultural</text>
+          <text x="530" y="423" text-anchor="middle" fill="#e0e0e0" font-size="9">Minority rights,</text>
+          <text x="530" y="435" text-anchor="middle" fill="#e0e0e0" font-size="9">Educational institutions</text>
+
+          <!-- Branch: Art 32 - Heart Soul -->
+          <line x1="400" y1="296" x2="400" y2="420" stroke="#ff5252" stroke-width="2.5"/>
+          <rect x="330" y="415" width="140" height="50" rx="8" fill="#2a0000" stroke="#ff5252" stroke-width="2"/>
+          <text x="400" y="436" text-anchor="middle" fill="#ff5252" font-size="11" font-weight="bold">Art.32: ❤️ Heart &amp; Soul</text>
+          <text x="400" y="452" text-anchor="middle" fill="#e0e0e0" font-size="9">5 Writs • Itself a FR</text>
+          <text x="400" y="464" text-anchor="middle" fill="#e0e0e0" font-size="9">Cannot be suspended</text>
+
+          <!-- Branch: Emergency -->
+          <line x1="312" y1="275" x2="160" y2="340" stroke="#e040fb" stroke-width="2"/>
+          <rect x="50" y="318" width="150" height="50" rx="8" fill="#1a0a1e" stroke="#e040fb" stroke-width="1.5"/>
+          <text x="125" y="337" text-anchor="middle" fill="#e040fb" font-size="10" font-weight="bold">During Emergency</text>
+          <text x="125" y="352" text-anchor="middle" fill="#e0e0e0" font-size="9">Art.20 &amp; 21: Cannot suspend</text>
+          <text x="125" y="365" text-anchor="middle" fill="#e0e0e0" font-size="9">Art.19 can be suspended</text>
+
+          <!-- Branch: Key Cases -->
+          <line x1="314" y1="276" x2="160" y2="400" stroke="#26c6da" stroke-width="2"/>
+          <rect x="50" y="385" width="155" height="65" rx="8" fill="#0a1a1e" stroke="#26c6da" stroke-width="1.5"/>
+          <text x="127" y="403" text-anchor="middle" fill="#26c6da" font-size="10" font-weight="bold">Landmark Cases</text>
+          <text x="127" y="418" text-anchor="middle" fill="#e0e0e0" font-size="9">Kesavananda → Basic Structure</text>
+          <text x="127" y="431" text-anchor="middle" fill="#e0e0e0" font-size="9">Maneka Gandhi → Art.21 expnd</text>
+          <text x="127" y="444" text-anchor="middle" fill="#e0e0e0" font-size="9">Puttaswamy → Privacy as FR</text>
+        </svg>
+        <p class="svg-caption">Mind-Map: Fundamental Rights — Full Overview</p>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- TASK 1: CORE CONCEPT -->
+<section class="section" id="core">
+  <div class="section-head">
+    <h2>📚 Core Concept — Complete Article-by-Article Study</h2>
+    <button class="revised-btn" onclick="toggleRevised(this,'core')">✓ Mark Revised</button>
+  </div>
+
+  <!-- FOUNDATIONS -->
+  <div class="card">
+    <h3>🔰 What Are Fundamental Rights? — Origins &amp; Philosophy</h3>
+    <p>Fundamental Rights emerged as a direct response to <strong>colonial oppression</strong>. The British colonial regime arbitrarily arrested people (Rowlatt Act, 1919), censored press, and denied basic freedoms without legal recourse. The Constituent Assembly — having lived through that — deliberately created a chapter of enforceable rights that even the legislature could not take away.</p>
+    <p>The philosophical roots are dual: <strong>natural rights theory</strong> (rights inherent to human dignity, not granted by the State) + <strong>social contract theory</strong> (the citizen surrenders some freedom to the State in exchange for protection of fundamental liberties). Part III reflects both.</p>
+    <div class="concept-box info">
+      <strong>Key Structural Features of FRs:</strong>
+      <ul>
+        <li><strong>Justiciable:</strong> Enforceable in courts — unlike DPSPs (non-justiciable) or Fundamental Duties (not enforceable per se)</li>
+        <li><strong>Not absolute:</strong> Every FR has grounds on which reasonable restrictions can be imposed — FRs are not a "blank cheque"</li>
+        <li><strong>Primarily vertical:</strong> Operate against the State (Art.12). But Art.17 (untouchability) and Art.23 (forced labour) have horizontal effect — they operate against private persons too</li>
+        <li><strong>Non-waivable:</strong> You cannot voluntarily give up a FR — held in <em>Behram Khurshid Pesikaka v. State of Bombay</em> (1955)</li>
+        <li><strong>Amendable but basic structure protected:</strong> Parliament can abridge FRs (Art.368) but cannot destroy their "core" — <em>Kesavananda Bharati</em> (1973)</li>
+      </ul>
+    </div>
+    <div class="concept-box highlight">
+      <strong>Negative vs Positive Obligations:</strong> Originally, FRs were purely negative — they said "the State shall NOT." But through judicial expansion of Art.21, some FRs now impose positive obligations: the State must provide legal aid (Art.39A via Art.21), ensure education (Art.21A), protect health, etc. This shift from negative to positive rights is a major Mains theme.
+    </div>
+    <p><strong>Source inspiration:</strong> Art.14 (Equal Protection) ← US 14th Amendment | Art.14 (Equality before Law) ← English Common Law | Art.19 freedoms ← US Bill of Rights | Art.21 (Life &amp; Liberty) ← US 5th/14th Amendments | Art.32 (Writs) ← English Writ Jurisdiction</p>
+  </div>
+
+  <!-- ART 12 -->
+  <div class="card">
+    <h3>⚙️ Article 12 — Defining "The State" (The Gateway Article)</h3>
+    <p>Art.12 is the <strong>gateway</strong> — without understanding it, you cannot know who your FRs protect you against. It defines "State" for purposes of Part III:</p>
+    <ol>
+      <li>The Government and Parliament of India</li>
+      <li>The Government and Legislature of each State</li>
+      <li>All local or other authorities within the territory of India</li>
+      <li>All local or other authorities under the control of the Government of India</li>
+    </ol>
+    <div class="concept-box warn">
+      <strong>"Other Authorities" — The Evolving Test (Critical for UPSC)</strong><br>
+      The SC has progressively widened "other authorities" through a series of cases:
+      <ul>
+        <li><em>University of Madras v. Shantha Bai</em> (1954): Ejusdem generis rule — "other authorities" means only government-like bodies. This narrow view was later rejected.</li>
+        <li><em>Electricity Board, Rajasthan v. Mohan Lal</em> (1967): Any body created by statute for public purposes = "State." This widened the definition.</li>
+        <li><em>Ramana Dayaram Shetty v. IAAI</em> (1979): The SC laid down a multi-factor test — (i) entire share capital held by government, (ii) enjoys monopoly status conferred by State, (iii) performs public functions, (iv) deep and pervasive State control. Not all factors need to be present.</li>
+        <li><em>Ajay Hasia v. Khalid Mujib</em> (1981): Applied the Shetty test to Regional Engineering Colleges — held to be "State" since they were government-funded and government-controlled.</li>
+        <li><em>Pradeep Kumar Biswas v. Indian Institute of Chemical Biology</em> (2002): The test is whether the body is "financially, functionally, and administratively dominated by or under the control of the Government." CSIR laboratories = State.</li>
+        <li><em>Zee Telefilms v. Union of India</em> (2005): BCCI is NOT a State because it is not created by statute, the government doesn't control it, and cricket is not a monopoly granted by the State.</li>
+      </ul>
+    </div>
+    <div class="concept-box info">
+      <strong>Judiciary &amp; Art.12:</strong> Courts are NOT "State" when exercising their adjudicatory functions — judicial decisions are not subject to FR challenge. But when courts make Rules (like Rules of Court), they act as a "State" and those rules can be challenged.
+    </div>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <rect x="240" y="8" width="200" height="40" rx="8" fill="#7c4dff" opacity="0.9"/>
+        <text x="340" y="24" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Art.12 — "THE STATE"</text>
+        <text x="340" y="40" text-anchor="middle" fill="#ffd700" font-size="9">(Gateway to all FRs)</text>
+        <line x1="340" y1="48" x2="80" y2="90" stroke="#00d4ff" stroke-width="1.5"/>
+        <line x1="340" y1="48" x2="230" y2="90" stroke="#00d4ff" stroke-width="1.5"/>
+        <line x1="340" y1="48" x2="420" y2="90" stroke="#ffd700" stroke-width="2"/>
+        <line x1="340" y1="48" x2="580" y2="90" stroke="#ffd700" stroke-width="2"/>
+        <rect x="20" y="88" width="120" height="52" rx="6" fill="#1a1a3e" stroke="#00d4ff"/>
+        <text x="80" y="107" text-anchor="middle" fill="#00d4ff" font-size="9" font-weight="bold">Central Govt +</text>
+        <text x="80" y="120" text-anchor="middle" fill="#e0e0e0" font-size="9">Parliament of India</text>
+        <text x="80" y="133" text-anchor="middle" fill="#e0e0e0" font-size="8">Always = State ✓</text>
+        <rect x="148" y="88" width="130" height="52" rx="6" fill="#1a1a3e" stroke="#00d4ff"/>
+        <text x="213" y="107" text-anchor="middle" fill="#00d4ff" font-size="9" font-weight="bold">State Govts +</text>
+        <text x="213" y="120" text-anchor="middle" fill="#e0e0e0" font-size="9">State Legislatures</text>
+        <text x="213" y="133" text-anchor="middle" fill="#e0e0e0" font-size="8">Always = State ✓</text>
+        <rect x="285" y="88" width="135" height="52" rx="6" fill="#1a1a3e" stroke="#ffd700" stroke-width="1.5"/>
+        <text x="353" y="107" text-anchor="middle" fill="#ffd700" font-size="9" font-weight="bold">Local Authorities</text>
+        <text x="353" y="120" text-anchor="middle" fill="#e0e0e0" font-size="9">Panchayats, Munic.</text>
+        <text x="353" y="133" text-anchor="middle" fill="#e0e0e0" font-size="8">District Boards = State ✓</text>
+        <rect x="428" y="88" width="240" height="52" rx="6" fill="#2a1a00" stroke="#ffd700" stroke-width="2"/>
+        <text x="548" y="104" text-anchor="middle" fill="#ffd700" font-size="9" font-weight="bold">"Other Authorities" (Widest)</text>
+        <text x="548" y="118" text-anchor="middle" fill="#e0e0e0" font-size="8">PSUs, CSIR, IITs, AAI = State ✓</text>
+        <text x="548" y="130" text-anchor="middle" fill="#ff5252" font-size="8">BCCI, Private Co. = NOT State ✗</text>
+        <text x="548" y="142" text-anchor="middle" fill="#e0e0e0" font-size="8">Test: Control + Funding + Function</text>
+        <text x="340" y="175" text-anchor="middle" fill="#4fc3f7" font-size="9" font-style="italic">Judiciary (adjudicating) = NOT State | Courts making Rules = State</text>
+        <text x="340" y="192" text-anchor="middle" fill="#4fc3f7" font-size="9" font-style="italic">Constitutional bodies (ECI, CAG, UPSC) = State ✓</text>
+      </svg>
+      <p class="svg-caption">Art.12 — Spectrum of what counts as "State" for FR purposes</p>
+    </div>
+  </div>
+
+  <!-- ART 13 -->
+  <div class="card">
+    <h3>⚙️ Article 13 — The Enforcement Weapon + Three Key Doctrines</h3>
+    <p>Art.13 makes FRs judicially enforceable. It does two things: (1) declares all <em>pre-constitutional laws</em> inconsistent with FRs to be void to the extent of inconsistency [Art.13(1)], and (2) says the State shall <em>not make any law</em> that abridges FRs, and any such law is void to the extent of contravention [Art.13(2)].</p>
+    <p>Art.13(3) defines "law" broadly to include <strong>ordinances, orders, bye-laws, rules, regulations, notifications, customs, and usages</strong> having force of law. So even a government notification can be challenged as violating FRs.</p>
+    <div class="concept-box warn">
+      <strong>Critical: Does Art.13 apply to Constitutional Amendments?</strong><br>
+      The SC initially said YES in <em>Golaknath v. State of Punjab</em> (1967) — Parliament cannot amend FRs at all. But the 24th Amendment (1971) overturned this by expressly stating Art.368 empowers Parliament to amend any part of the Constitution including FRs. Then <em>Kesavananda Bharati</em> (1973) gave the final answer: Parliament CAN amend FRs but CANNOT destroy their "basic structure." Art.13 applies to ordinary legislation — not to constitutional amendments that respect basic structure.
+    </div>
+    <div class="concept-box highlight">
+      <strong>Doctrine 1 — Severability (Doctrine of Blue Pencil):</strong> If a law has some provisions that violate FRs and some that don't, the court only strikes down the offending part — if separable. The test: would the legislature have enacted the valid part alone, even without the invalid part? <em>AK Gopalan v. State of Madras</em> (1950) is an early example. The court severs only what's unconstitutional.
+    </div>
+    <div class="concept-box highlight">
+      <strong>Doctrine 2 — Eclipse:</strong> Pre-1950 laws inconsistent with FRs become <em>dormant</em>, not void. They are "eclipsed" by the FR like a solar eclipse — the sun (FR) blocks the law's operation but doesn't destroy it. If the FR is later amended (widened for State restriction), the law comes back to life. Note: This doctrine applies only to pre-constitutional laws. For non-citizens, such laws remain fully operative even in their eclipsed state. Key case: <em>Bhikaji Narain Dhakras v. State of MP</em> (1955).
+    </div>
+    <div class="concept-box highlight">
+      <strong>Doctrine 3 — Waiver (Non-Waiver):</strong> FRs are conferred not just for individual benefit but as matters of constitutional policy — they cannot be waived. If you sign a contract saying "I waive my FR to equality," that clause is void. <em>Behram Khurshid Pesikaka</em> (1955): Even personal benefit cannot justify waiver.
+    </div>
+    <div class="concept-box info">
+      <strong>Doctrine 4 (Bonus) — Colourable Legislation:</strong> "What cannot be done directly cannot be done indirectly." If a legislature lacks competence to pass a law directly, it cannot achieve the same result by disguising the law. Tested under Art.13 when the substance (not form) of a law violates FRs.
+    </div>
+  </div>
+
+  <!-- ART 14 -->
+  <div class="card">
+    <h3>⚖️ Article 14 — Right to Equality: Two Limbs + Four Doctrines</h3>
+    <p>Art.14 has two distinct limbs, though both flow from equality:</p>
+    <table class="summary-table">
+      <tr><th>Limb</th><th>What it means</th><th>Origin</th></tr>
+      <tr><td><strong>Equality before Law</strong></td><td>No person is above the law. The law applies the same way to everyone — the PM, a judge, or a street vendor can all be prosecuted. Negative concept — the State shall not give special privileges.</td><td>English Common Law (Dicey's Rule of Law)</td></tr>
+      <tr><td><strong>Equal Protection of Laws</strong></td><td>Like must be treated alike. The law must operate equally on all persons in <em>similar circumstances</em>. Positive concept — the State must give equal treatment to equals.</td><td>US 14th Amendment</td></tr>
+    </table>
+    <div class="concept-box warn">
+      <strong>The Reasonable Classification Exception (The Most Tested Point):</strong><br>
+      Art.14 does NOT mean all laws must apply identically to everyone — that would be absurd (you can't treat adults and children identically). The State can classify people for differential treatment, provided:<br>
+      <strong>(i) The classification is based on an intelligible differentia</strong> — there must be a real, discernible distinction (e.g., by income, by occupation, by age).<br>
+      <strong>(ii) The differentia has a rational nexus with the object of the law</strong> — the classification must relate logically to the purpose the law seeks to achieve.<br>
+      Both conditions must be satisfied simultaneously. <em>State of West Bengal v. Anwar Ali Sarkar</em> (1952) first articulated this two-prong test.
+    </div>
+    <div class="concept-box info">
+      <strong>The Anti-Arbitrariness Doctrine (New Dimension):</strong> In <em>EP Royappa v. State of Tamil Nadu</em> (1974), Justice Bhagwati gave Art.14 a new dimension: "Equality is antithetic to arbitrariness." Any arbitrary, capricious state action — even without discrimination — violates Art.14. This was extended in <em>Maneka Gandhi</em> (1978): procedure that is arbitrary is void even if "established by law." This doctrine makes Art.14 much wider than the reasonable classification test alone.
+    </div>
+    <div class="concept-box highlight">
+      <strong>Exceptions to Art.14 — Where Inequality is Permitted:</strong>
+      <ul>
+        <li><strong>Foreign Sovereigns &amp; Diplomats:</strong> Enjoy immunity from suit in Indian courts (Vienna Convention) — not a violation of Art.14 because it's based on international law obligations.</li>
+        <li><strong>President and Governors:</strong> Art.361 gives them immunity from civil and criminal proceedings during their term. SC in <em>Rameshwar Prasad v. Union of India</em> (2006) clarified this doesn't mean absolute immunity — their official acts can be examined.</li>
+        <li><strong>UN and its officials:</strong> Immunity under the UN (Privileges and Immunities) Act.</li>
+      </ul>
+    </div>
+    <div class="concept-box highlight">
+      <strong>Art.14 and Legislation — Key Rules:</strong>
+      <ul>
+        <li>A law cannot be challenged on Art.14 grounds merely because it has a harsh effect on some — as long as classification is reasonable.</li>
+        <li>Art.14 applies to the <em>State's actions</em>, not to private acts. But Art.12's "State" definition is broad enough to catch many quasi-governmental bodies.</li>
+        <li>A taxation law can differentiate between income groups — reasonable classification.</li>
+        <li>A law giving different rates to different industries — valid if the differentia is rational.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ART 15 -->
+  <div class="card">
+    <h3>⚖️ Article 15 — Prohibition of Discrimination: All Clauses Decoded</h3>
+    <p>Art.15(1): The State shall not discriminate against any <strong>citizen</strong> on grounds <em>only</em> of religion, race, caste, sex, or <strong>place of birth</strong>. Note: "place of birth" ≠ "domicile" or "residence." Discrimination based on current residence may be allowed.</p>
+    <p>Art.15(2): No citizen shall be subject to disability, liability, restriction regarding (i) access to shops, public restaurants, hotels; (ii) use of wells, tanks, bathing ghats, roads, or places of public resort maintained wholly or partly out of State funds or dedicated to the use of general public — on grounds only of religion, race, caste, sex, or place of birth. This extends the prohibition to private persons too for these specific contexts.</p>
+    <table class="summary-table">
+      <tr><th>Clause</th><th>Permits</th><th>Key Case / Note</th></tr>
+      <tr><td><strong>15(3)</strong></td><td>Special provisions for <em>women and children</em> — laws exclusively for their benefit are valid</td><td>Gender-specific schemes, free bus passes for women, etc.</td></tr>
+      <tr><td><strong>15(4)</strong></td><td>Special provisions for <em>socially and educationally backward classes</em> or SCs/STs — added by 1st Amendment (1951) to overcome <em>Champakam Dorairajan</em> ruling</td><td>Basis for OBC reservations in educational institutions</td></tr>
+      <tr><td><strong>15(5)</strong></td><td>Special provisions for backward classes / SCs/STs in <em>admissions to educational institutions</em> including private unaided (except minority institutions under Art.30)</td><td>Added by 93rd Amendment (2005) after <em>TMA Pai</em> case. Enables reservations in private colleges.</td></tr>
+      <tr><td><strong>15(6)</strong></td><td>Special provisions for <em>Economically Weaker Sections</em> (EWS) — up to 10% in educational admissions</td><td>103rd Amendment (2019); upheld in <em>Janhit Abhiyan</em> (2022)</td></tr>
+    </table>
+    <div class="concept-box warn">
+      <strong>Critical "only" — The Word That Changes Everything:</strong> Art.15(1) says "on grounds <em>only</em> of" religion, race, caste, sex, or place of birth. This means if a classification is based on these grounds PLUS something else (e.g., income + caste combined), it may be saved. The moment there are multiple grounds, the "only" qualifier is not met, and the discrimination may be permissible.
+    </div>
+    <div class="concept-box info">
+      <strong>Art.15 vs Art.16:</strong> Art.15 covers general discrimination in all fields. Art.16 specifically covers equality of <em>opportunity in public employment</em>. If the issue is a job/government post, Art.16 is the specific article; Art.15 is the general one. UPSC frequently tests this distinction.
+    </div>
+  </div>
+
+  <!-- ART 16 -->
+  <div class="card">
+    <h3>⚖️ Article 16 — Equality in Public Employment: Reservation Law Simplified</h3>
+    <p>Art.16(1): Equality of opportunity for all citizens in matters relating to employment or appointment to any <strong>office under the State</strong>. Art.16(2): No citizen shall be discriminated against in public employment on grounds of religion, race, caste, sex, descent, place of birth, or <strong>residence</strong>. Note: "residence" is added here, unlike Art.15.</p>
+    <table class="summary-table">
+      <tr><th>Clause</th><th>Allows</th><th>Key Detail</th></tr>
+      <tr><td><strong>16(3)</strong></td><td>Parliament (NOT state legislatures) can prescribe residence requirement for employment in certain states/UTs</td><td>Applies to lower-grade posts. Currently operative in some North-Eastern states by Parliamentary law.</td></tr>
+      <tr><td><strong>16(4)</strong></td><td>State can make provision for reservation of appointments/posts for <em>backward class of citizens</em> not adequately represented in State services</td><td>Basis for SC/ST/OBC reservations in government jobs. Does NOT mention 50% ceiling — that's a SC-imposed rule from <em>Indra Sawhney</em> (1992).</td></tr>
+      <tr><td><strong>16(4A)</strong></td><td>State can make provision for reservation in <em>promotions</em> for SCs/STs — added by 77th Amendment (1995)</td><td>Creamy layer NOT applicable to SCs/STs in promotions — <em>Jarnail Singh v. Lachhmi Narain Gupta</em> (2018)</td></tr>
+      <tr><td><strong>16(4B)</strong></td><td>Unfilled SC/ST vacancies from one year can be <em>carried forward</em> to next year without counting towards 50% ceiling — added by 81st Amendment (2000)</td><td>Overturned <em>Indra Sawhney</em>'s bar on carry-forward beyond 50%</td></tr>
+      <tr><td><strong>16(5)</strong></td><td>A law providing that the incumbent of an office of a religious institution shall be a person professing a particular religion does not violate Art.16</td><td>Allows Hindu temples to require Hindu priests, etc.</td></tr>
+      <tr><td><strong>16(6)</strong></td><td>Up to 10% reservation for <em>EWS</em> in public employment</td><td>103rd Amendment (2019)</td></tr>
+    </table>
+    <div class="concept-box warn">
+      <strong>The Indra Sawhney Case (Mandal Case) — Most Important Reservation Judgment:</strong>
+      <ul>
+        <li>50% ceiling on total reservations — judge-made rule, NOT in Constitution</li>
+        <li>Creamy layer must be excluded from OBC reservations</li>
+        <li>No reservation in promotions for OBCs (only Art.16(4) covers initial appointments for them)</li>
+        <li>Reservation is an exception to merit, not a right in itself</li>
+        <li>A "backward class" need not be a caste, but caste can be one indicator of backwardness</li>
+        <li>Periodical review of the backward class list is mandatory</li>
+      </ul>
+    </div>
+    <div class="concept-box info">
+      <strong>Art.335 Linkage:</strong> Art.335 says claims of SCs/STs to services must be taken into consideration "consistently with the maintenance of efficiency of administration." However, the 82nd Amendment (2000) added a proviso: nothing in Art.335 prevents the State from making provision for relaxation of qualifying marks or lowering the evaluation standards for SCs/STs in promotions. So efficiency cannot be an absolute bar to SC/ST reservation in promotions.
+    </div>
+    <div class="concept-box highlight">
+      <strong>Recent: EWS Reservation (103rd Amendment, 2019):</strong> EWS reservation is 10% over and above the existing 50% (so total can reach 60% for that year). Criteria: annual family income below ₹8 lakh AND agricultural land less than 5 acres AND residential flat below 1000 sq ft AND residential plot below 100 sq yards in notified municipality. SCs/STs/OBCs are EXCLUDED from EWS because they already have their own reservations. SC upheld this by 3:2 in <em>Janhit Abhiyan v. Union of India</em> (2022).
+    </div>
+  </div>
+
+  <!-- ART 17 & 18 -->
+  <div class="card">
+    <h3>⚖️ Article 17 — Untouchability Abolished | Article 18 — No Titles</h3>
+    <p><strong>Art.17</strong> is uniquely worded: "Untouchability is abolished and its practice in any form is forbidden." It uses the word "abolished" — not "the State shall not." This means it operates against <em>private persons too</em> — one of the rare instances of horizontal application of FRs.</p>
+    <ul>
+      <li><strong>Protection of Civil Rights Act, 1955</strong> (originally Untouchability Offences Act, 1955): Makes practice of untouchability a punishable offence. Imprisonment up to 6 months and/or fine.</li>
+      <li><strong>SC/ST (Prevention of Atrocities) Act, 1989</strong>: Goes further — punishes specific atrocities against SC/ST members including social and economic boycott, humiliation, sexual offences. SC has held in <em>Subhash Kashinath Mahajan v. State of Maharashtra</em> (2018) that anticipatory bail can be granted in false cases, but then reversed this in 2019 (larger bench reinstated original stringent provisions).</li>
+      <li>"Untouchability" is not defined in the Constitution — but it refers to the practice of treating certain castes as untouchable based on birth.</li>
+    </ul>
+    <hr style="border-color:var(--border);margin:1.2rem 0">
+    <p><strong>Art.18</strong> — No person shall confer any title (other than military or academic distinction) and no citizen shall accept any title from any foreign State.</p>
+    <div class="concept-box info">
+      <strong>Bharat Ratna / Padma Awards — NOT Titles under Art.18:</strong> The SC confirmed in <em>Balaji Raghavan v. Union of India</em> (1996) that the National Honour Awards (Bharat Ratna, Padma Vibhushan, Padma Bhushan, Padma Shri) are NOT "titles" for the purpose of Art.18(1). They cannot be used as prefixes or suffixes to names. They are merely a form of State recognition.
+    </div>
+    <div class="concept-box warn">
+      <strong>What IS banned under Art.18:</strong> Feudal titles like "Sir," "Rai Bahadur," "Khan Bahadur," "Diwan Bahadur" — all colonial-era honorifics that conferred social superiority. The article aims at a classless, egalitarian society. Military distinctions like "General," "Colonel" or academic ones like "Dr.," "Professor" are explicitly allowed.
+    </div>
+  </div>
+
+  <!-- ART 19 FULL -->
+  <div class="card">
+    <h3>🗣️ Article 19 — Six Freedoms: Each Freedom + Its Restrictions</h3>
+    <p>Art.19(1) guarantees six freedoms to <strong>citizens only</strong>. These are NOT absolute — Art.19(2)–(6) allow the State to impose <em>reasonable restrictions</em> through law (not executive order alone). The word "reasonable" is judicially reviewed — a restriction upheld only if proportionate to the evil it seeks to prevent.</p>
+
+    <div class="concept-box highlight">
+      <strong>UPSC Recall Aid — 6 Freedoms in Order (SSAMRP):</strong><br>
+      <strong>S</strong>peech (a) | <strong>A</strong>ssemble (b) | <strong>A</strong>ssociate (c) | <strong>M</strong>ove (d) | <strong>R</strong>eside &amp; Settle (e) | <strong>P</strong>rofession (g)<br>
+      Note: (f) — right to own/hold/dispose of property — was <strong>removed by 44th Amendment, 1978</strong>. That's why the list jumps from (e) to (g).
+    </div>
+
+    <table class="summary-table">
+      <tr><th>Freedom</th><th>Art.</th><th>Restriction Clause</th><th>Grounds of Restriction</th><th>Key SC Cases</th></tr>
+      <tr>
+        <td><strong>Speech &amp; Expression</strong></td><td>19(1)(a)</td><td>19(2)</td>
+        <td>Sovereignty &amp; integrity; security of State; friendly relations with foreign States; public order; decency/morality; contempt of court; defamation; incitement to offence</td>
+        <td><em>Romesh Thappar</em> (1950) — "public order" added to Art.19(2) only after this; <em>Shreya Singhal v. UOI</em> (2015) — Sec.66A IT Act struck down; <em>S. Rangarajan v. P. Jagjivan Ram</em> (1989) — films; <em>R. Rajagopal v. State of TN</em> (1994) — right to privacy in press context</td>
+      </tr>
+      <tr>
+        <td><strong>Peaceful Assembly</strong></td><td>19(1)(b)</td><td>19(3)</td>
+        <td>Sovereignty &amp; integrity of India; public order</td>
+        <td>Assembly must be <em>peaceable and without arms</em> — violent assembly not protected. Police can impose reasonable prior restrictions like requiring advance notice.</td>
+      </tr>
+      <tr>
+        <td><strong>Form Associations</strong></td><td>19(1)(c)</td><td>19(4)</td>
+        <td>Sovereignty &amp; integrity; public order; morality</td>
+        <td>Right to form union includes right NOT to join. 97th Amendment (2011) added "cooperative societies" — partially struck down by SC in 2021 for encroaching on state subject.</td>
+      </tr>
+      <tr>
+        <td><strong>Move Freely</strong></td><td>19(1)(d)</td><td>19(5)</td>
+        <td>Interests of the general public; protection of interests of any Scheduled Tribe</td>
+        <td>Restriction on entry into tribal areas is valid. Externment orders restricting movement of habitual offenders upheld. Restrictions on movement to containment zones (COVID) = valid.</td>
+      </tr>
+      <tr>
+        <td><strong>Reside &amp; Settle</strong></td><td>19(1)(e)</td><td>19(5)</td>
+        <td>Same as (d) — interests of general public; protection of STs</td>
+        <td>Inner Line Permit system in NE states — restricting outsiders from settling — valid protection of tribal interests. Applies together with (d).</td>
+      </tr>
+      <tr>
+        <td><strong>Profession / Trade</strong></td><td>19(1)(g)</td><td>19(6)</td>
+        <td>Interests of the general public; professional/technical qualifications; State monopoly over any trade/business</td>
+        <td><em>Sodan Singh v. NDMC</em> (1989) — right to carry on hawking on public streets is a FR; <em>TMA Pai Foundation</em> (2002) — running educational institutions is profession; <em>State of Bombay v. RMDC</em> — lotteries/gambling not a FR of profession.</td>
+      </tr>
+    </table>
+
+    <div class="concept-box warn">
+      <strong>What is NOT protected under Art.19:</strong>
+      <ul>
+        <li>Right to strike (only a statutory right under Industrial Disputes Act) — <em>Radhey Shyam Sharma v. Post Master General</em></li>
+        <li>Right to vote (statutory under Representation of People Act, not a FR)</li>
+        <li>Right to carry on a criminal business or profession (e.g., running a brothel)</li>
+        <li>Right to government employment (covered by Art.16, but not Art.19)</li>
+        <li>Right to travel abroad (external — debatable; SC held in <em>Satwant Singh Sawhney</em> (1967) that right to travel abroad is under Art.21, not Art.19)</li>
+      </ul>
+    </div>
+    <div class="concept-box info">
+      <strong>What IS included in Art.19(1)(a) (Judicial Expansion):</strong>
+      <ul>
+        <li>Right to receive information / right to know — <em>Secretary, MIB v. Cricket Association of Bengal</em> (1995)</li>
+        <li>Right to advertise (commercial speech) — <em>Tata Press v. MTNL</em> (1995)</li>
+        <li>Right of press to publish (press freedom flows from 19(1)(a)) — <em>Indian Express v. UOI</em> (1985)</li>
+        <li>Right to internet access (internet shutdown cases — <em>Anuradha Bhasin</em> 2020)</li>
+        <li>Right to silence (not speaking) — right not to be compelled to speak</li>
+        <li>Right to know about candidates' antecedents before elections — ADR case (2002)</li>
+        <li>Right to hoist the national flag — <em>Union of India v. Naveen Jindal</em> (2004)</li>
+      </ul>
+    </div>
+    <div class="concept-box highlight">
+      <strong>"Reasonable Restriction" Test — How Courts Assess:</strong> The SC applies a <em>proportionality test</em>: (1) Is there a legitimate aim? (2) Is the measure rationally connected to the aim? (3) Is the measure the least restrictive option? (4) Is the balance between the restriction and the right struck correctly? This imported from European human rights law into Indian jurisprudence through <em>K.S. Puttaswamy</em> (2017).
+    </div>
+  </div>
+
+  <!-- ART 20 -->
+  <div class="card">
+    <h3>🛡️ Article 20 — Three Protections Against Arbitrary Conviction (Cannot be Suspended)</h3>
+    <p>Art.20 gives three protections to persons accused of offences. It is available to <strong>ALL PERSONS</strong> (not just citizens) and <strong>CANNOT be suspended even during National Emergency</strong> (44th Amendment guarantee). Each clause has precise scope.</p>
+    <table class="summary-table">
+      <tr><th>Clause</th><th>Protection</th><th>Scope + Nuances</th></tr>
+      <tr>
+        <td><strong>Art.20(1)</strong><br><em>Ex-Post Facto</em></td>
+        <td>No conviction for act not an offence at the time of commission. No penalty greater than that prescribed at the time.</td>
+        <td>
+          <strong>What is protected:</strong> Criminal conviction only — not civil liability. A tax law cannot be applied retrospectively in criminal prosecutions.<br>
+          <strong>What is NOT protected:</strong> Procedural laws can be changed and applied retroactively (only substantive law defining the offence or penalty is protected). Beneficial laws (reducing penalty) can apply retrospectively.<br>
+          <strong>Preventive detention:</strong> Art.20(1) does not apply to preventive detention (no conviction involved).
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Art.20(2)</strong><br><em>Double Jeopardy</em></td>
+        <td>"No person shall be prosecuted and punished for the same offence more than once."</td>
+        <td>
+          <strong>Both conditions needed:</strong> Must be prosecuted AND punished in the first instance. If only prosecuted but acquitted, a fresh prosecution by a different court for a different offence arising from same facts is possible.<br>
+          <strong>Departmental proceedings:</strong> Art.20(2) applies to judicial prosecution, NOT to departmental enquiries (an employee can face departmental action AND criminal prosecution for the same act).<br>
+          <strong>Comparison with CrPC S.300:</strong> Sec.300 of CrPC gives wider protection — bars second trial even if acquitted. Art.20(2) bars only if previously convicted AND punished.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Art.20(3)</strong><br><em>Self-Incrimination</em></td>
+        <td>No person accused of an offence shall be compelled to be a witness against himself.</td>
+        <td>
+          <strong>Three conditions:</strong> (i) Must be an "accused person" (ii) Compulsion must be used (iii) Must be "witness against himself" — i.e., testimonial compulsion, not physical evidence.<br>
+          <strong>Testimonial vs Physical:</strong> Providing fingerprints, blood samples, hair samples, breath analysis — NOT protected by Art.20(3) (physical evidence). Forced statement, narco-analysis, lie detector — ARE protected (testimonial). <em>Selvi v. State of Karnataka</em> (2010): Involuntary narco/lie-detector tests violate Art.20(3) and Art.21.<br>
+          <strong>Only for criminal proceedings:</strong> Does NOT apply to civil proceedings. Does NOT apply before enquiry commissions.<br>
+          <strong>Pre-arrest:</strong> Art.20(3) applies only after formal accusation — a witness (not yet accused) has no protection under Art.20(3). But Art.21 protects even witnesses from unfair treatment.
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ART 21 FULL -->
+  <div class="card">
+    <h3>❤️ Article 21 — Right to Life: The Most Expansive Fundamental Right</h3>
+    <p>"No person shall be deprived of his life or personal liberty except according to procedure established by law." — Eight words ("procedure established by law") have generated India's most extensive body of constitutional jurisprudence.</p>
+
+    <div class="concept-box warn">
+      <strong>The Evolution of Art.21 — Three Phases:</strong><br>
+      <strong>Phase 1 — AK Gopalan (1950):</strong> The SC interpreted Art.21 narrowly. "Procedure established by law" means any procedure — even an unjust one — as long as it exists in some law. Rights under Arts.19, 21, 22 were read as separate compartments. A law passing Art.22's procedural requirements could deprive life even if it violated Art.19.<br><br>
+      <strong>Phase 2 — Maneka Gandhi (1978):</strong> Watershed. SC overruled Gopalan. Held that (i) Articles 14, 19, 21 are not separate compartments — a law depriving life must satisfy all three; (ii) "Procedure established by law" must be <em>just, fair, and reasonable</em> — importing the substance of due process into Art.21; (iii) Right to live with dignity, not just physical existence, is protected.<br><br>
+      <strong>Phase 3 — Puttaswamy (2017):</strong> 9-judge bench unanimously recognised Right to Privacy as a FR under Art.21. The Court used a <em>proportionality standard</em> to test government intrusions. This phase sees Art.21 reach into data protection, informational autonomy, sexual autonomy, and identity rights.
+    </div>
+
+    <p><strong>Complete List of Rights Read into Art.21 by the Supreme Court:</strong></p>
+    <table class="summary-table">
+      <tr><th>Right</th><th>Case</th><th>Year</th></tr>
+      <tr><td>Right to live with dignity</td><td>Francis Coralie Mullin v. UT Delhi</td><td>1981</td></tr>
+      <tr><td>Right to livelihood</td><td>Olga Tellis v. BMC (Pavement Dwellers case)</td><td>1985</td></tr>
+      <tr><td>Right to speedy trial</td><td>Hussainara Khatoon v. State of Bihar</td><td>1979</td></tr>
+      <tr><td>Right to free legal aid</td><td>Hussainara Khatoon; Khatri v. State of Bihar (1981)</td><td>1979</td></tr>
+      <tr><td>Right to health / medical treatment</td><td>Paschim Banga Khet Mazdoor Samity v. State of WB</td><td>1996</td></tr>
+      <tr><td>Right to clean environment</td><td>Subhash Kumar v. State of Bihar; M.C. Mehta cases</td><td>1991</td></tr>
+      <tr><td>Right to education (before Art.21A)</td><td>Mohini Jain v. State of Karnataka</td><td>1992</td></tr>
+      <tr><td>Right against custodial violence</td><td>DK Basu v. State of WB (DK Basu Guidelines)</td><td>1997</td></tr>
+      <tr><td>Right to privacy</td><td>Puttaswamy v. Union of India</td><td>2017</td></tr>
+      <tr><td>Right against solitary confinement</td><td>Sunil Batra v. Delhi Administration</td><td>1978</td></tr>
+      <tr><td>Right to bail (in bailable offences)</td><td>Multiple cases — bail is the rule, jail is exception</td><td>—</td></tr>
+      <tr><td>Right to die with dignity (passive euthanasia)</td><td>Common Cause v. Union of India</td><td>2018</td></tr>
+      <tr><td>Right against noise pollution</td><td>Noise Pollution case</td><td>2005</td></tr>
+      <tr><td>Right to food</td><td>PUCL v. Union of India (Right to food case)</td><td>2001</td></tr>
+      <tr><td>Right to shelter</td><td>Chameli Singh v. State of UP</td><td>1996</td></tr>
+      <tr><td>Right to reputation</td><td>Board of Trustees of Port of Bombay v. Dilipkumar Raghavendranath</td><td>1983</td></tr>
+      <tr><td>Right to travel abroad</td><td>Satwant Singh Sawhney v. D. Ramarathnam</td><td>1967</td></tr>
+      <tr><td>Right to humane treatment in prison</td><td>Sunil Batra, Charles Sobhraj cases</td><td>1978</td></tr>
+    </table>
+
+    <div class="concept-box highlight">
+      <strong>Maneka Gandhi v. Union of India (1978) — Why It Matters:</strong> Mrs. Maneka Gandhi's passport was impounded without giving any reasons. The SC held: (1) "Personal liberty" in Art.21 has the widest amplitude — it includes all varieties of rights that go to make up the personal liberties of persons; (2) the procedure must be fair, just, and reasonable; (3) Art.14's anti-arbitrariness doctrine now flows into Art.21; (4) you cannot impound a passport without hearing the person — principles of natural justice are part of Art.21.
+    </div>
+    <div class="concept-box info">
+      <strong>Right to Die — Important nuance:</strong>
+      <ul>
+        <li><em>P. Rathinam v. Union of India</em> (1994): 2-judge bench held attempt to suicide (Sec.309 IPC) unconstitutional — right to die included in Art.21.</li>
+        <li><em>Gian Kaur v. State of Punjab</em> (1996): 5-judge bench overruled P. Rathinam. Right to life does NOT include right to die. Sec.309 IPC held valid.</li>
+        <li><em>Common Cause v. Union of India</em> (2018): SC recognised <em>passive euthanasia</em> (withdrawing life support from terminally ill patient) as permissible. Permitted "living wills" / advance directives.</li>
+        <li>Sec.309 IPC (attempt to suicide) was DECRIMINALISED by Mental Healthcare Act, 2017 — but note: decriminalised ≠ constitutionally void.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ART 21A -->
+  <div class="card">
+    <h3>📚 Article 21A — Right to Education (The 86th Amendment, 2002)</h3>
+    <p>"The State shall provide free and compulsory education to all children of the age of <strong>six to fourteen years</strong> in such manner as the State may, by law, determine."</p>
+    <ul>
+      <li>Implemented through the <strong>Right of Children to Free and Compulsory Education (RTE) Act, 2009</strong>, which came into force on April 1, 2010.</li>
+      <li><strong>Key provisions of RTE Act:</strong> 25% seats reserved in private unaided schools for children from disadvantaged groups and weaker sections; no detention policy up to Class 8 (partially reversed — now schools can hold back students in Grades 5 and 8 after failed exams); no capitation fee; age-appropriate admission.</li>
+      <li>The 86th Amendment also amended Art.45 (DPSP) — changed from "State shall endeavour to provide free and compulsory education" to age 6–14 to "State shall endeavour to provide <em>early childhood care and education for children below age 6</em>."</li>
+      <li>Art.51A was amended to add a Fundamental Duty: "a parent or guardian to provide opportunities for education to his child or ward between the age of 6 and 14 years."</li>
+    </ul>
+    <div class="concept-box warn">
+      <strong>RTE Act — Not Applicable to:</strong> Minority educational institutions under Art.30(1) — this was contested. In <em>Society for Un-aided Private Schools of Rajasthan v. Union of India</em> (2012), SC upheld 25% reservation requirement for unaided non-minority private schools. But in <em>Pramati Educational and Cultural Trust v. Union of India</em> (2014), SC held RTE Act does NOT apply to unaided minority schools — they're protected by Art.30.
+    </div>
+    <div class="concept-box info">
+      <strong>Critical gap in Art.21A:</strong> It covers only 6–14 years. Children below 6 (covered by Art.45 DPSP — early childhood care) and above 14 (higher education) are NOT covered as a FR. The demand to extend RTE to 0–18 years remains pending.
+    </div>
+  </div>
+
+  <!-- ART 22 -->
+  <div class="card">
+    <h3>🔒 Article 22 — Safeguards Against Arbitrary Detention: Two Regimes</h3>
+    <p>Art.22 covers two distinct situations with separate safeguards — ordinary arrests AND preventive detention. These are completely different legal regimes and UPSC tests this distinction.</p>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <text x="350" y="22" text-anchor="middle" fill="var(--key-term)" font-size="13" font-weight="bold">Article 22 — Two Regimes of Detention</text>
+        <!-- Box 1 -->
+        <rect x="10" y="35" width="330" height="190" rx="10" fill="#1a1a3e" stroke="#00d4ff" stroke-width="2"/>
+        <text x="175" y="58" text-anchor="middle" fill="#00d4ff" font-size="11" font-weight="bold">ORDINARY ARREST [Art.22(1)&amp;(2)]</text>
+        <text x="175" y="76" text-anchor="middle" fill="#ffd700" font-size="10">"Preventable by knowing rights"</text>
+        <text x="30" y="98" fill="#e0e0e0" font-size="9">① Grounds of arrest must be informed ASAP</text>
+        <text x="30" y="114" fill="#e0e0e0" font-size="9">② Right to consult and be defended by lawyer</text>
+        <text x="30" y="130" fill="#e0e0e0" font-size="9">③ Produced before nearest Magistrate within 24 hrs</text>
+        <text x="30" y="146" fill="#e0e0e0" font-size="9">   (excluding travel time)</text>
+        <text x="30" y="162" fill="#e0e0e0" font-size="9">④ Cannot be detained beyond 24 hrs without Mag. order</text>
+        <text x="30" y="182" fill="#ff5252" font-size="9">NOT available to: Enemy aliens; persons under</text>
+        <text x="30" y="196" fill="#ff5252" font-size="9">Preventive Detention law (those have Art.22(4-7))</text>
+        <text x="30" y="215" fill="#e0e0e0" font-size="8">DK Basu guidelines (1997) ADD more safeguards: memo of arrest,</text>
+        <text x="30" y="228" fill="#e0e0e0" font-size="8">witness at arrest, medical examination, no torture</text>
+        <!-- Box 2 -->
+        <rect x="360" y="35" width="330" height="190" rx="10" fill="#1a0a0a" stroke="#ff7043" stroke-width="2"/>
+        <text x="525" y="58" text-anchor="middle" fill="#ff7043" font-size="11" font-weight="bold">PREVENTIVE DETENTION [Art.22(4)-(7)]</text>
+        <text x="525" y="76" text-anchor="middle" fill="#ffd700" font-size="10">"Detained before committing any crime"</text>
+        <text x="375" y="98" fill="#e0e0e0" font-size="9">① Cannot be detained more than <strong>3 months</strong> without</text>
+        <text x="375" y="112" fill="#e0e0e0" font-size="9">   Advisory Board approval (judges or ex-judges)</text>
+        <text x="375" y="128" fill="#e0e0e0" font-size="9">② Grounds to be communicated ASAP (but if against</text>
+        <text x="375" y="142" fill="#e0e0e0" font-size="9">   public interest, grounds need not be disclosed)</text>
+        <text x="375" y="158" fill="#e0e0e0" font-size="9">③ Right to make representation against detention</text>
+        <text x="375" y="178" fill="#ff5252" font-size="9">NO right to consult lawyer; NO right before Magistrate</text>
+        <text x="375" y="194" fill="#ff5252" font-size="9">NOT available to enemy aliens</text>
+        <text x="375" y="212" fill="#e0e0e0" font-size="8">Key laws: NSA 1980, COFEPOSA 1974, UAPA 1967,</text>
+        <text x="375" y="226" fill="#e0e0e0" font-size="8">MPNSA (state level). Parliament can extend beyond 3 months.</text>
+      </svg>
+      <p class="svg-caption">Art.22 — Ordinary Arrest safeguards vs Preventive Detention safeguards</p>
+    </div>
+
+    <div class="concept-box warn">
+      <strong>Preventive Detention — UPSC Critical Points:</strong>
+      <ul>
+        <li>Purpose: Detain someone to <em>prevent</em> them from doing something harmful — no trial, no conviction needed</li>
+        <li>Parliament can authorise detention beyond 3 months if Advisory Board confirms it</li>
+        <li>Parliament can prescribe under what circumstances, and for what class of cases, a person may be detained for more than 3 months (Art.22(7))</li>
+        <li>Grounds need NOT be disclosed if the authority considers it against public interest — this is the controversial part</li>
+        <li><em>ADM Jabalpur v. Shivkant Shukla</em> (1976) — the infamous "Habeas Corpus case": SC held that during Emergency, Art.21 can be suspended, so even Habeas Corpus against illegal detention is not available. This judgment (by 4:1 — only Justice Khanna dissented) is widely regarded as the SC's darkest hour. It was effectively overruled by the 44th Amendment (1978) which protected Art.20 &amp; 21 even during Emergency.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ART 23-24 -->
+  <div class="card">
+    <h3>⛓️ Article 23 — Against Exploitation | Article 24 — Child Labour</h3>
+    <p><strong>Art.23</strong> prohibits (i) traffic in human beings, (ii) begar, and (iii) other similar forms of forced labour. Any contravention is a criminal offence punishable by law.</p>
+    <ul>
+      <li><strong>Traffic in human beings:</strong> Covers slavery, devadasi system, flesh trade, and all forms of human trafficking. The SC in <em>PUCL v. Union of India</em> (2011) directed comprehensive measures against trafficking.</li>
+      <li><strong>Begar:</strong> Forced labour without payment — traditionally extracted from poor/lower-caste people by landlords. Now criminalised.</li>
+      <li><strong>"Other similar forms":</strong> SC in <em>People's Union for Democratic Rights v. Union of India</em> (PUDR case, 1982) — payment of wages below minimum wage = forced labour violating Art.23. The State has an obligation to enforce minimum wage laws.</li>
+      <li><strong>Exception:</strong> Art.23 does NOT prevent the State from imposing compulsory service for public purposes (e.g., military conscription, jury service) — but such service cannot discriminate on grounds of religion, race, caste, or class.</li>
+      <li><strong>Horizontal effect:</strong> Art.23 applies against private persons — a private employer forcing bonded labour violates Art.23, not just Art.21.</li>
+      <li><strong>Bonded Labour System (Abolition) Act, 1976:</strong> Enforces Art.23. The SC in <em>Neerja Chaudhary v. State of MP</em> (1984) directed state governments to identify, release, and rehabilitate bonded labourers.</li>
+    </ul>
+    <hr style="border-color:var(--border);margin:1.2rem 0">
+    <p><strong>Art.24</strong> — No child below 14 years shall be employed in any factory or mine or engaged in any other hazardous employment.</p>
+    <ul>
+      <li>Original Art.24 restricted only <em>factories, mines, and hazardous employment</em>. It did not ban all child labour.</li>
+      <li><strong>Child Labour (Prohibition and Regulation) Amendment Act, 2016</strong>: Extended the prohibition to all forms of employment for children below 14 (not just hazardous). Children aged 14–18 cannot work in hazardous occupations. Exception: family enterprises and entertainment industry with conditions (no night work, no work during school hours).</li>
+      <li>The SC in <em>MC Mehta v. State of Tamil Nadu</em> (Sivakasi match factory case, 1996) directed minimum wage and rehabilitation fund for child workers — linking Art.24 with Art.21 (right to live with dignity) and DPSPs.</li>
+    </ul>
+  </div>
+
+  <!-- ART 25-28 -->
+  <div class="card">
+    <h3>🕌 Articles 25–28 — Freedom of Religion: Four Articles, Core Tests</h3>
+
+    <p><strong>Art.25</strong> — Freedom of conscience, and the right to freely profess, practice, and <em>propagate</em> religion. Subject to: public order, morality, health, and other FRs.</p>
+    <div class="concept-box highlight">
+      <strong>Essential Religious Practices Test (ERP Test):</strong> Art.25 protects only practices "essential" to the religion. A practice that is not essential (even if traditional) is not protected. The Court decides what is essential — this has been controversial. Examples:
+      <ul>
+        <li>Triple talaq (instant talaq) — SC in <em>Shayara Bano v. Union of India</em> (2017) held it unconstitutional (3:2). It was NOT an essential religious practice of Islam. Muslim Women (Protection of Rights on Marriage) Act, 2019 criminalised it.</li>
+        <li>Sabarimala — The temple's practice of excluding women aged 10–50 was not an "essential religious practice" of the Ayyappa faith — <em>Indian Young Lawyers Association v. State of Kerala</em> (2018), 4:1 majority. Referred to larger bench in 2019 for reconsideration along with similar issues.</li>
+        <li>Ananda Marga monks' practice of tandava dance in public — held NOT essential — <em>Acharya Jagdishwarananda Avadhuta v. Commissioner of Police</em> (1984)</li>
+        <li>Wearing kirpan for Sikhs — held an essential practice (Art.25(1) explicitly permits Sikhs to carry kirpans as religious requirement)</li>
+      </ul>
+    </div>
+    <div class="concept-box info">
+      <strong>Art.25(2) — State's Power to Regulate:</strong>
+      <ul>
+        <li>State can regulate or restrict any <em>economic, financial, political, or other secular activity</em> associated with religious practice.</li>
+        <li>State can provide for <em>social welfare and reform</em> and throw open Hindu religious institutions of a public character to all classes of Hindus (including SCs).</li>
+        <li>This was used to justify the Hindu temple entry laws — the SC upheld laws requiring temples to allow Dalit entry as they deal with secular (public access) aspects.</li>
+      </ul>
+    </div>
+
+    <p><strong>Art.26</strong> — Every religious denomination has rights to: (a) establish and maintain institutions for religious and charitable purposes; (b) manage its own affairs in matters of religion; (c) own and acquire movable and immovable property; (d) administer such property in accordance with law.</p>
+    <div class="concept-box warn">
+      <strong>Art.25 vs Art.26:</strong>
+      <ul>
+        <li>Art.25 = individual right of conscience and religious freedom</li>
+        <li>Art.26 = collective right of a religious denomination to manage its own affairs</li>
+        <li>"Religious denomination" = a body of people with common faith, organisation, and designation — e.g., Ramakrishna Math, Aurobindo Ashram, specific sects within larger religions</li>
+        <li>The State can regulate secular/administrative aspects even of denominational institutions (like keeping accounts) — but cannot interfere in purely religious matters (like who can be a priest)</li>
+        <li><em>Shirur Mutt case</em> (1954): Distinction between "religious matters" (not regulated) and "secular matters associated with religion" (can be regulated) was drawn first here</li>
+      </ul>
+    </div>
+
+    <p><strong>Art.27</strong> — No person shall be compelled to pay any taxes, the proceeds of which are specifically appropriated for the payment of expenses for the promotion or maintenance of any particular religion or religious denomination.</p>
+    <ul>
+      <li>A fee (not tax) for temple administration purposes is permissible.</li>
+      <li>Tax collected for Haj subsidy — contested; SC in 2012 asked the government to phase it out as it violates the secular principle (not Art.27 per se).</li>
+      <li>Entry fees to religious places are fees, not taxes — permissible.</li>
+    </ul>
+
+    <p><strong>Art.28</strong> — Three tiers regarding religious instruction in educational institutions:</p>
+    <table class="summary-table">
+      <tr><th>Type of Institution</th><th>Religious Instruction?</th></tr>
+      <tr><td>Established &amp; wholly maintained by the State</td><td><strong>Absolutely prohibited</strong> — no religious instruction of any kind</td></tr>
+      <tr><td>Established under a trust/endowment requiring religious instruction, administered by State</td><td><strong>Allowed</strong> (founding condition was religious — State took over administration later)</td></tr>
+      <tr><td>State-recognised / State-aided (not wholly State-maintained)</td><td><strong>Allowed optionally</strong> — but no student can be <em>compelled</em> to attend</td></tr>
+    </table>
+  </div>
+
+  <!-- ART 29-30 -->
+  <div class="card">
+    <h3>🏫 Articles 29–30 — Cultural &amp; Educational Rights: Minority Rights in Detail</h3>
+    <p><strong>Art.29(1)</strong> — Any <em>section of citizens</em> residing in any part of India having a distinct language, script, or culture of its own shall have the right to conserve the same. Available to ALL sections of citizens — majority and minority alike (unlike Art.30 which is only for minorities).</p>
+    <p><strong>Art.29(2)</strong> — No citizen shall be denied admission into any educational institution maintained by the State or receiving aid out of State funds on grounds only of religion, race, caste, language, or any of them.</p>
+    <div class="concept-box info">
+      <strong>Art.29(2) vs Art.15:</strong> Art.29(2) specifically covers <em>admission to educational institutions</em>. Art.15(1) covers general discrimination. A minority institution claiming Art.30 rights can still be subject to Art.29(2) — it cannot exclude students only on grounds of religion/caste if it receives State aid.
+    </div>
+
+    <p><strong>Art.30(1)</strong> — All minorities (religious or linguistic) shall have the right to establish and administer educational institutions of their choice. Art.30(1A) (added by 44th Amendment) — In fixing compensation for compulsory acquisition of minority institution's property, the adequacy of such compensation shall not be questioned on ground of Art.31.</p>
+    <p><strong>Art.30(2)</strong> — State shall not, in granting aid to educational institutions, discriminate against any educational institution on the ground that it is under the management of a minority.</p>
+
+    <div class="concept-box warn">
+      <strong>TMA Pai Foundation v. State of Karnataka (2002) — 11-Judge Bench — Landmark:</strong>
+      <ul>
+        <li>Who is a "minority"? Determined on a <em>State-wise</em> basis (not national basis) — so Hindus can be a minority in Meghalaya, Mizoram, etc.</li>
+        <li>Minority institutions can have their own admission process for minority students.</li>
+        <li>But for non-minority seats (in aided institutions), normal merit-based admission applies.</li>
+        <li>State can regulate academic standards, fee structure (to prevent profiteering), and infrastructure — but cannot completely take over administration.</li>
+        <li>Right to administer does NOT mean right to maladminister — efficiency of administration can be regulated.</li>
+      </ul>
+    </div>
+    <div class="concept-box highlight">
+      <strong>PA Inamdar v. State of Maharashtra (2005) — Extends TMA Pai:</strong> Unaided minority institutions have full freedom to admit their own students. The 93rd Amendment (Art.15(5)) that enabled reservations in private unaided institutions does NOT apply to minority institutions. This was the conflict between Art.15(5) and Art.30.
+    </div>
+    <div class="concept-box info">
+      <strong>"Linguistic Minority" — Two Important Points:</strong><br>
+      (1) Every State can have its own linguistic minorities — Tamil speakers in Maharashtra, for instance, can claim Art.30 rights.<br>
+      (2) There is no definition of "minority" in the Constitution. The National Commission for Minority Educational Institutions (NCMEI) Act, 2004 provides a statutory mechanism for granting minority status to educational institutions.
+    </div>
+  </div>
+
+  <!-- ART 32 FULL -->
+  <div class="card">
+    <h3>❤️ Article 32 — Constitutional Remedies: The Heart &amp; Soul + All Five Writs</h3>
+    <p>Dr. B.R. Ambedkar in the Constituent Assembly: "If I was asked to name any particular article in this Constitution as the most important — an article without which this Constitution would be a nullity — I could not refer to any other article except this one. It is the very soul of the Constitution and the very heart of it."</p>
+    <p>Art.32 guarantees the right to move the SC for enforcement of FRs — this RIGHT ITSELF IS A FUNDAMENTAL RIGHT. Unlike Art.226 (HC), Art.32 cannot be denied to any person whose FR has been violated.</p>
+
+    <table class="summary-table">
+      <tr><th>Writ</th><th>Latin Meaning</th><th>Purpose</th><th>Against Whom</th><th>Key Point</th></tr>
+      <tr>
+        <td><strong>Habeas Corpus</strong></td><td>"You have the body"</td>
+        <td>Challenges unlawful detention — the court asks the detaining authority to present the person and justify the detention</td>
+        <td>Any authority detaining a person — state or private. Available to ANY person (including enemy alien in some circumstances)</td>
+        <td>Most powerful writ for personal liberty. Can be filed by anyone on behalf of the detained person. Cannot be issued when: detention is under a law that is constitutionally valid; court martial cases; parliament contempt cases.</td>
+      </tr>
+      <tr>
+        <td><strong>Mandamus</strong></td><td>"We command"</td>
+        <td>Commands a public body to perform its legal duty — issues when a public authority refuses or fails to perform a mandatory public duty</td>
+        <td>Public bodies, government officials, inferior courts, tribunals — NOT against private individuals, NOT against the President/Governor (Art.361), NOT against Parliament/State Legislature</td>
+        <td>Three conditions: (i) legal right of petitioner; (ii) corresponding legal duty of the authority; (iii) duty is public in nature and mandatory. Cannot be issued to enforce a discretionary duty — only mandatory duties.</td>
+      </tr>
+      <tr>
+        <td><strong>Prohibition</strong></td><td>"To forbid"</td>
+        <td>Stops an inferior court/tribunal from proceeding further when it acts in excess of jurisdiction or in violation of natural justice — prevents a wrong from happening (preventive)</td>
+        <td>Inferior courts (subordinate courts, tribunals, quasi-judicial bodies) — NOT against administrative/executive authorities. NOT against legislative bodies.</td>
+        <td>Issued while proceedings are ongoing. Once the inferior court has given its final order, it's too late for Prohibition — then Certiorari is the remedy. Both Prohibition and Certiorari deal with jurisdictional excess.</td>
+      </tr>
+      <tr>
+        <td><strong>Certiorari</strong></td><td>"To be certified/to be informed"</td>
+        <td>Quashes the order of an inferior court, tribunal, or quasi-judicial body for (i) excess of jurisdiction; (ii) error of law apparent on the face of the record; (iii) violation of natural justice</td>
+        <td>Same as Prohibition — inferior courts, tribunals, quasi-judicial bodies. NOT against purely administrative orders without any judicial character.</td>
+        <td>Issued after the order is made (curative, unlike Prohibition which is preventive). SC now issues Certiorari even against administrative bodies if they make quasi-judicial decisions affecting rights. <em>A.K. Kraipak case</em> (1969) expanded scope.</td>
+      </tr>
+      <tr>
+        <td><strong>Quo Warranto</strong></td><td>"By what authority"</td>
+        <td>Challenges a person's claim to a public office — asks the person to show the authority by which they hold a public position</td>
+        <td>Any person holding a public office of a substantial nature under the State</td>
+        <td>Only writ that can be filed by ANY member of the public (not just an aggrieved party). Applies only to public offices created by statute. NOT for private offices. Conditions: the office must be public and substantive; the person must be holding it without legal authority.</td>
+      </tr>
+    </table>
+
+    <div class="concept-box warn">
+      <strong>Art.32 (SC) vs Art.226 (HC) — Critical Comparison:</strong>
+      <table class="summary-table">
+        <tr><th>Feature</th><th>Art.32 (SC)</th><th>Art.226 (HC)</th></tr>
+        <tr><td>Purpose</td><td>Only for FR enforcement</td><td>For enforcement of ANY legal right (including FRs)</td></tr>
+        <tr><td>Nature</td><td>Itself a Fundamental Right — cannot be denied</td><td>Constitutional right, but NOT a FR</td></tr>
+        <tr><td>Territorial Scope</td><td>Pan-India</td><td>Within territorial jurisdiction of that HC (wider in some cases)</td></tr>
+        <tr><td>Can be suspended?</td><td>Yes — by Presidential order under Art.359 during National Emergency (except for Art.20 &amp; 21)</td><td>Cannot be suspended even during Emergency (Art.226 is not suspended by Art.359)</td></tr>
+        <tr><td>Discretion</td><td>SC must issue writ if FR violated — less discretion</td><td>HC has wider discretion (equitable jurisdiction)</td></tr>
+        <tr><td>Writs against?</td><td>Any authority violating FRs</td><td>Any person/authority for any legal right</td></tr>
+      </table>
+    </div>
+    <div class="concept-box info">
+      <strong>PIL — Public Interest Litigation (Art.32 expanded):</strong> From late 1970s, the SC (led by Justice PN Bhagwati and Justice Krishna Iyer) relaxed the rule of locus standi — any person can file a PIL on behalf of those unable to access courts. A letter, postcard, or even a newspaper report can be treated as a writ petition. This democratised constitutional remedies but also raised concerns about judicial overreach. Key PIL cases: Hussainara Khatoon (undertrial prisoners), Bandhua Mukti Morcha (bonded labour), MC Mehta (environment), Vishaka (sexual harassment at workplace).
+    </div>
+  </div>
+
+  <!-- ARTS 33-35 + EMERGENCY -->
+  <div class="card">
+    <h3>⚙️ Articles 33–35 + Emergency Provisions: When FRs Can Be Restricted</h3>
+    <table class="summary-table">
+      <tr><th>Article</th><th>Content</th><th>Key Point</th></tr>
+      <tr><td><strong>Art.33</strong></td><td>Parliament can, by law, modify application of Part III to armed forces, paramilitary, intelligence bureau, analogous forces — to ensure proper discharge of duties and maintenance of discipline</td><td>Only Parliament (not state legislatures) can make such laws. Example: The Army Act restricts certain FRs of soldiers. Such laws cannot be challenged in courts as FR violations.</td></tr>
+      <tr><td><strong>Art.34</strong></td><td>Parliament can indemnify persons in service of Union or a State for acts done in connection with maintenance/restoration of order in any area where martial law was in force</td><td>Provides legal protection for actions during martial law — even if those actions violated FRs. Acts cannot be challenged for FR violations once Parliament indemnifies them.</td></tr>
+      <tr><td><strong>Art.35</strong></td><td>Parliament alone (not states) has power to make laws: (a) prescribing residence requirement for Art.16(3); (b) empowering courts to issue writs (Art.32(3)); (c) restricting FRs for armed forces (Art.33); (d) indemnification under Art.34</td><td>Ensures uniformity — FR-related matters cannot be fragmented by different state laws. Creates a centralised legislative power over these specific FR-related subjects.</td></tr>
+    </table>
+
+    <div class="concept-box warn">
+      <strong>Fundamental Rights &amp; Emergency — The Complete Picture:</strong>
+      <div class="svg-wrap" style="margin-top:0.7rem">
+        <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+          <text x="350" y="18" text-anchor="middle" fill="var(--key-term)" font-size="11" font-weight="bold">FRs During Different Emergencies</text>
+          <!-- Headers -->
+          <rect x="0" y="25" width="175" height="28" rx="4" fill="#7c4dff" opacity="0.8"/>
+          <text x="87" y="43" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Type of Emergency</text>
+          <rect x="178" y="25" width="160" height="28" rx="4" fill="#5c6bc0" opacity="0.8"/>
+          <text x="258" y="43" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Article 19 Freedoms</text>
+          <rect x="341" y="25" width="180" height="28" rx="4" fill="#e64a19" opacity="0.8"/>
+          <text x="431" y="43" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Art.20 &amp; 21</text>
+          <rect x="524" y="25" width="175" height="28" rx="4" fill="#2e7d32" opacity="0.8"/>
+          <text x="611" y="43" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Art.32 (Remedies)</text>
+
+          <!-- Row 1 -->
+          <rect x="0" y="55" width="175" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="87" y="70" text-anchor="middle" fill="var(--text)" font-size="9">Art.352 — National Emergency</text>
+          <text x="87" y="83" text-anchor="middle" fill="var(--text)" font-size="8">(External Aggression / War)</text>
+          <rect x="178" y="55" width="160" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="258" y="75" text-anchor="middle" fill="#ff5252" font-size="9">AUTO-SUSPENDED ✗</text>
+          <rect x="341" y="55" width="180" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="431" y="68" text-anchor="middle" fill="#00e676" font-size="9">CANNOT be suspended ✓</text>
+          <text x="431" y="82" text-anchor="middle" fill="#00e676" font-size="8">(44th Amendment guarantee)</text>
+          <rect x="524" y="55" width="175" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="611" y="68" text-anchor="middle" fill="#ff9800" font-size="9">CAN be suspended</text>
+          <text x="611" y="82" text-anchor="middle" fill="#ff9800" font-size="8">by Presidential order (Art.359)</text>
+
+          <!-- Row 2 -->
+          <rect x="0" y="92" width="175" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="87" y="107" text-anchor="middle" fill="var(--text)" font-size="9">Art.352 — National Emergency</text>
+          <text x="87" y="120" text-anchor="middle" fill="var(--text)" font-size="8">(Armed Rebellion)</text>
+          <rect x="178" y="92" width="160" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="258" y="112" text-anchor="middle" fill="#ff5252" font-size="9">AUTO-SUSPENDED ✗</text>
+          <rect x="341" y="92" width="180" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="431" y="112" text-anchor="middle" fill="#00e676" font-size="9">CANNOT be suspended ✓</text>
+          <rect x="524" y="92" width="175" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="611" y="112" text-anchor="middle" fill="#ff9800" font-size="9">CAN be suspended (Art.359)</text>
+
+          <!-- Row 3 -->
+          <rect x="0" y="129" width="175" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="87" y="147" text-anchor="middle" fill="var(--text)" font-size="9">Art.356 — President's Rule</text>
+          <text x="87" y="160" text-anchor="middle" fill="var(--text)" font-size="8">(State Emergency)</text>
+          <rect x="178" y="129" width="160" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="258" y="150" text-anchor="middle" fill="#00e676" font-size="9">NOT affected ✓</text>
+          <rect x="341" y="129" width="180" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="431" y="150" text-anchor="middle" fill="#00e676" font-size="9">NOT affected ✓</text>
+          <rect x="524" y="129" width="175" height="35" rx="0" fill="var(--bg-card)" stroke="var(--border)"/>
+          <text x="611" y="150" text-anchor="middle" fill="#00e676" font-size="9">NOT affected ✓</text>
+        </svg>
+        <p class="svg-caption">FRs during different emergency types — at a glance</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LANDMARK CASES MASTER TABLE -->
+  <div class="card">
+    <h3>⚖️ Master Table — Landmark Cases Every UPSC Aspirant Must Know</h3>
+    <table class="summary-table">
+      <tr><th>Case</th><th>Year</th><th>Article</th><th>What it held</th></tr>
+      <tr><td><em>AK Gopalan v. State of Madras</em></td><td>1950</td><td>Art.21</td><td>Procedure established by law = any law passed by legislature. Arts.19, 21, 22 are separate compartments. (Later overruled by Maneka Gandhi)</td></tr>
+      <tr><td><em>State of WB v. Anwar Ali Sarkar</em></td><td>1952</td><td>Art.14</td><td>Reasonable classification test — two conditions: intelligible differentia + rational nexus</td></tr>
+      <tr><td><em>State of Madras v. Champakam Dorairajan</em></td><td>1951</td><td>Art.15/16</td><td>Communal reservation in admissions violates Art.15(1). Led to 1st Constitutional Amendment adding Art.15(4).</td></tr>
+      <tr><td><em>Bhikaji Narain Dhakras v. State of MP</em></td><td>1955</td><td>Art.13</td><td>Doctrine of Eclipse — pre-constitutional laws become dormant (not void) if they conflict with FRs</td></tr>
+      <tr><td><em>Kharak Singh v. State of UP</em></td><td>1963</td><td>Art.21</td><td>Domiciliary visits and surveillance by police violate Art.21 — early recognition of privacy dimensions</td></tr>
+      <tr><td><em>Golaknath v. State of Punjab</em></td><td>1967</td><td>Art.368</td><td>Parliament cannot amend Part III FRs. (Overruled by Kesavananda Bharati)</td></tr>
+      <tr><td><em>Rustom Cavasjee Cooper v. UOI (Bank Nationalisation)</em></td><td>1970</td><td>Art.19/31</td><td>SC upheld shareholders' right to challenge nationalisation. Broke down the separate-compartments theory before Maneka.</td></tr>
+      <tr><td><em>Kesavananda Bharati v. State of Kerala</em></td><td>1973</td><td>Art.368</td><td>Basic Structure doctrine — Parliament can amend FRs but cannot destroy the basic structure of the Constitution</td></tr>
+      <tr><td><em>Indira Gandhi v. Raj Narain</em></td><td>1975</td><td>Art.14/Art.329A</td><td>Free and fair elections = basic structure. Struck down 39th Amendment that immunised PM's election from judicial review.</td></tr>
+      <tr><td><em>ADM Jabalpur v. Shivkant Shukla</em></td><td>1976</td><td>Art.21</td><td>During Emergency, Art.21 suspended = no Habeas Corpus. Regarded as SC's darkest hour. Effectively overruled by 44th Amendment.</td></tr>
+      <tr><td><em>Maneka Gandhi v. Union of India</em></td><td>1978</td><td>Art.21</td><td>Procedure must be just, fair, reasonable. Arts.14, 19, 21 form a golden triangle — each law must satisfy all three. Passport impoundment without hearing = unconstitutional.</td></tr>
+      <tr><td><em>EP Royappa v. State of TN</em></td><td>1974</td><td>Art.14</td><td>Anti-arbitrariness doctrine — equality includes non-arbitrariness</td></tr>
+      <tr><td><em>Hussainara Khatoon v. State of Bihar</em></td><td>1979</td><td>Art.21</td><td>Right to speedy trial and free legal aid are part of Art.21; undertrial prisoners languishing in jail = Art.21 violation</td></tr>
+      <tr><td><em>Minerva Mills v. Union of India</em></td><td>1980</td><td>Art.368</td><td>Judicial review and balance between FRs and DPSPs are basic structure. Struck down part of 42nd Amendment.</td></tr>
+      <tr><td><em>PUDR v. Union of India</em></td><td>1982</td><td>Art.23</td><td>Payment below minimum wage = forced labour under Art.23. Government contracts must specify minimum wages.</td></tr>
+      <tr><td><em>Indra Sawhney v. Union of India</em></td><td>1992</td><td>Art.16</td><td>50% ceiling on reservations (judicial); creamy layer applies to OBCs; no reservation in promotions for OBCs; backward class ≠ only castes</td></tr>
+      <tr><td><em>Vishaka v. State of Rajasthan</em></td><td>1997</td><td>Art.14/19/21</td><td>Sexual harassment at workplace violates FRs; Vishaka guidelines issued. Led to POSH Act, 2013.</td></tr>
+      <tr><td><em>TMA Pai Foundation v. State of Karnataka</em></td><td>2002</td><td>Art.19/30</td><td>Running educational institution = profession under Art.19(1)(g); minority status determined state-wise; aided minority institutions can have regulated admissions</td></tr>
+      <tr><td><em>Selvi v. State of Karnataka</em></td><td>2010</td><td>Art.20(3)/21</td><td>Involuntary narco-analysis and lie detector tests violate Art.20(3) (self-incrimination) and Art.21 (dignity)</td></tr>
+      <tr><td><em>Shreya Singhal v. Union of India</em></td><td>2015</td><td>Art.19(1)(a)</td><td>Sec.66A IT Act (punishment for offensive online content) struck down — overbroad, chilling effect on free speech</td></tr>
+      <tr><td><em>KS Puttaswamy v. Union of India</em></td><td>2017</td><td>Art.21</td><td>Right to Privacy is a Fundamental Right under Art.21. 9-judge bench. Proportionality test adopted. Privacy has multiple dimensions: informational, bodily, locational, decisional.</td></tr>
+      <tr><td><em>Navtej Singh Johar v. Union of India</em></td><td>2018</td><td>Art.14/15/19/21</td><td>Sec.377 IPC criminalising consensual same-sex relations between adults struck down. Sexual orientation is protected under FRs.</td></tr>
+      <tr><td><em>Indian Young Lawyers Assn. v. State of Kerala (Sabarimala)</em></td><td>2018</td><td>Art.25/26</td><td>4:1 — exclusion of women (10–50 yrs) from Sabarimala is unconstitutional. Not essential religious practice. Referred to larger bench 2019.</td></tr>
+      <tr><td><em>Janhit Abhiyan v. Union of India</em></td><td>2022</td><td>Art.15/16</td><td>103rd Amendment (EWS reservation, 10%) upheld by 3:2. Does not violate equality code or basic structure.</td></tr>
+    </table>
+  </div>
+
+  <!-- FR vs DPSP -->
+  <div class="card">
+    <h3>🔗 Interlinks: FRs with Other Constitutional Provisions &amp; Subjects</h3>
+    <table class="summary-table">
+      <tr><th>Connection</th><th>Link</th></tr>
+      <tr><td><strong>FR vs DPSP</strong></td><td>FRs = justiciable; DPSPs = non-justiciable. Harmonious construction doctrine (Minerva Mills): both must coexist. Art.31C immunises DPSP-implementing laws from Arts.14 &amp; 19 challenge (but judicial review cannot be excluded — Minerva Mills struck that part of 42nd Amendment)</td></tr>
+      <tr><td><strong>FR vs Fundamental Duties (Art.51A)</strong></td><td>SC has held that FDs can be used to interpret FRs — a person's duty not to promote religious intolerance helps define the limits of Art.25's right to propagate. FDs are not enforceable per se but can inform constitutional interpretation.</td></tr>
+      <tr><td><strong>Art.21 + DPSPs</strong></td><td>Right to education (Art.21A) implements Art.45 DPSP. Right to health (Art.21) implements Art.47. Right to livelihood (Art.21) implements Art.39(a). DPSPs have been progressively "elevated" to FRs through Art.21 expansion.</td></tr>
+      <tr><td><strong>FRs + Judicial Review</strong></td><td>Judicial Review of legislation for FR consistency is a basic structure feature (Indira Gandhi v. Raj Narain). Even constitutional amendments can be reviewed if they destroy basic structure elements (which include some FRs like right to equality).</td></tr>
+      <tr><td><strong>Art.13 + 9th Schedule</strong></td><td>Laws in the 9th Schedule were initially immune from FR challenge. But SC in <em>IR Coelho v. State of Tamil Nadu</em> (2007) — 9-judge bench — held that laws added to 9th Schedule after Kesavananda Bharati (1973) can be challenged if they damage basic structure.</td></tr>
+      <tr><td><strong>FRs + GST/Taxation</strong></td><td>Taxation laws can be challenged under Art.14 (if arbitrary) and Art.19(1)(g) (if they destroy a profession). The "reasonable restriction" test applies. Art.265 (no tax without authority of law) works alongside Art.14 for tax validity.</td></tr>
+      <tr><td><strong>FRs + Environment</strong></td><td>Art.21 (right to clean environment) + Art.48A (DPSP on environment protection) + Art.51A(g) (FD to protect environment) form a constitutional trinity. MC Mehta cases built on this. The precautionary principle and polluter pays principle are now part of Art.21's scope.</td></tr>
+    </table>
+  </div>
+
+  <!-- SPECIAL RULES ART 33-35 -->
+  <div class="card">
+    <h3>⚠️ Special Rules, Corporations &amp; Persons — Who Can Claim Which FR?</h3>
+    <div class="concept-box info">
+      <strong>Citizens vs Persons — The Most UPSC-Tested Distinction:</strong>
+      <table class="summary-table">
+        <tr><th>Available to ALL PERSONS (incl. foreigners, companies)</th><th>Available only to CITIZENS</th></tr>
+        <tr><td>Art.14 (Equality before law)</td><td>Art.15 (No discrimination)</td></tr>
+        <tr><td>Art.20 (Protection against arbitrary conviction)</td><td>Art.16 (Equality in public employment)</td></tr>
+        <tr><td>Art.21 (Right to life)</td><td>Art.19 (Six freedoms)</td></tr>
+        <tr><td>Art.21A (Right to education)</td><td>Art.29 (Cultural rights)</td></tr>
+        <tr><td>Art.22 (Safeguards on arrest — except enemy aliens)</td><td>Art.30 (Educational rights of minorities)</td></tr>
+        <tr><td>Art.23 (Against exploitation)</td><td></td></tr>
+        <tr><td>Art.24 (Against child labour)</td><td></td></tr>
+        <tr><td>Art.25 (Freedom of religion)</td><td></td></tr>
+        <tr><td>Art.32 (Right to constitutional remedies)</td><td></td></tr>
+      </table>
+    </div>
+    <div class="concept-box highlight">
+      <strong>Can Corporations (Companies) Claim FRs?</strong>
+      <ul>
+        <li>Yes, for Art.14 — a company is a legal person, equal protection applies. <em>State Trading Corporation v. CTO</em> (1963)</li>
+        <li>NO for Art.19 — the freedoms in Art.19 are for "citizens" — a company is not a citizen. But the shareholders (individual citizens) behind the company can challenge through the <em>piercing the veil</em> doctrine in some cases. <em>Bennett Coleman v. UOI</em> (1972): Newspaper company's shareholders could claim Art.19(1)(a) rights.</li>
+        <li>Yes, for Art.21 — companies have a form of existence and can claim procedural fairness.</li>
+      </ul>
+    </div>
+    <div class="concept-box warn">
+      <strong>FRs for Armed Forces (Art.33):</strong> Parliament has enacted the Army Act (1950), Navy Act (1957), Air Force Act (1950) which restrict certain FRs of armed forces members. These include restrictions on forming associations (Art.19(1)(c)), political activity, public statements critical of the government. The right to move SC under Art.32 is also restricted — military courts/tribunals operate separately, and Art.33 laws give them immunity from FR challenge.
+    </div>
+  </div>
+</section>
+
+<!-- TASK 3: PYQs -->
+<section class="section" id="pyqs">
+  <div class="section-head">
+    <h2>📝 PYQs — Prelims</h2>
+    <button class="revised-btn" onclick="toggleRevised(this,'pyqs')">✓ Mark Revised</button>
+  </div>
+
+  <!-- PYQ 1 -->
+  <div class="pyq-card">
+    <div class="pyq-meta">
+      <span class="pyq-year">2021</span>
+      <span class="pyq-marks">2 Marks</span>
+      <span class="trap-tag">LOOKALIKE TERM</span>
+      <span class="badge badge-prelims">Prelims</span>
+    </div>
+    <p class="pyq-q">Q1. 'Right to Privacy' is protected under which Article of the Constitution of India?</p>
+    <div class="options" id="opts-p1">
+      <div class="option"><span class="option-label">A.</span> Article 15</div>
+      <div class="option"><span class="option-label">B.</span> Article 19</div>
+      <div class="option"><span class="option-label">C.</span> Article 21</div>
+      <div class="option"><span class="option-label">D.</span> Article 29</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('p1',2)">Reveal Answer</button>
+    <div class="explanation" id="exp-p1">
+      <div class="correct-line">✓ Correct Answer: C — Article 21</div>
+      <p>In <em>Justice K.S. Puttaswamy v. Union of India</em> (2017), a 9-judge Constitution Bench unanimously declared the Right to Privacy a Fundamental Right under Article 21 (Right to Life and Personal Liberty). The Court held that privacy is intrinsic to life and liberty.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ UPSC Trap Analysis</div>
+        <p><strong>The Trap:</strong> Many students pick Art.19(1)(d) (freedom of movement) thinking privacy relates to personal freedom, or Art.29 (cultural rights) associating it with "personal" identity. Others pick Art.15 thinking it's discrimination-related.</p>
+        <p><strong>Most wrong answer:</strong> Option B (Art.19) — because privacy feels like a "freedom" right.</p>
+        <p><strong>Elimination:</strong> Art.15 = discrimination | Art.19 = specific enumerated freedoms | Art.29 = minorities' cultural rights. Art.21 is the catch-all for all aspects of life and dignity — anything not covered by specific articles that relates to personal liberty gets read into Art.21. Right to Privacy's recognition under Art.21 came through judicial expansion (Puttaswamy 2017).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYQ 2 -->
+  <div class="pyq-card">
+    <div class="pyq-meta">
+      <span class="pyq-year">2021</span>
+      <span class="pyq-marks">2 Marks</span>
+      <span class="trap-tag">PARTIAL TRUTH</span>
+      <span class="badge badge-prelims">Prelims</span>
+    </div>
+    <p class="pyq-q">Q2. What is the position of the Right to Property in India?</p>
+    <div class="options" id="opts-p2">
+      <div class="option"><span class="option-label">A.</span> Legal right available to citizens only</div>
+      <div class="option"><span class="option-label">B.</span> Legal right available to any person</div>
+      <div class="option"><span class="option-label">C.</span> Fundamental Right available to citizens only</div>
+      <div class="option"><span class="option-label">D.</span> Neither Fundamental Right nor legal right</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('p2',1)">Reveal Answer</button>
+    <div class="explanation" id="exp-p2">
+      <div class="correct-line">✓ Correct Answer: B — Legal right available to any person</div>
+      <p>The 44th Amendment (1978) removed Right to Property from the FR list (deleted Art.19(1)(f) and Art.31). It was relocated as Art.300A under Part XII — making it a <em>constitutional legal right</em>, not a FR. As Art.300A, it is not restricted to citizens — any "person" (including foreign nationals, companies) can claim it.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ UPSC Trap Analysis</div>
+        <p><strong>The Trap:</strong> Two traps here — (1) confusing "legal right" with "FR", (2) assuming it's only for citizens (as FRs under Art.19 were).</p>
+        <p><strong>Most wrong answer:</strong> C (Fundamental Right, citizens only) — outdated understanding before 1978 amendment.</p>
+        <p><strong>Key rule:</strong> Art.300A says "No person shall be deprived of his property..." — the word "person" is wider than "citizen." A legal right under the Constitution is enforceable by HC (Art.226) but NOT directly by SC under Art.32 (since Art.32 is only for FR violations).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYQ 3 -->
+  <div class="pyq-card">
+    <div class="pyq-meta">
+      <span class="pyq-year">2021</span>
+      <span class="pyq-marks">2 Marks</span>
+      <span class="trap-tag">STATEMENT COMBO</span>
+      <span class="badge badge-prelims">Prelims</span>
+    </div>
+    <p class="pyq-q">Q3. Consider the following statements about Bharat Ratna and Padma Awards:<br>
+    1. They are titles under Article 18(1) of the Constitution.<br>
+    2. Padma Awards were instituted in 1954 and were suspended only once.<br>
+    3. The number of Bharat Ratna Awards is restricted to a maximum of five in a particular year.<br>
+    Which of the above statements are NOT correct?</p>
+    <div class="options" id="opts-p3">
+      <div class="option"><span class="option-label">A.</span> 1 and 2 only</div>
+      <div class="option"><span class="option-label">B.</span> 2 and 3 only</div>
+      <div class="option"><span class="option-label">C.</span> 1 and 3 only</div>
+      <div class="option"><span class="option-label">D.</span> 1, 2 and 3</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('p3',2)">Reveal Answer</button>
+    <div class="explanation" id="exp-p3">
+      <div class="correct-line">✓ Correct Answer: C — Statements 1 and 3 are NOT correct</div>
+      <p><strong>Statement 1 WRONG:</strong> Bharat Ratna and Padma Awards are NOT titles under Art.18(1). The SC has clarified they are not to be used as prefixes/suffixes. Art.18(1) abolishes State-conferred titles (like "Sir," "Rai Bahadur," etc.).<br>
+      <strong>Statement 2 CORRECT:</strong> Padma Awards were instituted in 1954 and suspended during 1977–1980 (Janata Party period) — that is once.<br>
+      <strong>Statement 3 WRONG:</strong> There is NO cap of 5 on Bharat Ratna per year. While traditionally 1–2 are given, there's no constitutional or legal limit.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ UPSC Trap Analysis</div>
+        <p><strong>The Trap:</strong> Statement 1 sounds plausible (after all, awards = titles, right?). Statement 3 seems like a fact many would accept without thinking. UPSC uses "seems reasonable" traps extensively.</p>
+        <p><strong>Most wrong answer:</strong> A (1 and 2) — students know statement 1 is wrong but guess statement 2 is also wrong because they don't remember the number of suspensions.</p>
+        <p><strong>Recall cue:</strong> Art.18 says "No title [except military or academic distinctions]" — the key qualifier is that it prohibits FEUDAL-TYPE titles. Awards with no title-use rule are not "titles" per Art.18.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYQ 4 -->
+  <div class="pyq-card">
+    <div class="pyq-meta">
+      <span class="pyq-year">2021</span>
+      <span class="pyq-marks">2 Marks</span>
+      <span class="trap-tag">LOOKALIKE TERM</span>
+      <span class="badge badge-prelims">Prelims</span>
+    </div>
+    <p class="pyq-q">Q4. A legislation which confers on the executive or administrative authority an unguided and uncontrolled discretionary power in the matter of application of law violates which one of the following Articles?</p>
+    <div class="options" id="opts-p4">
+      <div class="option"><span class="option-label">A.</span> Article 14</div>
+      <div class="option"><span class="option-label">B.</span> Article 28</div>
+      <div class="option"><span class="option-label">C.</span> Article 32</div>
+      <div class="option"><span class="option-label">D.</span> Article 44</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('p4',0)">Reveal Answer</button>
+    <div class="explanation" id="exp-p4">
+      <div class="correct-line">✓ Correct Answer: A — Article 14</div>
+      <p>Art.14 prohibits arbitrary state action. The SC has evolved the principle that <em>excessive delegation of unguided discretion</em> is inherently arbitrary and violates Art.14. This is the "anti-arbitrariness" doctrine. A law giving bureaucrats unchecked power = arbitrary = unconstitutional.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ UPSC Trap Analysis</div>
+        <p><strong>The Trap:</strong> Students confuse this with Art.32 (remedy for FR violation) or Art.44 (DPSP for uniform civil code — which is a common distractor). Art.28 is about religious instruction in schools — completely unrelated.</p>
+        <p><strong>Key UPSC trick:</strong> Anything that says "arbitrary state power" = Art.14. Anything about "remedy for FR violation" = Art.32. UPSC often puts both as options.</p>
+        <p><strong>Recall cue:</strong> Arbitrariness = Art.14. This was established in <em>EP Royappa v. State of Tamil Nadu</em> (1974) and extended in <em>Maneka Gandhi</em> (1978).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYQ 5 -->
+  <div class="pyq-card">
+    <div class="pyq-meta">
+      <span class="pyq-year">2020</span>
+      <span class="pyq-marks">2 Marks</span>
+      <span class="trap-tag">LOOKALIKE TERM</span>
+      <span class="badge badge-prelims">Prelims</span>
+    </div>
+    <p class="pyq-q">Q5. Which one of the following categories of Fundamental Rights incorporates protection against untouchability as a form of discrimination?</p>
+    <div class="options" id="opts-p5">
+      <div class="option"><span class="option-label">A.</span> Right against Exploitation</div>
+      <div class="option"><span class="option-label">B.</span> Right to Freedom</div>
+      <div class="option"><span class="option-label">C.</span> Right to Equality</div>
+      <div class="option"><span class="option-label">D.</span> Right to Constitutional Remedies</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('p5',2)">Reveal Answer</button>
+    <div class="explanation" id="exp-p5">
+      <div class="correct-line">✓ Correct Answer: C — Right to Equality (Art.17)</div>
+      <p>Art.17 (Abolition of Untouchability) falls under the <strong>Right to Equality</strong> group (Arts.14–18). It makes "untouchability" an offence. The Protection of Civil Rights Act, 1955 (formerly Untouchability Offences Act) punishes its practice.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ UPSC Trap Analysis</div>
+        <p><strong>The Trap:</strong> "Untouchability" sounds like "exploitation" — students pick "Right Against Exploitation" (Arts.23–24) which deals with forced labour and child labour. The content seems to match but Art.17 is categorically under Right to Equality.</p>
+        <p><strong>Most wrong answer:</strong> A (Right against Exploitation) — logical but wrong grouping.</p>
+        <p><strong>Memory trick:</strong> Art.14 to Art.18 = ALL about equality. Art.17 = equality so fundamental it abolishes centuries of social hierarchy. "Equal" enough to eat with, travel with, live with — no untouchability.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYQ 6 -->
+  <div class="pyq-card">
+    <div class="pyq-meta">
+      <span class="pyq-year">2023</span>
+      <span class="pyq-marks">2 Marks</span>
+      <span class="trap-tag">STATEMENT COMBO</span>
+      <span class="badge badge-prelims">Prelims</span>
+    </div>
+    <p class="pyq-q">Q6. Consider the following statements:<br>
+    Statement-I: The Supreme Court held that reservation policies under Art.16(4) would be limited by Art.335 for maintenance of efficiency of administration.<br>
+    Statement-II: Article 335 defines the term 'efficiency of administration'.<br>
+    Which is correct?</p>
+    <div class="options" id="opts-p6">
+      <div class="option"><span class="option-label">A.</span> Both I and II are correct and II explains I</div>
+      <div class="option"><span class="option-label">B.</span> Both are correct but II does not explain I</div>
+      <div class="option"><span class="option-label">C.</span> Statement I is correct but II is incorrect</div>
+      <div class="option"><span class="option-label">D.</span> Statement I is incorrect but II is correct</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('p6',2)">Reveal Answer</button>
+    <div class="explanation" id="exp-p6">
+      <div class="correct-line">✓ Correct Answer: C — Statement I correct, Statement II incorrect</div>
+      <p><strong>Statement I:</strong> Correct. Art.16(4) (reservations in public employment) must be balanced with Art.335 (claims of SCs/STs must be taken into consideration <em>consistently with maintenance of efficiency</em>). SC has confirmed this in multiple judgments including <em>Indra Sawhney</em>.</p>
+      <p><strong>Statement II:</strong> WRONG. Art.335 does NOT define "efficiency of administration." It merely mentions efficiency as a consideration. The definition of efficiency is not given in the Constitution — it's left to interpretation.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ UPSC Trap Analysis</div>
+        <p><strong>This is UPSC's favourite new format (2021 onwards):</strong> Statement I vs Statement II, where one statement is correct and the explanation (Statement II) is subtly wrong. The trap is: if Statement I is true, test-takers assume Statement II (the explanation) must also be true.</p>
+        <p><strong>Trick:</strong> Always verify Statement II independently. The fact that an article mentions something does NOT mean it defines it. Art.335 mentions efficiency as a consideration — it does not define it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAINS PYQs -->
+  <h2 style="margin-top:2.5rem">📝 PYQs — Mains (Model Answers)</h2>
+
+  <div class="mains-card">
+    <div class="pyq-meta">
+      <span class="pyq-year">2022</span>
+      <span class="pyq-marks">15 Marks</span>
+      <span class="badge badge-mains">Mains GS-II</span>
+    </div>
+    <p class="mains-q">Q. "The expanding horizons of Article 21 reflect the Supreme Court's commitment to substantive constitutionalism." Critically examine. [15 Marks, ~250 words]</p>
+    <div class="answer-body">
+      <h4>Introduction</h4>
+      <p>Article 21's journey from a narrow procedural guarantee to a substantive charter of human rights represents the most significant judicial achievement in Indian constitutional history, anchored in the Supreme Court's evolution from <em>AK Gopalan</em> (1950) to <em>Puttaswamy</em> (2017).</p>
+      <h4>Expansion: From Procedure to Substance</h4>
+      <p><strong>Maneka Gandhi v. Union of India (1978)</strong> was the watershed moment. The Court overruled <em>AK Gopalan</em> and held that "procedure established by law" must be just, fair, and reasonable — importing American due process into Art.21. This made Art.21 a living document capable of absorbing new rights.</p>
+      <p>Subsequently, the Court read into Art.21: right to livelihood (<em>Olga Tellis, 1985</em>), right to education (leading to Art.21A), right to health and medical aid (<em>Paschim Banga Khet Mazdoor Samity, 1996</em>), right to speedy trial (<em>Hussainara Khatoon, 1979</em>), right to clean environment (<em>Subhash Kumar, 1991</em>), right to dignity of prisoners, and most recently, right to privacy (<em>Puttaswamy, 2017</em>).</p>
+      <h4>Critical Assessment</h4>
+      <p><strong>Positives:</strong> Judicial activism through Art.21 has filled legislative gaps, providing relief to marginalised groups when Parliament remained inactive. It has made the right to life genuinely meaningful and not merely formal.</p>
+      <p><strong>Concerns:</strong> Unguided expansion risks making Art.21 a "super-right" that eclipses legislative space. Some scholars argue the court is engaging in social engineering beyond its mandate. Further, enforcement of positive socio-economic rights through Art.21 strains institutional capacity.</p>
+      <h4>Conclusion</h4>
+      <p>Art.21's expansion embodies substantive constitutionalism — the idea that rights must have real-world meaning. The challenge ahead is to balance judicial creativity with separation of powers, ensuring Art.21 remains an instrument of justice rather than litigation-overload.</p>
+      <p class="word-count">~270 words | Suitable for 15-mark answer</p>
+    </div>
+  </div>
+
+  <div class="mains-card">
+    <div class="pyq-meta">
+      <span class="pyq-year">2019</span>
+      <span class="pyq-marks">10 Marks</span>
+      <span class="badge badge-mains">Mains GS-II</span>
+    </div>
+    <p class="mains-q">Q. The Directive Principles of State Policy which are fundamental in the governance of the country cannot be isolated from the Fundamental Rights guaranteed to the people. Examine. [10 Marks, ~150 words]</p>
+    <div class="answer-body">
+      <h4>Introduction</h4>
+      <p>The Constitution's framers deliberately placed FRs and DPSPs in a complementary relationship — the former protecting individuals from state overreach, the latter guiding the state toward a just social order.</p>
+      <h4>Interconnection</h4>
+      <p><strong>From conflict to harmony:</strong> Early jurisprudence (State of Madras v. Champakam Dorairajan, 1951) held FRs supreme over DPSPs. However, after multiple amendments and the Basic Structure doctrine, the SC evolved the <em>harmonious construction</em> approach in <em>Minerva Mills</em> (1980): neither FRs nor DPSPs can completely override each other.</p>
+      <p>Art.31C (42nd Amendment) immunised laws giving effect to DPSPs from challenge under Art.14 &amp; Art.19 — though the SC in <em>Minerva Mills</em> struck down the part that removed judicial review.</p>
+      <p><strong>Practical fusion:</strong> Right to education (Art.21A) implements DPSP Art.45. Right to livelihood under Art.21 mirrors DPSP Art.39(a). Art.47 (public health DPSP) informed the right to health under Art.21.</p>
+      <h4>Conclusion</h4>
+      <p>FRs are the means; DPSPs are the end. Together, they constitute the constitutional vision of India as a welfare state where individual liberty and social justice coexist. Treating them as rivals, rather than partners, misreads the Constitution's transformative intent.</p>
+      <p class="word-count">~185 words | Suitable for 10-mark answer</p>
+    </div>
+  </div>
+</section>
+
+<!-- TASK 4: MCQs -->
+<section class="section" id="mcqs">
+  <div class="section-head">
+    <h2>🎯 Practice MCQs — Progressive Difficulty</h2>
+    <button class="revised-btn" onclick="toggleRevised(this,'mcqs')">✓ Mark Revised</button>
+  </div>
+  <p style="margin-bottom:1rem;opacity:0.8">Start from Q1 (direct recall) → Q10 (UPSC eliminator style). Attempt before revealing!</p>
+
+  <!-- MCQ 1 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 01 — Direct Recall</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">ABSOLUTE WORD</div>
+    <p class="pyq-q">Which Fundamental Right cannot be suspended even during a National Emergency under Article 352?</p>
+    <div class="options" id="opts-m1">
+      <div class="option"><span class="option-label">A.</span> Article 19 (Freedom of Speech)</div>
+      <div class="option"><span class="option-label">B.</span> Article 21 (Right to Life)</div>
+      <div class="option"><span class="option-label">C.</span> Article 32 (Right to Constitutional Remedies)</div>
+      <div class="option"><span class="option-label">D.</span> Article 14 (Right to Equality)</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m1',1)">Reveal Answer</button>
+    <div class="explanation" id="exp-m1">
+      <div class="correct-line">✓ Correct Answer: B — Article 21</div>
+      <p>Under Art.359, the President can suspend enforcement of FRs during National Emergency — EXCEPT Art.20 (protection from conviction) and Art.21 (right to life). These two remain operative always. Art.19 is automatically suspended during Art.352 Emergency. Art.32 can be suspended by Presidential order under Art.359, but Art.20 &amp; 21 cannot.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>Trap: Students often think Art.32 (the very tool to enforce rights) cannot be suspended. But it CAN be suspended under Art.359 — only Art.20 and Art.21 cannot. The 44th Amendment (1978) enshrined this protection for Art.20 &amp; 21 explicitly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 2 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 02 — Conceptual</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">LOOKALIKE TERM</div>
+    <p class="pyq-q">Which of the following is protected under Article 19(1)(a) (Freedom of Speech and Expression) as held by the Supreme Court?</p>
+    <div class="options" id="opts-m2">
+      <div class="option"><span class="option-label">A.</span> Right to strike</div>
+      <div class="option"><span class="option-label">B.</span> Right to silence (not testifying)</div>
+      <div class="option"><span class="option-label">C.</span> Right to know (access to information)</div>
+      <div class="option"><span class="option-label">D.</span> Right to vote</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m2',2)">Reveal Answer</button>
+    <div class="explanation" id="exp-m2">
+      <div class="correct-line">✓ Correct Answer: C — Right to know / access to information</div>
+      <p>The SC in <em>Secretary, Ministry of I&amp;B v. Cricket Association of Bengal</em> (1995) held that freedom of speech includes the right to receive information. The Right to Information Act (2005) flows from this. <br>Right to strike: Not a FR, only a statutory right under trade union law. Right to silence (not testifying): This is under Art.20(3) self-incrimination, not Art.19. Right to vote: A statutory right under Representation of People Act, not a FR.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>UPSC frequently tests what IS and ISN'T included under Art.19(1)(a). Right to strike, right to vote, right to remain silent — all sound like "freedoms" but are not under Art.19(1)(a). Right to information is the correct judicial expansion of speech and expression.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 3 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 03 — Article Matching</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">PARTIAL TRUTH</div>
+    <p class="pyq-q">Which of the following Fundamental Rights are available to foreign nationals in India?<br>1. Art.14 (Equality before Law)<br>2. Art.15 (No discrimination on grounds of religion, race, caste, sex)<br>3. Art.20 (Protection from arbitrary conviction)<br>4. Art.21 (Right to Life)<br>Select the correct answer:</p>
+    <div class="options" id="opts-m3">
+      <div class="option"><span class="option-label">A.</span> 1, 3 and 4 only</div>
+      <div class="option"><span class="option-label">B.</span> 1, 2, 3 and 4</div>
+      <div class="option"><span class="option-label">C.</span> 2, 3 and 4 only</div>
+      <div class="option"><span class="option-label">D.</span> 3 and 4 only</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m3',0)">Reveal Answer</button>
+    <div class="explanation" id="exp-m3">
+      <div class="correct-line">✓ Correct Answer: A — Art.14, 20, 21 are available to all persons including foreigners</div>
+      <p>The Constitution uses two words: <em>"citizen"</em> and <em>"person"</em>. Rights using "citizen" are ONLY for citizens. Rights using "person" or with no qualifier are available to all.<br>• Art.14: "No person shall be denied..." — all persons ✓<br>• Art.15: "The State shall not discriminate... against any citizen" — citizens only ✗<br>• Art.20: "No person..." — all persons ✓<br>• Art.21: "No person..." — all persons ✓</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>Classic UPSC statement-elimination. Students often assume Art.15 (against discrimination) is for all — but the text explicitly says "citizen." Always check the constitutional text. Citizens-only rights: Art.15, 16, 19, 29, 30. All-persons rights: Art.14, 20, 21, 22(1)(2), 23, 24, 25.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 4 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 04 — Doctrines</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">REVERSAL</div>
+    <p class="pyq-q">Under which doctrine do pre-constitutional laws inconsistent with Fundamental Rights become 'dormant' rather than 'dead' — and may revive if the relevant Fundamental Right is later amended?</p>
+    <div class="options" id="opts-m4">
+      <div class="option"><span class="option-label">A.</span> Doctrine of Severability</div>
+      <div class="option"><span class="option-label">B.</span> Doctrine of Eclipse</div>
+      <div class="option"><span class="option-label">C.</span> Doctrine of Waiver</div>
+      <div class="option"><span class="option-label">D.</span> Doctrine of Colourable Legislation</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m4',1)">Reveal Answer</button>
+    <div class="explanation" id="exp-m4">
+      <div class="correct-line">✓ Correct Answer: B — Doctrine of Eclipse</div>
+      <p>The Doctrine of Eclipse (from <em>Bhikaji Narain Dhakras v. State of MP</em>, 1955) applies to <em>pre-1950 laws</em>. A law existing before the Constitution that conflicts with a FR becomes eclipsed (not void) — it is dormant for citizens but operative for non-citizens. If the FR is amended to permit such restriction, the law revives automatically. This is different from post-constitutional laws which are simply void under Art.13(2).</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>Trap: Confusing Eclipse with Severability. Severability = only bad portion of a law is severed (applies to post-constitutional laws too). Eclipse = the whole law becomes dormant due to a FR shadow, but can revive. Remember: Eclipse → Sun (FR) eclipses the law; remove the eclipse (amend the FR) → law comes back to life.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 5 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 05 — Writ Jurisdiction</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">PARTIAL TRUTH</div>
+    <p class="pyq-q">Which of the following statements about writs in India is/are correct?<br>1. The High Court can issue writs only for enforcement of Fundamental Rights.<br>2. A Writ of Mandamus can be issued against a private individual.<br>3. Habeas Corpus can be filed by any person on behalf of the detained person.</p>
+    <div class="options" id="opts-m5">
+      <div class="option"><span class="option-label">A.</span> 1 and 2 only</div>
+      <div class="option"><span class="option-label">B.</span> 3 only</div>
+      <div class="option"><span class="option-label">C.</span> 1 and 3 only</div>
+      <div class="option"><span class="option-label">D.</span> 2 and 3 only</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m5',1)">Reveal Answer</button>
+    <div class="explanation" id="exp-m5">
+      <div class="correct-line">✓ Correct Answer: B — Only Statement 3 is correct</div>
+      <p><strong>Statement 1 WRONG:</strong> HC under Art.226 can issue writs for enforcement of ANY legal right, not just FRs. SC under Art.32 is restricted to FR enforcement only.<br>
+      <strong>Statement 2 WRONG:</strong> Mandamus is issued against public bodies/officials with a legal duty — not against private individuals (who have no public duty).<br>
+      <strong>Statement 3 CORRECT:</strong> Habeas Corpus is a public writ — anyone (a friend, relative, or even a stranger) can file it on behalf of the wrongfully detained person. Even a letter to the SC can count as a petition (PIL era).</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>Statement 1 is the classic confusion: "HC can only issue writs for FRs" — this is what SC does under Art.32. HC's Art.226 power is broader. Statement 2 traps students who remember "mandamus = you must act" and assume it applies to everyone. Remember: Mandamus = public DUTY = public BODY.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 6 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 06 — Amendment History</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">TRICK SEQUENCE</div>
+    <p class="pyq-q">Match the Constitutional Amendment with what it did to Fundamental Rights:<br>1. 1st Amendment (1951) — Added Art.15(4): Special provisions for socially backward classes<br>2. 44th Amendment (1978) — Removed Right to Property from FR list<br>3. 86th Amendment (2002) — Inserted Art.21A: Right to Education<br>4. 97th Amendment (2011) — Added "cooperative societies" to Art.19(1)(c)<br>Which of the above is/are correct?</p>
+    <div class="options" id="opts-m6">
+      <div class="option"><span class="option-label">A.</span> 1, 2 and 3 only</div>
+      <div class="option"><span class="option-label">B.</span> 2, 3 and 4 only</div>
+      <div class="option"><span class="option-label">C.</span> 1, 3 and 4 only</div>
+      <div class="option"><span class="option-label">D.</span> All four are correct</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m6',3)">Reveal Answer</button>
+    <div class="explanation" id="exp-m6">
+      <div class="correct-line">✓ Correct Answer: D — All four are correct</div>
+      <p>All four amendments are accurate:<br>
+      • <strong>1st (1951):</strong> Added Art.15(4) to overcome <em>Champakam Dorairajan</em> case which struck down reservations. Also added Art.19(2) restrictions (sovereignty etc.) and Art.31A, 31B (9th Schedule).<br>
+      • <strong>44th (1978):</strong> Removed Art.19(1)(f) and Art.31; added Art.300A for property.<br>
+      • <strong>86th (2002):</strong> Inserted Art.21A, amended Art.45 (DPSP) and Art.51A (duties) — the RTE framework.<br>
+      • <strong>97th (2011):</strong> Added "cooperative societies" to Art.19(1)(c). However, note that SC in 2021 partially struck down this amendment for encroaching on state subjects.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>UPSC tests sequence awareness. The trap is picking "all four correct" feels risky and students second-guess it. Verify each statement independently. Note: 97th Amendment's partial invalidation is a current affairs update — the amendment itself added cooperative societies to Art.19(1)(c), which is the factual claim being tested here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 7 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 07 — Reservation Law</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">STATEMENT COMBO</div>
+    <p class="pyq-q">With reference to reservations under Article 16, consider the following statements:<br>1. The 50% ceiling on reservations is a constitutionally mandated limit written in the text of Art.16.<br>2. The "creamy layer" concept applies to Scheduled Castes and Scheduled Tribes as per the Supreme Court.<br>3. The 103rd Amendment (2019) allows up to 10% reservation for Economically Weaker Sections.<br>Which is/are correct?</p>
+    <div class="options" id="opts-m7">
+      <div class="option"><span class="option-label">A.</span> 3 only</div>
+      <div class="option"><span class="option-label">B.</span> 1 and 3 only</div>
+      <div class="option"><span class="option-label">C.</span> 2 and 3 only</div>
+      <div class="option"><span class="option-label">D.</span> 1, 2 and 3</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m7',0)">Reveal Answer</button>
+    <div class="explanation" id="exp-m7">
+      <div class="correct-line">✓ Correct Answer: A — Only Statement 3 is correct</div>
+      <p><strong>Statement 1 WRONG:</strong> The 50% cap is NOT in constitutional text — it was laid down by the SC in <em>Indra Sawhney v. Union of India</em> (1992) as a judge-made rule. It can be exceeded only in "extraordinary situations" (like Nagaland's 80% for tribal communities).<br>
+      <strong>Statement 2 WRONG:</strong> The creamy layer concept applies to OBCs, NOT to SCs/STs. SC reaffirmed this in multiple cases including <em>E.V. Chinnaiah</em> and <em>Jarnail Singh</em>. In <em>Jarnail Singh</em> (2018), the SC said creamy layer cannot be applied to SCs/STs for post-promotion reservations.<br>
+      <strong>Statement 3 CORRECT:</strong> The 103rd Amendment added Art.15(6) and 16(6), allowing EWS reservation up to 10%. Upheld by SC in <em>Janhit Abhiyan</em> (2022).</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>Two very common misconceptions tested simultaneously: (1) thinking 50% is in the Constitution text (it's judicial), (2) thinking creamy layer applies to SCs/STs (it doesn't). UPSC uses this to filter students who know concepts shallowly vs deeply. Always check: Is this in the text of the Constitution, or is it a SC ruling?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 8 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 08 — Religion & State</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">ABSOLUTE WORD</div>
+    <p class="pyq-q">Under Article 28 of the Constitution, which type of educational institution CANNOT provide religious instruction of any kind?</p>
+    <div class="options" id="opts-m8">
+      <div class="option"><span class="option-label">A.</span> Institutions established under a trust providing religious instruction</div>
+      <div class="option"><span class="option-label">B.</span> Institutions established and wholly maintained by the State</div>
+      <div class="option"><span class="option-label">C.</span> Institutions recognised by the State</div>
+      <div class="option"><span class="option-label">D.</span> Institutions receiving aid from the State</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m8',1)">Reveal Answer</button>
+    <div class="explanation" id="exp-m8">
+      <div class="correct-line">✓ Correct Answer: B — Institutions established AND wholly maintained by the State</div>
+      <p>Art.28 has three tiers:<br>
+      1. <strong>Wholly State-owned:</strong> No religious instruction at all (absolute prohibition).<br>
+      2. <strong>State-aided (but set up under a trust/endowment requiring religious instruction):</strong> Can give religious instruction (because the religious character was the founding condition).<br>
+      3. <strong>State-recognised or state-aided:</strong> Can give religious instruction, but no student can be compelled to attend.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>"State-recognised" and "State-aided" are often confused with "State-maintained." Only fully State-maintained institutions have the absolute bar. Aided schools can give optional religious instruction. This tests careful reading of Art.28 — the key phrase is "established and wholly maintained by the State."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 9 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 09 — Advanced Application</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">OUT OF SCOPE</div>
+    <p class="pyq-q">Consider the following statements about Article 20 of the Constitution:<br>1. A person cannot be prosecuted and punished for the same offence more than once — this is the protection against Double Jeopardy.<br>2. Protection against self-incrimination under Art.20(3) extends to civil proceedings as well as criminal proceedings.<br>3. Art.20(1)'s ex-post facto protection means no person can be convicted under a law that did not exist when the act was committed.<br>Which of the above is/are correct?</p>
+    <div class="options" id="opts-m9">
+      <div class="option"><span class="option-label">A.</span> 1 and 3 only</div>
+      <div class="option"><span class="option-label">B.</span> 1 only</div>
+      <div class="option"><span class="option-label">C.</span> 2 and 3 only</div>
+      <div class="option"><span class="option-label">D.</span> 1, 2 and 3</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m9',0)">Reveal Answer</button>
+    <div class="explanation" id="exp-m9">
+      <div class="correct-line">✓ Correct Answer: A — Statements 1 and 3 are correct</div>
+      <p><strong>Statement 1 CORRECT:</strong> Art.20(2) — "No person shall be prosecuted and punished for the same offence more than once." This is Double Jeopardy protection.<br>
+      <strong>Statement 2 WRONG:</strong> Art.20(3) self-incrimination protection applies ONLY to criminal proceedings — "No person accused of an offence shall be compelled to be a witness against himself." It does not extend to civil proceedings, where parties can be compelled to disclose documents.<br>
+      <strong>Statement 3 CORRECT:</strong> Art.20(1) — Ex-post facto protection: no conviction under a law not in force when the act was committed; no penalty greater than that prescribed at the time.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>Statement 2 is a subtle "scope extension" trap — self-incrimination sounds like it should cover everything, but Art.20(3) uses the word "accused of an offence" — restricting it specifically to criminal cases. Also note: Double Jeopardy under Art.20(2) requires BOTH prosecution AND punishment in the first instance. If only prosecuted (acquitted), a fresh trial is possible in some circumstances — this is a deeper nuance UPSC may test.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 10 -->
+  <div class="mcq-card">
+    <div class="mcq-num">MCQ 10 — UPSC Eliminator (Hardest)</div>
+    <div class="trap-tag" style="display:inline-block;margin-bottom:0.7rem">STATEMENT COMBO</div>
+    <p class="pyq-q">With reference to Fundamental Rights under the Indian Constitution, consider the following statements:<br>1. The Supreme Court can modify Fundamental Rights in their application to armed forces under Article 33 itself without Parliament making a law.<br>2. The President can suspend the right to move any court for enforcement of Fundamental Rights other than Art.20 and Art.21 during a National Emergency.<br>3. A Fundamental Right can be waived by a citizen voluntarily if it benefits them.<br>4. Fundamental Rights are available only against the State, never against private individuals.<br>Which of the above statements are CORRECT?</p>
+    <div class="options" id="opts-m10">
+      <div class="option"><span class="option-label">A.</span> 2 only</div>
+      <div class="option"><span class="option-label">B.</span> 1 and 2 only</div>
+      <div class="option"><span class="option-label">C.</span> 2 and 4 only</div>
+      <div class="option"><span class="option-label">D.</span> 1, 3 and 4 only</div>
+    </div>
+    <button class="reveal-btn" onclick="revealPYQ('m10',0)">Reveal Answer</button>
+    <div class="explanation" id="exp-m10">
+      <div class="correct-line">✓ Correct Answer: A — Only Statement 2 is correct</div>
+      <p><strong>Statement 1 WRONG:</strong> Art.33 says <em>Parliament</em> can make a law restricting/modifying FR application to armed forces. The SC cannot do this on its own — it requires a Parliamentary law.<br>
+      <strong>Statement 2 CORRECT:</strong> This is precisely what Art.359 allows — Presidential proclamation can suspend enforcement of any FRs (except Art.20 and 21) during a National Emergency.<br>
+      <strong>Statement 3 WRONG:</strong> FRs CANNOT be waived — this is the Doctrine of Non-Waiver. The SC held in <em>Behram Khurshid Pesikaka v. State of Bombay</em> (1955) that FRs are conferred on citizens not for individual benefit alone but as a matter of public policy.<br>
+      <strong>Statement 4 WRONG:</strong> While FRs primarily operate against the State, Art.17 (untouchability) and Art.23 (forced labour) operate against private individuals too — these have horizontal effect.</p>
+      <div class="trap-block">
+        <div class="trap-label">⚠️ Trap Analysis</div>
+        <p>This is a classic UPSC eliminator — each statement contains a plausible-sounding falsehood. Statement 1 is tempting because "SC modifies rights" sounds right. Statement 3 feels intuitive — "if it benefits you, you should be able to waive it." Statement 4 is the most commonly believed half-truth. The only way through: know each statement's nuance cold. UPSC rewards depth over breadth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASK 5: CURRENT AFFAIRS -->
+<section class="section" id="current-affairs">
+  <div class="section-head">
+    <h2>📰 Current Affairs (2024–2026)</h2>
+    <button class="revised-btn" onclick="toggleRevised(this,'current-affairs')">✓ Mark Revised</button>
+  </div>
+
+  <div class="ca-card">
+    <div class="ca-meta">
+      <span class="ca-badge ca-pm">[P+M]</span>
+      <span class="ca-year">February 2024</span>
+    </div>
+    <h3 style="color:var(--key-term);margin-bottom:0.5rem">Electoral Bonds Case — Art.19(1)(a) Landmark</h3>
+    <p><strong>Association for Democratic Reforms v. Union of India (Feb 15, 2024)</strong> — A 5-judge Constitution Bench unanimously struck down the Electoral Bonds Scheme (2018).</p>
+    <ul>
+      <li><strong>Violation:</strong> The scheme allowed anonymous donations to political parties, preventing voters from knowing who funds parties. The SC held this violated <strong>Art.19(1)(a)</strong> — freedom of information as part of freedom of speech and expression.</li>
+      <li><strong>Proportionality Test:</strong> Court applied the proportionality doctrine — even if the goal (donor privacy) was legitimate, the means (total anonymity) failed the proportionality standard.</li>
+      <li>The State Bank of India was directed to disclose all bond details to the Election Commission of India, which was to publish them.</li>
+    </ul>
+    <div class="concept-box info">
+      <strong>Mains angle:</strong> Discusses the tension between Art.19(1)(a) (right to information), Art.19(1)(g) (freedom of trade — donors' right), and the integrity of electoral democracy. Key doctrines: Proportionality, Reasonable Restriction, Basic Structure (free and fair elections).
+    </div>
+    <div class="svg-wrap" style="max-width:550px">
+      <svg viewBox="0 0 550 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <rect x="10" y="10" width="130" height="80" rx="8" fill="#1a1a3e" stroke="#ffd700" stroke-width="1.5"/>
+        <text x="75" y="38" text-anchor="middle" fill="#ffd700" font-size="10" font-weight="bold">Electoral Bonds</text>
+        <text x="75" y="54" text-anchor="middle" fill="#e0e0e0" font-size="9">Anonymous</text>
+        <text x="75" y="68" text-anchor="middle" fill="#e0e0e0" font-size="9">political donations</text>
+        <text x="75" y="82" text-anchor="middle" fill="#ff5252" font-size="9">✗ Struck Down</text>
+        <line x1="140" y1="50" x2="200" y2="50" stroke="#ff5252" stroke-width="2" marker-end="url(#arr)"/>
+        <text x="170" y="42" text-anchor="middle" fill="#ff5252" font-size="9">Violates</text>
+        <rect x="200" y="15" width="150" height="70" rx="8" fill="#1a0a00" stroke="#ff5252" stroke-width="1.5"/>
+        <text x="275" y="38" text-anchor="middle" fill="#ff5252" font-size="10" font-weight="bold">Art.19(1)(a)</text>
+        <text x="275" y="54" text-anchor="middle" fill="#e0e0e0" font-size="9">Right to Information</text>
+        <text x="275" y="68" text-anchor="middle" fill="#e0e0e0" font-size="9">Voters cannot know</text>
+        <text x="275" y="82" text-anchor="middle" fill="#e0e0e0" font-size="9">who funds parties</text>
+        <line x1="350" y1="50" x2="390" y2="50" stroke="#00e676" stroke-width="2"/>
+        <rect x="390" y="15" width="150" height="70" rx="8" fill="#0a2a0a" stroke="#00e676" stroke-width="1.5"/>
+        <text x="465" y="38" text-anchor="middle" fill="#00e676" font-size="10" font-weight="bold">SC Ruling 2024</text>
+        <text x="465" y="54" text-anchor="middle" fill="#e0e0e0" font-size="9">Scheme struck down</text>
+        <text x="465" y="68" text-anchor="middle" fill="#e0e0e0" font-size="9">SBI ordered to</text>
+        <text x="465" y="82" text-anchor="middle" fill="#e0e0e0" font-size="9">disclose to ECI</text>
+      </svg>
+      <p class="svg-caption">Electoral Bonds → Art.19(1)(a) Violation → SC Ruling 2024</p>
+    </div>
+  </div>
+
+  <div class="ca-card">
+    <div class="ca-meta">
+      <span class="ca-badge ca-pm">[P+M]</span>
+      <span class="ca-year">2025</span>
+    </div>
+    <h3 style="color:var(--key-term);margin-bottom:0.5rem">Right to Digital Access — Art.21 Extended</h3>
+    <p>The Supreme Court held in 2025 that <strong>access to digital services is a Fundamental Right under Article 21</strong>, particularly for persons with disabilities. The judgment arose from a petition challenging inaccessible KYC verification systems.</p>
+    <ul>
+      <li>The Court directed the government to ensure <em>inclusive KYC methods</em>, screen reader compatibility, and accessible digital interfaces.</li>
+      <li>This continues the Art.21 expansion trend — joining the right to food, health, education, and privacy.</li>
+      <li>Connects with the <strong>Digital India</strong> initiative and the government's obligation to not create exclusionary digital infrastructure.</li>
+    </ul>
+    <div class="concept-box info">
+      <strong>Prelims fact:</strong> Right to internet access as FR was first explored in <em>Anuradha Bhasin v. Union of India</em> (2020) — SC held that freedom of press under Art.19(1)(a) includes digital media, and internet shutdowns must satisfy proportionality.
+    </div>
+  </div>
+
+  <div class="ca-card">
+    <div class="ca-meta">
+      <span class="ca-badge ca-p">[P]</span>
+      <span class="ca-year">2025</span>
+    </div>
+    <h3 style="color:var(--key-term);margin-bottom:0.5rem">Narco-Test Ruling — Art.20(3) Reaffirmed</h3>
+    <p>The SC reiterated in 2025 that narco-analysis tests and lie-detector tests cannot be administered without the <em>consent</em> of the individual, reaffirming <strong>Art.20(3)</strong> (protection against self-incrimination).</p>
+    <ul>
+      <li>This builds on <em>Selvi v. State of Karnataka</em> (2010) where a 3-judge bench held that involuntary narco-tests violate Art.20(3) and Art.21.</li>
+      <li><strong>Prelims fact:</strong> Art.20(3) protects against being a "witness against oneself" — applies only in criminal proceedings, only to accused persons, and covers testimonial compulsion (not physical evidence like fingerprints).</li>
+    </ul>
+  </div>
+
+  <div class="ca-card">
+    <div class="ca-meta">
+      <span class="ca-badge ca-pm">[P+M]</span>
+      <span class="ca-year">December 2023</span>
+    </div>
+    <h3 style="color:var(--key-term);margin-bottom:0.5rem">Art.370 Abrogation Upheld — FRs in J&amp;K</h3>
+    <p>In <em>In Re: Article 370</em> (Dec 11, 2023), a 5-judge SC Constitution Bench unanimously upheld the abrogation of Art.370 in 2019.</p>
+    <ul>
+      <li>Post-abrogation, <em>all</em> Fundamental Rights in Part III now apply to Jammu &amp; Kashmir without any modifications.</li>
+      <li>Key FR angle: Prior to 2019, J&amp;K had a separate Constitution that restricted some FRs (e.g., property rights, citizenship). Art.35A (derived from Art.370) prevented people from outside J&amp;K from acquiring property — this was annulled.</li>
+      <li>The SC held that Article 370 was a <em>temporary provision</em> and the President had the power to abrogate it.</li>
+    </ul>
+    <div class="concept-box info">
+      <strong>Mains angle:</strong> Discuss the tension between federalism, state autonomy, and the uniform application of FRs. The judgment reaffirms that FRs are the bedrock of the constitutional framework — even special provisions like Art.370 cannot permanently derogate from them.
+    </div>
+  </div>
+
+  <div class="ca-card">
+    <div class="ca-meta">
+      <span class="ca-badge ca-m">[M]</span>
+      <span class="ca-year">2022 (ongoing relevance)</span>
+    </div>
+    <h3 style="color:var(--key-term);margin-bottom:0.5rem">EWS Reservation — 103rd Amendment Upheld</h3>
+    <p>In <em>Janhit Abhiyan v. Union of India</em> (Nov 2022), a 5-judge SC bench by 3:2 upheld the <strong>103rd Constitutional Amendment</strong> which introduced 10% reservation for Economically Weaker Sections (EWS) under Art.15(6) and Art.16(6).</p>
+    <ul>
+      <li>Key holding: EWS reservation does not violate the basic structure or equality code — it promotes substantive equality by addressing economic disadvantage.</li>
+      <li>Minority opinion (Justices Ravindra Bhat &amp; Hima Kohli): The exclusion of SCs/STs/OBCs from EWS is discriminatory and violates the equality code.</li>
+      <li>The 50% cap established in Indra Sawhney was clarified: the EWS 10% is over and above the existing reservations, not included within the 50%.</li>
+    </ul>
+    <div class="concept-box warn">
+      <strong>Prelims fact:</strong> EWS reservation criteria: Annual family income below ₹8 lakh + agricultural land less than 5 acres + residential plot less than 100 sq yards in notified municipality.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Last updated: March 2026 | <a href="index.html">← Back to Home</a> | <a href="#summary">↑ Top</a></p>
+  <p style="margin-top:0.4rem;font-size:0.78rem">This page is for UPSC Prelims &amp; Mains preparation. Always cross-verify PYQs marked [Verify] with official UPSC question papers.</p>
+</footer>
+
+</div><!-- /container -->
+
+<script>
+// ===== THEME TOGGLE =====
+(function() {
+  const saved = localStorage.getItem('upsc-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  const btn = document.getElementById('themeToggle');
+  function updateBtn() {
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    btn.textContent = isDark ? '🌙' : '☀️';
+  }
+  updateBtn();
+  btn.addEventListener('click', function() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('upsc-theme', next);
+    updateBtn();
+  });
+})();
+
+// ===== HAMBURGER MENU =====
+document.getElementById('hamburger').addEventListener('click', function() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+});
+
+// ===== REVEAL PYQ / MCQ =====
+function revealPYQ(id, correctIdx) {
+  const optsEl = document.getElementById('opts-' + id);
+  const expEl = document.getElementById('exp-' + id);
+  const options = optsEl.querySelectorAll('.option');
+  const btn = optsEl.nextElementSibling;
+
+  if (expEl.classList.contains('open')) {
+    // Hide
+    expEl.classList.remove('open');
+    options.forEach(o => { o.classList.remove('correct','wrong'); });
+    btn.textContent = 'Reveal Answer';
+  } else {
+    // Show
+    options.forEach((o, i) => {
+      o.classList.remove('correct','wrong');
+      o.classList.add(i === correctIdx ? 'correct' : 'wrong');
+    });
+    expEl.classList.add('open');
+    btn.textContent = 'Hide Answer';
+  }
+}
+
+// ===== MARK AS REVISED =====
+function toggleRevised(btn, key) {
+  const stored = localStorage.getItem('revised-' + key);
+  if (stored === '1') {
+    localStorage.removeItem('revised-' + key);
+    btn.classList.remove('done');
+    btn.textContent = '✓ Mark Revised';
+  } else {
+    localStorage.setItem('revised-' + key, '1');
+    btn.classList.add('done');
+    btn.textContent = '✅ Revised!';
+  }
+}
+
+// ===== LOAD REVISED STATE =====
+document.querySelectorAll('.revised-btn').forEach(function(btn) {
+  const key = btn.getAttribute('onclick').match(/'([^']+)'\)/)?.[1];
+  if (key && localStorage.getItem('revised-' + key) === '1') {
+    btn.classList.add('done');
+    btn.textContent = '✅ Revised!';
+  }
+});
+</script>
+</body>
+</html>

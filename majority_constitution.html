@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Types of Majority — UPSC Prep Avinash</title>
+<style>
+/* ── THEME VARIABLES ────────────────────────────────────── */
+:root {
+  --bg:#0f0f0f; --bg-card:#1a1a2e; --text:#e0e0e0;
+  --heading:#00d4ff; --key-term:#ffd700; --tag-prelims:#4caf50;
+  --tag-mains:#ff7043; --pyq-accent:#7c4dff; --trap-bg:#1a0a00;
+  --trap-border:#ff6f00; --correct:#00e676; --wrong:#ef5350;
+  --hover:#263238; --border:#2a2a4a; --shadow:rgba(0,0,0,0.4);
+}
+[data-theme="light"] {
+  --bg:#f5f4ef; --bg-card:#ffffff; --text:#1a1a2e;
+  --heading:#0077b6; --key-term:#c8860a; --tag-prelims:#2d6a4f;
+  --tag-mains:#c1440e; --pyq-accent:#5a2d82; --trap-bg:#fff3e0;
+  --trap-border:#e65100; --correct:#1b5e20; --wrong:#b71c1c;
+  --hover:#e8f4f8; --border:#dde1e7; --shadow:rgba(0,0,0,0.08);
+}
+
+/* ── BASE ───────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);
+  font-size:16px;line-height:1.8;transition:background 0.3s,color 0.3s}
+h1{font-size:clamp(1.4rem,4vw,2rem);color:var(--heading);text-align:center;margin-bottom:0.5rem}
+h2{font-size:1.4rem;color:var(--key-term);border-left:4px solid var(--heading);
+  padding-left:12px;margin:2rem 0 1rem}
+h3{font-size:1.1rem;color:var(--heading);margin:1.2rem 0 0.5rem}
+strong,.kt{font-weight:700;color:var(--key-term)}
+p{margin-bottom:0.9rem}
+a{color:var(--heading);text-decoration:none}
+a:hover{text-decoration:underline}
+ul,ol{margin:0.5rem 0 0.9rem 1.5rem}
+li{margin-bottom:0.35rem}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+
+/* ── NAVBAR ─────────────────────────────────────────────── */
+nav{background:var(--bg-card);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;box-shadow:0 2px 8px var(--shadow)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 16px;
+  display:flex;align-items:center;justify-content:space-between;min-height:52px;flex-wrap:wrap}
+.nav-logo{font-weight:700;font-size:1rem;color:var(--heading);white-space:nowrap}
+.nav-links{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.nav-links a{font-size:0.85rem;color:var(--text);padding:4px 8px;border-radius:4px;transition:background 0.2s}
+.nav-links a:hover,.nav-links a.active{background:var(--hover);color:var(--heading);text-decoration:none}
+#theme-toggle{background:transparent;border:1px solid var(--border);border-radius:6px;
+  color:var(--text);cursor:pointer;font-size:1.1rem;padding:4px 10px;min-width:44px;min-height:36px}
+#theme-toggle:hover{background:var(--hover)}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;
+  min-width:44px;min-height:44px;align-items:center;justify-content:center}
+@media(max-width:768px){
+  .nav-links{display:none;flex-direction:column;width:100%;padding:8px 0;gap:4px}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .nav-inner{flex-wrap:wrap;padding:8px 16px}
+}
+
+/* ── HERO ────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--bg-card) 0%,var(--bg) 100%);
+  border-bottom:1px solid var(--border);padding:2.5rem 16px 2rem;text-align:center}
+.hero p{color:var(--text);opacity:0.85;max-width:680px;margin:0.6rem auto 1rem;font-size:1.05rem}
+.badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:0.5rem}
+.badge{font-size:0.8rem;font-weight:700;padding:3px 10px;border-radius:99px;letter-spacing:0.04em}
+.badge-p{background:var(--tag-prelims);color:#fff}
+.badge-m{background:var(--tag-mains);color:#fff}
+.badge-pm{background:var(--pyq-accent);color:#fff}
+
+/* ── CARDS ───────────────────────────────────────────────── */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;
+  padding:1.4rem;margin-bottom:1.2rem;box-shadow:0 2px 8px var(--shadow)}
+
+/* ── COLLAPSIBLE ─────────────────────────────────────────── */
+details{margin-bottom:1rem}
+details>summary{cursor:pointer;font-size:1.05rem;font-weight:700;color:var(--heading);
+  padding:0.8rem 1rem;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:8px;list-style:none;display:flex;align-items:center;gap:8px;
+  min-height:44px;user-select:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:'▶';font-size:0.75rem;transition:transform 0.25s}
+details[open]>summary::before{transform:rotate(90deg)}
+details>summary:hover{background:var(--hover)}
+.details-body{background:var(--bg-card);border:1px solid var(--border);border-top:none;
+  border-radius:0 0 8px 8px;padding:1.2rem}
+
+/* ── REVISED BUTTON ──────────────────────────────────────── */
+.revised-btn{float:right;font-size:0.78rem;padding:4px 12px;border-radius:6px;
+  border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer;
+  transition:all 0.2s;min-height:36px}
+.revised-btn.done{background:var(--correct);color:#000;border-color:var(--correct)}
+.revised-btn:hover{background:var(--hover)}
+
+/* ── MAJORITY TYPE TABLE ─────────────────────────────────── */
+.table-wrap{overflow-x:auto;margin:1rem 0}
+table{border-collapse:collapse;width:100%;min-width:580px}
+th{background:var(--pyq-accent);color:#fff;padding:10px 14px;text-align:left;font-size:0.9rem}
+td{padding:9px 14px;border-bottom:1px solid var(--border);font-size:0.9rem;vertical-align:top}
+tr:hover td{background:var(--hover)}
+.type-label{font-weight:700;color:var(--heading)}
+
+/* ── PYQ / MCQ CARDS ─────────────────────────────────────── */
+.pyq-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1.4rem}
+.pyq-header{background:var(--pyq-accent);color:#fff;padding:8px 14px;
+  font-size:0.82rem;font-weight:700;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pyq-body{padding:1.1rem 1.2rem}
+.pyq-q{font-weight:600;margin-bottom:0.8rem}
+.trap-tag{font-size:0.75rem;font-weight:700;letter-spacing:0.08em;
+  padding:2px 8px;border-radius:4px;border:1px solid var(--trap-border);
+  color:var(--trap-border);display:inline-block;margin-bottom:0.6rem}
+.options{list-style:none;margin:0 0 0.8rem;padding:0}
+.options li{padding:8px 12px;border:1px solid var(--border);border-radius:6px;
+  margin-bottom:6px;cursor:pointer;transition:background 0.2s;min-height:44px;
+  display:flex;align-items:flex-start;gap:8px;font-size:0.95rem}
+.options li:hover{background:var(--hover)}
+.options li.correct-opt{background:var(--correct)!important;color:#000!important;border-color:var(--correct)!important;font-weight:700}
+.options li.wrong-opt{background:var(--wrong)!important;color:#fff!important;border-color:var(--wrong)!important}
+.opt-letter{font-weight:700;min-width:18px}
+.reveal-btn{background:var(--pyq-accent);color:#fff;border:none;border-radius:7px;
+  padding:8px 18px;cursor:pointer;font-size:0.9rem;font-weight:700;
+  transition:opacity 0.2s;min-height:44px}
+.reveal-btn:hover{opacity:0.85}
+.answer-block{display:none;margin-top:1rem;border-top:1px solid var(--border);padding-top:1rem}
+.answer-block.open{display:block}
+.trap-analysis{background:var(--trap-bg);border:1px solid var(--trap-border);
+  border-radius:8px;padding:1rem;margin-top:0.8rem}
+.trap-analysis-label{font-size:0.78rem;font-weight:700;letter-spacing:0.1em;
+  color:var(--trap-border);text-transform:uppercase;margin-bottom:0.5rem}
+.explanation{background:var(--hover);border-radius:6px;padding:0.8rem;margin-top:0.5rem;font-size:0.93rem}
+
+/* ── CURRENT AFFAIRS ─────────────────────────────────────── */
+.ca-item{border-left:4px solid var(--heading);padding:0.8rem 1.2rem;
+  margin-bottom:1rem;background:var(--bg-card);border-radius:0 8px 8px 0}
+.ca-badges{display:flex;gap:6px;margin-bottom:0.4rem;flex-wrap:wrap}
+.ca-title{font-weight:700;color:var(--heading);margin-bottom:0.3rem}
+
+/* ── SVG DIAGRAMS ────────────────────────────────────────── */
+.svg-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
+  padding:16px;margin:1.2rem 0;overflow-x:auto}
+.svg-caption{font-size:0.85rem;color:var(--text);opacity:0.6;font-style:italic;
+  text-align:center;margin-top:6px}
+
+/* ── TAGS ────────────────────────────────────────────────── */
+.tag-p{background:var(--tag-prelims);color:#fff;font-size:0.75rem;font-weight:700;
+  padding:2px 8px;border-radius:4px}
+.tag-m{background:var(--tag-mains);color:#fff;font-size:0.75rem;font-weight:700;
+  padding:2px 8px;border-radius:4px}
+.tag-pm{background:var(--pyq-accent);color:#fff;font-size:0.75rem;font-weight:700;
+  padding:2px 8px;border-radius:4px}
+
+/* ── HIGHLIGHT BOXES ─────────────────────────────────────── */
+.box-info{background:rgba(0,212,255,0.07);border:1px solid var(--heading);
+  border-radius:8px;padding:1rem;margin:1rem 0}
+.box-warn{background:var(--trap-bg);border:1px solid var(--trap-border);
+  border-radius:8px;padding:1rem;margin:1rem 0}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);
+  font-size:0.85rem;color:var(--text);opacity:0.6;margin-top:3rem}
+
+/* ── SECTION SPACING ─────────────────────────────────────── */
+section{margin-bottom:3rem}
+
+/* ── QUIZ SCORE ──────────────────────────────────────────── */
+.score-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;
+  padding:0.8rem 1rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.score-display{font-size:1.1rem;font-weight:700;color:var(--heading)}
+.reset-btn{background:var(--trap-border);color:#fff;border:none;border-radius:6px;
+  padding:6px 14px;cursor:pointer;font-size:0.85rem;min-height:36px}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">⚖️ UPSC Prep — Avinash</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="majority_constitution.html" class="active">Types of Majority</a>
+      <a href="#">Fundamental Rights</a>
+      <a href="#">DPSP</a>
+      <a href="#">Federalism</a>
+      <a href="#">Emergency Provisions</a>
+    </div>
+    <button id="theme-toggle" title="Toggle theme">🌙</button>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <h1>⚖️ Types of Majority in the Indian Constitution</h1>
+  <p>From passing an ordinary bill to impeaching the President — the Constitution uses <strong>four distinct types of majority</strong>, each calibrated to the gravity of the decision. Master the formula, the threshold, and the Article — and you own 3–4 guaranteed Prelims marks.</p>
+  <div class="badge-row">
+    <span class="badge badge-p">PRELIMS — HIGH YIELD</span>
+    <span class="badge badge-m">MAINS GS-2</span>
+    <span class="badge badge-pm">Article 368 | Amendment | Parliament</span>
+  </div>
+
+  <!-- Hero SVG Banner -->
+  <div class="svg-wrap" style="margin-top:1.5rem;max-width:800px;margin-left:auto;margin-right:auto">
+    <svg viewBox="0 0 780 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <defs>
+        <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#4caf50;stop-opacity:0.8"/>
+          <stop offset="33%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
+          <stop offset="66%" style="stop-color:#7c4dff;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#ef5350;stop-opacity:0.8"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="780" height="120" rx="8" fill="url(#hg)" opacity="0.18"/>
+      <!-- Simple -->
+      <rect x="20" y="30" width="160" height="60" rx="6" fill="#4caf50" opacity="0.25"/>
+      <text x="100" y="55" text-anchor="middle" font-size="12" fill="#4caf50" font-weight="bold">SIMPLE</text>
+      <text x="100" y="72" text-anchor="middle" font-size="11" fill="#e0e0e0">&gt;50% P&amp;V</text>
+      <text x="100" y="86" text-anchor="middle" font-size="10" fill="#e0e0e0">Ordinary Bills</text>
+      <!-- Effective -->
+      <rect x="205" y="30" width="160" height="60" rx="6" fill="#00d4ff" opacity="0.18"/>
+      <text x="285" y="55" text-anchor="middle" font-size="12" fill="#00d4ff" font-weight="bold">EFFECTIVE</text>
+      <text x="285" y="72" text-anchor="middle" font-size="11" fill="#e0e0e0">&gt;50% (TM−vac)</text>
+      <text x="285" y="86" text-anchor="middle" font-size="10" fill="#e0e0e0">Remove Speaker</text>
+      <!-- Special -->
+      <rect x="390" y="20" width="180" height="80" rx="6" fill="#7c4dff" opacity="0.22"/>
+      <text x="480" y="50" text-anchor="middle" font-size="12" fill="#c9b7ff" font-weight="bold">SPECIAL (Art.368)</text>
+      <text x="480" y="67" text-anchor="middle" font-size="11" fill="#e0e0e0">2/3 P&amp;V + Maj TM</text>
+      <text x="480" y="83" text-anchor="middle" font-size="10" fill="#e0e0e0">Constitutional Amend.</text>
+      <text x="480" y="96" text-anchor="middle" font-size="9" fill="#c9b7ff">± State Ratification</text>
+      <!-- Impeachment -->
+      <rect x="595" y="30" width="165" height="60" rx="6" fill="#ef5350" opacity="0.2"/>
+      <text x="677" y="55" text-anchor="middle" font-size="12" fill="#ef5350" font-weight="bold">IMPEACHMENT</text>
+      <text x="677" y="72" text-anchor="middle" font-size="11" fill="#e0e0e0">2/3 of Total TM</text>
+      <text x="677" y="86" text-anchor="middle" font-size="10" fill="#e0e0e0">Pres. Impeachment</text>
+      <!-- severity arrow -->
+      <line x1="20" y1="110" x2="760" y2="110" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="390" y="118" text-anchor="middle" font-size="10" fill="#ffd700">← INCREASING THRESHOLD OF DIFFICULTY →</text>
+    </svg>
+    <div class="svg-caption">The four families of majority — from everyday lawmaking to the highest constitutional safeguard</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══════════════ TASK 2 — QUICK SUMMARY ══════════════ -->
+<section id="summary">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <h2>📋 Quick 5-Minute Summary</h2>
+    <button class="revised-btn" data-key="summary">✓ Mark as Revised</button>
+  </div>
+
+  <details open>
+    <summary>Expand / Collapse Summary</summary>
+    <div class="details-body">
+
+      <!-- Master Reference Table -->
+      <h3>Master Reference Table — All Majority Types</h3>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>#</th><th>Type</th><th>Formula</th><th>Threshold (LS=543*)</th><th>Key Uses</th><th>Article</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td><span class="type-label" style="color:#4caf50">Simple Majority</span></td>
+            <td>&gt;50% of members <strong>present and voting</strong></td>
+            <td>Varies (quorum = 55)</td>
+            <td>All ordinary bills, Budget, State LegCouncil creation/abolition (Art.169), New states (Art.2, 3), Approve Proclamation of Emergency</td>
+            <td>No specific Art — default rule</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><span class="type-label" style="color:#00d4ff">Absolute Majority</span></td>
+            <td>&gt;50% of <strong>total membership</strong> of House</td>
+            <td>LS: 272, RS: 123</td>
+            <td>No-confidence motion (implicit); <br>Removal of Vice President requires <em>majority of all then-members of RS</em> + agreement of LS (Art.67b)</td>
+            <td>Art.67(b) [VP removal by RS]</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><span class="type-label" style="color:#ffd700">Effective Majority</span></td>
+            <td>&gt;50% of <strong>effective strength</strong> (TM minus vacancies)</td>
+            <td>Varies with vacancies</td>
+            <td>Removal of Speaker &amp; Deputy Speaker (Art.94), Removal of Deputy Chairman of RS (Art.90), Removal of Legislative Council Chairman</td>
+            <td>Art.90, Art.94, Art.178, Art.183</td>
+          </tr>
+          <tr>
+            <td>4a</td>
+            <td><span class="type-label" style="color:#7c4dff">Special — Art.368(2)</span></td>
+            <td><strong>2/3 of P&amp;V</strong> + <strong>majority of TM</strong> — in EACH House separately</td>
+            <td>LS: 272 TM + 362 P&amp;V (if all vote)</td>
+            <td>Most constitutional amendments — FR, DPSP, Preamble, Citizenship, etc.</td>
+            <td>Art.368(2)</td>
+          </tr>
+          <tr>
+            <td>4b</td>
+            <td><span class="type-label" style="color:#ff7043">Special + State Ratification</span></td>
+            <td>Art.368(2) formula <strong>+ ratification by ≥50% of state legislatures</strong></td>
+            <td>Same + ≥14 states</td>
+            <td>Election of President (Art.54–55), SC/HC provisions, 7th Schedule, Centre-State powers (Art.73/162), Representation of states in Parliament, Art.368 itself</td>
+            <td>Art.368(2) proviso</td>
+          </tr>
+          <tr>
+            <td>4c</td>
+            <td><span class="type-label" style="color:#00bcd4">Special — Art.249</span></td>
+            <td><strong>2/3 of members present and voting</strong> in Rajya Sabha only</td>
+            <td>RS: 164 (if all 245 vote) — No LS condition</td>
+            <td>Rajya Sabha resolution empowering Parliament to legislate on a <strong>State List</strong> subject in national interest — valid for 1 year, renewable</td>
+            <td>Art.249</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><span class="type-label" style="color:#ef5350">Impeachment Majority</span></td>
+            <td><strong>2/3 of total membership</strong> of <strong>each House</strong> — after investigation</td>
+            <td>LS: 362, RS: 163</td>
+            <td>Impeachment of President only (Art.61) — highest threshold in the Constitution</td>
+            <td>Art.61</td>
+          </tr>
+        </table>
+      </div>
+      <p style="font-size:0.82rem;opacity:0.7">*Based on current Lok Sabha strength of 543. Nominated members also count. Quorum = 1/10th of total membership.</p>
+
+      <!-- Prelims vs Mains angles -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+        <div class="card" style="border-color:var(--tag-prelims)">
+          <h3 style="color:var(--tag-prelims)">📗 Prelims Angles</h3>
+          <ul>
+            <li>Exact formula differences — <strong>P&V vs TM vs Effective</strong></li>
+            <li>Article numbers: 61, 67b, 90, 94, 249, 368</li>
+            <li>Art.249 — RS only, 2/3 P&V, no TM condition, no LS involvement</li>
+            <li>No joint sitting for Constitutional Amendment Bills</li>
+            <li>State ratification needed for only ~8 provisions</li>
+            <li>Removal of VP is by RS only, then agreed by LS — not joint</li>
+            <li>Speaker removal needs 14-day prior notice</li>
+            <li>No quorum defined for "effective majority"</li>
+          </ul>
+        </div>
+        <div class="card" style="border-color:var(--tag-mains)">
+          <h3 style="color:var(--tag-mains)">📙 Mains Angles</h3>
+          <ul>
+            <li>Why different thresholds? — Protecting minority interests, federalism, stability</li>
+            <li>Basic Structure doctrine limits even Art.368 special majority</li>
+            <li>Brute majority vs constitutional morality (recent SC rulings)</li>
+            <li>Parliament's constituent power vs ordinary legislative power</li>
+            <li>Compare with US (2/3 Congress + 3/4 states) — India's amendment process</li>
+            <li>State ratification as check on unilateral federal power</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mind-Map SVG -->
+      <h3>Visual Mind-Map</h3>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+          <!-- Central node -->
+          <ellipse cx="380" cy="210" rx="90" ry="38" fill="#7c4dff" opacity="0.85"/>
+          <text x="380" y="206" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">MAJORITY</text>
+          <text x="380" y="222" text-anchor="middle" font-size="11" fill="#ddd">TYPES</text>
+
+          <!-- SIMPLE -->
+          <line x1="294" y1="192" x2="160" y2="110" stroke="#4caf50" stroke-width="2"/>
+          <rect x="60" y="78" width="200" height="70" rx="8" fill="#4caf50" opacity="0.2" stroke="#4caf50" stroke-width="1.5"/>
+          <text x="160" y="100" text-anchor="middle" font-size="12" fill="#4caf50" font-weight="bold">SIMPLE MAJORITY</text>
+          <text x="160" y="116" text-anchor="middle" font-size="10" fill="#e0e0e0">&gt;50% Present &amp; Voting</text>
+          <text x="160" y="130" text-anchor="middle" font-size="10" fill="#e0e0e0">Ordinary Bills | Budget | Art.2/3</text>
+          <text x="160" y="143" text-anchor="middle" font-size="10" fill="#e0e0e0">Revoking Emergencies</text>
+
+          <!-- EFFECTIVE -->
+          <line x1="305" y1="228" x2="155" y2="310" stroke="#00d4ff" stroke-width="2"/>
+          <rect x="50" y="288" width="210" height="68" rx="8" fill="#00d4ff" opacity="0.12" stroke="#00d4ff" stroke-width="1.5"/>
+          <text x="155" y="308" text-anchor="middle" font-size="12" fill="#00d4ff" font-weight="bold">EFFECTIVE MAJORITY</text>
+          <text x="155" y="324" text-anchor="middle" font-size="10" fill="#e0e0e0">&gt;50% of (TM − Vacancies)</text>
+          <text x="155" y="338" text-anchor="middle" font-size="10" fill="#e0e0e0">Remove Speaker/Dy.Speaker</text>
+          <text x="155" y="352" text-anchor="middle" font-size="10" fill="#e0e0e0">Art.90, Art.94</text>
+
+          <!-- ABSOLUTE -->
+          <line x1="380" y1="172" x2="380" y2="60" stroke="#ffd700" stroke-width="2"/>
+          <rect x="270" y="30" width="220" height="60" rx="8" fill="#ffd700" opacity="0.15" stroke="#ffd700" stroke-width="1.5"/>
+          <text x="380" y="52" text-anchor="middle" font-size="12" fill="#ffd700" font-weight="bold">ABSOLUTE MAJORITY</text>
+          <text x="380" y="68" text-anchor="middle" font-size="10" fill="#e0e0e0">&gt;50% of Total Membership</text>
+          <text x="380" y="83" text-anchor="middle" font-size="10" fill="#e0e0e0">VP Removal (Art.67b)</text>
+
+          <!-- SPECIAL 368 -->
+          <line x1="465" y1="193" x2="590" y2="100" stroke="#c084fc" stroke-width="2"/>
+          <rect x="505" y="68" width="230" height="75" rx="8" fill="#7c4dff" opacity="0.2" stroke="#c084fc" stroke-width="1.5"/>
+          <text x="620" y="90" text-anchor="middle" font-size="12" fill="#c084fc" font-weight="bold">SPECIAL (Art.368)</text>
+          <text x="620" y="107" text-anchor="middle" font-size="10" fill="#e0e0e0">2/3 P&amp;V + Majority TM</text>
+          <text x="620" y="121" text-anchor="middle" font-size="10" fill="#e0e0e0">Most Const. Amendments</text>
+          <text x="620" y="135" text-anchor="middle" font-size="10" fill="#ffd700">No Joint Sitting!</text>
+
+          <!-- SPECIAL + STATE -->
+          <line x1="466" y1="225" x2="600" y2="305" stroke="#ff7043" stroke-width="2"/>
+          <rect x="515" y="285" width="230" height="70" rx="8" fill="#ff7043" opacity="0.15" stroke="#ff7043" stroke-width="1.5"/>
+          <text x="630" y="305" text-anchor="middle" font-size="12" fill="#ff7043" font-weight="bold">SPECIAL + STATES</text>
+          <text x="630" y="321" text-anchor="middle" font-size="10" fill="#e0e0e0">368(2) + ≥50% State Legislatures</text>
+          <text x="630" y="337" text-anchor="middle" font-size="10" fill="#e0e0e0">President Election, Art.73/162</text>
+          <text x="630" y="349" text-anchor="middle" font-size="10" fill="#e0e0e0">7th Schedule, SC/HC, Art.368</text>
+
+          <!-- IMPEACHMENT -->
+          <line x1="380" y1="248" x2="380" y2="370" stroke="#ef5350" stroke-width="2"/>
+          <rect x="260" y="368" width="240" height="46" rx="8" fill="#ef5350" opacity="0.18" stroke="#ef5350" stroke-width="1.5"/>
+          <text x="380" y="389" text-anchor="middle" font-size="12" fill="#ef5350" font-weight="bold">IMPEACHMENT MAJORITY</text>
+          <text x="380" y="406" text-anchor="middle" font-size="10" fill="#e0e0e0">2/3 of Total TM — Pres. Removal (Art.61)</text>
+        </svg>
+        <div class="svg-caption">Mind-map of all majority types, their formulas, and primary use-cases</div>
+      </div>
+
+    </div>
+  </details>
+</section>
+
+<!-- ══════════════ TASK 1 — CORE CONCEPT ══════════════ -->
+<section id="concept">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <h2>🧠 Core Concept — Deep Explanation</h2>
+    <button class="revised-btn" data-key="concept">✓ Mark as Revised</button>
+  </div>
+
+  <div class="box-info">
+    <strong>Build intuition first:</strong> Imagine you're designing a Constitution. You want easy things (routine laws) to pass easily, but hard things (changing fundamental rights, removing the President) to require near-consensus. The different majority types are exactly this — a calibrated difficulty dial.
+  </div>
+
+  <!-- 1. Simple Majority -->
+  <div class="card">
+    <h3>① Simple Majority — The Default Rule</h3>
+    <p><strong class="kt">Definition:</strong> More than 50% of members <span class="kt">present and voting</span>. Abstentions don't count. The quorum (minimum attendance) must be met — 1/10th of total membership (55 in Lok Sabha, 25 in Rajya Sabha).</p>
+    <p><strong class="kt">Formula:</strong> If 300 MPs are present and voting, you need 151 votes.</p>
+    <p><strong>When used:</strong></p>
+    <ul>
+      <li>All <strong>ordinary bills</strong> (most legislation — labour laws, tax laws, environmental laws)</li>
+      <li><strong>Money Bills and Finance Bills</strong> (Union Budget)</li>
+      <li><strong>Creating or abolishing a State Legislative Council</strong> (Article 169) — this amendment to the Constitution is done by simple majority, making it an exception to the rigidity rule</li>
+      <li><strong>Admission of new states</strong> (Article 2) and <strong>formation, bifurcation of states</strong> (Article 3)</li>
+      <li><strong>Continuation of a National Emergency</strong> beyond one month (Article 352) — note: proclamation needs Cabinet written approval + Parliament approval by special majority, but extension can be by simple majority</li>
+      <li>Amendments to <strong>Schedules 1, 2, 3, 4, 5, 6</strong> (except where they touch federal provisions)</li>
+      <li><strong>Delegated legislation, statutory rules</strong>, ordinance approval</li>
+    </ul>
+    <div class="box-warn">
+      <strong>⚠️ UPSC Trap:</strong> Article 169 (creating/abolishing State Legislative Councils) requires Parliament to pass a bill by <em>simple majority</em> — even though it amends the Constitution. UPSC loves asking whether this needs a special majority. It does NOT.
+    </div>
+
+    <!-- SVG: Simple Majority Process -->
+    <div class="svg-wrap">
+      <svg viewBox="0 0 680 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <rect x="10" y="15" width="120" height="50" rx="6" fill="#4caf50" opacity="0.25" stroke="#4caf50" stroke-width="1.5"/>
+        <text x="70" y="37" text-anchor="middle" font-size="11" fill="#4caf50" font-weight="bold">Bill Introduced</text>
+        <text x="70" y="53" text-anchor="middle" font-size="10" fill="#e0e0e0">in any House</text>
+        <polygon points="138,40 150,34 150,46" fill="#4caf50"/>
+        <rect x="158" y="15" width="120" height="50" rx="6" fill="#4caf50" opacity="0.2" stroke="#4caf50" stroke-width="1.5"/>
+        <text x="218" y="37" text-anchor="middle" font-size="11" fill="#4caf50" font-weight="bold">Debated</text>
+        <text x="218" y="53" text-anchor="middle" font-size="10" fill="#e0e0e0">Clauses / Voting</text>
+        <polygon points="286,40 298,34 298,46" fill="#4caf50"/>
+        <rect x="306" y="15" width="140" height="50" rx="6" fill="#4caf50" opacity="0.22" stroke="#4caf50" stroke-width="1.5"/>
+        <text x="376" y="37" text-anchor="middle" font-size="11" fill="#4caf50" font-weight="bold">&gt;50% P&amp;V</text>
+        <text x="376" y="53" text-anchor="middle" font-size="10" fill="#e0e0e0">Simple Majority = Passed</text>
+        <polygon points="454,40 466,34 466,46" fill="#4caf50"/>
+        <rect x="474" y="15" width="130" height="50" rx="6" fill="#4caf50" opacity="0.18" stroke="#4caf50" stroke-width="1.5"/>
+        <text x="539" y="37" text-anchor="middle" font-size="11" fill="#4caf50" font-weight="bold">Other House</text>
+        <text x="539" y="53" text-anchor="middle" font-size="10" fill="#e0e0e0">Same process → Assent</text>
+        <polygon points="612,40 624,34 624,46" fill="#4caf50"/>
+        <rect x="632" y="15" width="40" height="50" rx="6" fill="#4caf50" opacity="0.15" stroke="#4caf50" stroke-width="1.5"/>
+        <text x="652" y="44" text-anchor="middle" font-size="22" fill="#4caf50">✓</text>
+      </svg>
+      <div class="svg-caption">Simple majority bill process — passed in both houses, then Presidential assent</div>
+    </div>
+  </div>
+
+  <!-- 2. Absolute Majority -->
+  <div class="card">
+    <h3>② Absolute Majority — Counted Against Full Strength</h3>
+    <p><strong class="kt">Definition:</strong> More than 50% of the <span class="kt">total membership</span> of the House — regardless of vacancies, absentees, or abstentions. This is a stricter bar than Simple Majority.</p>
+    <p><strong>Example:</strong> Lok Sabha total membership = 543. Absolute majority = 272 (even if only 300 are present).</p>
+    <p><strong>When used:</strong></p>
+    <ul>
+      <li><strong>Removal of Vice President (Article 67b)</strong> — requires a resolution passed by <em>all the then-members of Rajya Sabha</em> (absolute majority of RS) and then agreed to by Lok Sabha (simple majority)</li>
+      <li>Conceptually, a <strong>no-confidence motion</strong> against the Council of Ministers is passed by majority of members present and voting in Lok Sabha — technically this is simple majority, but the convention is that the government must command absolute majority to govern confidently</li>
+    </ul>
+    <div class="box-warn">
+      <strong>⚠️ Note:</strong> The term "Absolute Majority" is not explicitly used in the Constitution. It is a doctrinal/academic classification used in Laxmikanth. The Constitution uses the phrase "majority of all the then members" which is what we call absolute majority.
+    </div>
+  </div>
+
+  <!-- 3. Effective Majority -->
+  <div class="card">
+    <h3>③ Effective Majority — Adjusted for Vacancies</h3>
+    <p><strong class="kt">Definition:</strong> More than 50% of the <span class="kt">effective strength</span> = total membership minus vacancies. This is used when seats are vacant.</p>
+    <p><strong>Example:</strong> Lok Sabha has 543 seats but 5 are vacant → effective strength = 538 → effective majority = 270.</p>
+    <p><strong>When used:</strong></p>
+    <ul>
+      <li><strong>Removal of Speaker</strong> of Lok Sabha (Article 94) — requires 14-day prior notice</li>
+      <li><strong>Removal of Deputy Speaker</strong> of Lok Sabha (Article 94)</li>
+      <li><strong>Removal of Deputy Chairman</strong> of Rajya Sabha (Article 90)</li>
+      <li><strong>Removal of Chairman and Deputy Chairman</strong> of State Legislative Council (Article 183)</li>
+      <li><strong>Removal of Speaker and Deputy Speaker</strong> of State Legislative Assembly (Article 179)</li>
+    </ul>
+    <div class="box-info">
+      <strong>Why effective majority and not absolute?</strong> Because if seats are vacant, requiring 272 out of 543 when only 535 seats are filled would be unfair — the motion would require votes from members who don't exist. Effective majority is more equitable.
+    </div>
+  </div>
+
+  <!-- 4. Special Majority -->
+  <div class="card">
+    <h3>④ Special Majority — The Constitutional Amendment Standard</h3>
+    <p>There are <span class="kt">multiple types</span> of Special Majority in the Constitution, often confused with each other.</p>
+
+    <h3 style="color:var(--pyq-accent)">4a. Special Majority under Article 368(2)</h3>
+    <p><strong class="kt">Formula:</strong> A bill must be passed in <em>each House separately</em> by —</p>
+    <ul>
+      <li>A majority of the <strong>total membership</strong> of that House (i.e., Absolute Majority), AND</li>
+      <li>A majority of <strong>not less than two-thirds of members present and voting</strong></li>
+      <li><strong>Both conditions must be met simultaneously</strong></li>
+    </ul>
+    <p><strong>No joint sitting</strong> is possible for a Constitutional Amendment Bill — if one House rejects it, the bill lapses.</p>
+    <p><strong>When used:</strong> Most Constitutional amendments — Fundamental Rights, DPSP, Preamble (as held in Kesavananda Bharati though contested), citizenship, Supreme Court jurisdiction, anti-defection law, etc.</p>
+
+    <!-- Special Majority SVG Diagram -->
+    <div class="svg-wrap">
+      <svg viewBox="0 0 680 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <!-- Lok Sabha box -->
+        <rect x="10" y="20" width="290" height="120" rx="8" fill="#7c4dff" opacity="0.15" stroke="#7c4dff" stroke-width="1.5"/>
+        <text x="155" y="44" text-anchor="middle" font-size="13" fill="#c084fc" font-weight="bold">LOK SABHA (543)</text>
+        <text x="155" y="65" text-anchor="middle" font-size="11" fill="#e0e0e0">Condition A: Majority of TM</text>
+        <text x="155" y="80" text-anchor="middle" font-size="11" fill="#ffd700">= at least 272 votes</text>
+        <text x="155" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0">Condition B: 2/3 of P&amp;V</text>
+        <text x="155" y="115" text-anchor="middle" font-size="11" fill="#ffd700">= if all 543 vote → 362</text>
+        <text x="155" y="132" text-anchor="middle" font-size="10" fill="#4caf50">BOTH must be satisfied</text>
+        <!-- AND -->
+        <text x="340" y="88" text-anchor="middle" font-size="18" fill="#ffd700" font-weight="bold">AND</text>
+        <!-- Rajya Sabha box -->
+        <rect x="380" y="20" width="290" height="120" rx="8" fill="#ff7043" opacity="0.15" stroke="#ff7043" stroke-width="1.5"/>
+        <text x="525" y="44" text-anchor="middle" font-size="13" fill="#ff7043" font-weight="bold">RAJYA SABHA (245)</text>
+        <text x="525" y="65" text-anchor="middle" font-size="11" fill="#e0e0e0">Condition A: Majority of TM</text>
+        <text x="525" y="80" text-anchor="middle" font-size="11" fill="#ffd700">= at least 123 votes</text>
+        <text x="525" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0">Condition B: 2/3 of P&amp;V</text>
+        <text x="525" y="115" text-anchor="middle" font-size="11" fill="#ffd700">= if all 245 vote → 164</text>
+        <text x="525" y="132" text-anchor="middle" font-size="10" fill="#4caf50">BOTH must be satisfied</text>
+      </svg>
+      <div class="svg-caption">Article 368(2) Special Majority — both houses must pass independently; no joint sitting</div>
+    </div>
+
+    <h3 style="color:var(--ff7043)">4b. Special Majority + State Ratification</h3>
+    <p>For provisions that affect the <span class="kt">federal structure</span>, the Article 368(2) special majority must be accompanied by ratification of the bill by the Legislatures of <strong>not less than one-half of the States</strong>.</p>
+    <p><strong>Important:</strong> State legislatures pass it by <em>simple majority</em>. There is no time limit prescribed for state ratification.</p>
+
+    <p><strong>Provisions requiring State Ratification (remember with mnemonic <span class="kt">"PERS-7"</span>):</strong></p>
+    <ul>
+      <li><strong>P</strong>resident's election — Articles 54 &amp; 55</li>
+      <li><strong>E</strong>xecutive power of Union &amp; States — Articles 73 &amp; 162</li>
+      <li><strong>R</strong>epresentation of States in Parliament (4th Schedule)</li>
+      <li><strong>S</strong>upreme Court &amp; High Courts — Articles 124–147, 214–231, 241</li>
+      <li><strong>S</strong>eparation of powers — Articles dealing with Union/State legislative powers (245–255)</li>
+      <li><strong>7</strong>th Schedule (Union List, State List, Concurrent List)</li>
+      <li>Article <strong>368</strong> itself</li>
+    </ul>
+
+    <div class="box-warn">
+      <strong>⚠️ Common Confusion:</strong> After state ratification, the bill is sent to the President who <strong>must give assent</strong> (24th Amendment made presidential assent mandatory). The President cannot withhold or return a Constitutional Amendment Bill.
+    </div>
+  </div>
+
+  <!-- 4c. Art 249 -->
+  <div class="card">
+    <h3 style="color:#00bcd4">④c. Special Majority under Article 249 — RS Resolution on State List</h3>
+    <p><strong class="kt">Definition:</strong> Rajya Sabha passes a resolution by a majority of <span class="kt">not less than 2/3 of members present and voting</span> declaring that it is necessary in the national interest for Parliament to legislate on a matter in the <strong>State List</strong>.</p>
+    <p><strong>Why this is different from Art.368(2):</strong></p>
+    <ul>
+      <li>Only <strong>Rajya Sabha</strong> passes the resolution — Lok Sabha is not involved in this step</li>
+      <li>No condition of "majority of total membership" — <em>only</em> 2/3 of P&V in RS</li>
+      <li>This is <strong>not a constitutional amendment</strong> — it temporarily shifts legislative competence</li>
+      <li>Valid for <strong>1 year</strong> at a time, renewable indefinitely by fresh resolution</li>
+      <li>Once RS resolution passes, Parliament (both Houses by simple majority) can then legislate on that State List subject</li>
+    </ul>
+    <div class="box-warn">
+      <strong>⚠️ UPSC Trap:</strong> Art.249 uses "2/3 of P&V" — identical wording to one part of Art.368(2). But Art.368(2) has a <em>second simultaneous condition</em> (majority of TM) and applies to <em>both Houses</em>. Art.249 applies to RS <em>only</em> with <em>no TM condition</em>. UPSC will write both in the same question and ask you to spot the difference.
+    </div>
+    <div class="box-info">
+      <strong>Real-world example:</strong> If Parliament wanted to legislate on "Agriculture" (Entry 14, State List) — it cannot ordinarily do so. But if RS passes an Art.249 resolution by 2/3 P&V declaring national interest, Parliament gets temporary power to make that law. This is distinct from Art.252 (two or more states requesting Parliament to legislate) and Art.253 (international treaty implementation).
+    </div>
+  </div>
+
+  <!-- 5. Impeachment Majority -->
+  <div class="card">
+    <h3>⑤ Impeachment Majority — The Highest Bar</h3>
+    <p><strong class="kt">Definition:</strong> A majority of <span class="kt">not less than two-thirds of the total membership</span> of each House — not just present and voting, but of the entire House.</p>
+    <p><strong>Formula:</strong> Lok Sabha needs 362 votes (2/3 of 543), Rajya Sabha needs 164 votes (2/3 of 245).</p>
+    <p><strong>Why it's the hardest:</strong> Even if only 400 MPs are present, you still need 362 out of 543 — votes from people who aren't even there.</p>
+    <p><strong>When used:</strong> Only for <strong>Impeachment of the President</strong> under Article 61.</p>
+    <p><strong>Process of Presidential Impeachment:</strong></p>
+    <ol>
+      <li>Charges must be signed by at least <strong>1/4th of total members</strong> of the initiating House</li>
+      <li><strong>14-day</strong> notice must be given to the President</li>
+      <li>President has the right to appear &amp; be represented at investigation</li>
+      <li>Initiating house passes by 2/3 of total membership</li>
+      <li>Other house investigates the charges</li>
+      <li>Other house also passes the resolution by 2/3 of total membership</li>
+      <li>President stands <strong>removed</strong> from date of second resolution</li>
+    </ol>
+
+    <!-- Impeachment SVG -->
+    <div class="svg-wrap">
+      <svg viewBox="0 0 680 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+        <rect x="5" y="20" width="150" height="60" rx="6" fill="#ef5350" opacity="0.18" stroke="#ef5350" stroke-width="1.5"/>
+        <text x="80" y="46" text-anchor="middle" font-size="11" fill="#ef5350" font-weight="bold">1/4 TM signs</text>
+        <text x="80" y="62" text-anchor="middle" font-size="10" fill="#e0e0e0">+ 14-day notice</text>
+        <text x="80" y="76" text-anchor="middle" font-size="10" fill="#e0e0e0">to President</text>
+        <polygon points="161,50 172,44 172,56" fill="#ef5350"/>
+        <rect x="179" y="20" width="155" height="60" rx="6" fill="#ef5350" opacity="0.15" stroke="#ef5350" stroke-width="1.5"/>
+        <text x="256" y="46" text-anchor="middle" font-size="11" fill="#ef5350" font-weight="bold">House 1 passes</text>
+        <text x="256" y="62" text-anchor="middle" font-size="10" fill="#ffd700">2/3 of TOTAL TM</text>
+        <text x="256" y="76" text-anchor="middle" font-size="10" fill="#e0e0e0">(not just P&amp;V)</text>
+        <polygon points="340,50 351,44 351,56" fill="#ef5350"/>
+        <rect x="358" y="20" width="155" height="60" rx="6" fill="#ef5350" opacity="0.12" stroke="#ef5350" stroke-width="1.5"/>
+        <text x="435" y="46" text-anchor="middle" font-size="11" fill="#ef5350" font-weight="bold">House 2 investigates</text>
+        <text x="435" y="62" text-anchor="middle" font-size="10" fill="#ffd700">&amp; passes 2/3 TM</text>
+        <text x="435" y="76" text-anchor="middle" font-size="10" fill="#e0e0e0">Pres. can defend</text>
+        <polygon points="519,50 530,44 530,56" fill="#ef5350"/>
+        <rect x="537" y="20" width="135" height="60" rx="6" fill="#ef5350" opacity="0.22" stroke="#ef5350" stroke-width="1.5"/>
+        <text x="604" y="46" text-anchor="middle" font-size="14" fill="#ef5350">🚫</text>
+        <text x="604" y="64" text-anchor="middle" font-size="11" fill="#ef5350" font-weight="bold">President</text>
+        <text x="604" y="78" text-anchor="middle" font-size="10" fill="#e0e0e0">REMOVED</text>
+      </svg>
+      <div class="svg-caption">Presidential Impeachment under Article 61 — needs 2/3 of total membership of each House</div>
+    </div>
+
+    <div class="box-info">
+      <strong>Removal of SC/HC Judges (Article 124 / 218):</strong> Same formula as Article 368(2) — majority of total membership AND 2/3 of members present and voting, in each House. Often confused with impeachment majority. <strong>Key difference:</strong> Judges removal = 368(2) formula; President impeachment = 2/3 of total TM.
+    </div>
+  </div>
+
+  <!-- Removal of VP extra -->
+  <div class="card">
+    <h3>⑥ Removal of Vice President — A Unique Asymmetric Majority</h3>
+    <p>Article 67(b): The Vice President may be removed by a resolution of the <strong>Rajya Sabha passed by a majority of all the then-members</strong> (absolute majority of RS) and agreed to by the Lok Sabha (simple majority).</p>
+    <div class="box-info">
+      <strong>Key differences from President's removal:</strong>
+      <ul style="margin-top:0.5rem">
+        <li>VP removal is initiated by <strong>Rajya Sabha</strong> (logical — VP is ex-officio Chairman of RS)</li>
+        <li>President removal is initiated by <strong>either House</strong></li>
+        <li>VP removal = Absolute majority in RS + Simple majority in LS</li>
+        <li>President removal = 2/3 of total TM in <strong>both Houses</strong></li>
+        <li>VP removal has no requirement of 14-day notice (unlike President and Speaker)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Interlinks -->
+  <div class="card">
+    <h3>🔗 Interlinks with Other UPSC Topics</h3>
+    <ul>
+      <li><strong>Article 368 + Basic Structure (Polity):</strong> Even a special majority cannot amend the basic structure — Kesavananda Bharati (1973)</li>
+      <li><strong>Federalism (Polity):</strong> State ratification requirement is India's concession to federalism in an otherwise quasi-federal Constitution</li>
+      <li><strong>Emergency Provisions:</strong> Proclamation of National Emergency needs special majority; its extension also needs parliamentary approval (simple majority every 6 months)</li>
+      <li><strong>Anti-Defection Law (10th Schedule):</strong> Added by 52nd Amendment (1985) via Article 368 special majority</li>
+      <li><strong>GST (Economy):</strong> 101st Constitutional Amendment (GST) required special majority + state ratification</li>
+      <li><strong>Electoral System:</strong> Delimitation and reservation of seats in Parliament — amendment requires special majority</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ TASK 3 — PYQs ══════════════ -->
+<section id="pyqs">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <h2>📜 Previous Year Questions (PYQs)</h2>
+    <button class="revised-btn" data-key="pyqs">✓ Mark as Revised</button>
+  </div>
+
+  <!-- PYQ 1 -->
+  <div class="pyq-card">
+    <div class="pyq-header">
+      <span>UPSC Prelims 2015</span><span>GS Paper I</span><span>2 Marks</span>
+    </div>
+    <div class="pyq-body">
+      <div class="trap-tag">[STATEMENT COMBO]</div>
+      <p class="pyq-q">Consider the following statements regarding the amendment of the Constitution of India:<br>
+      1. A Constitution Amendment Bill must be passed by both the Lok Sabha and the Rajya Sabha by a special majority.<br>
+      2. There is no provision for a joint sitting of both Houses for passing a Constitution Amendment Bill.<br>
+      3. The President must give his assent to a Constitution Amendment Bill and cannot return it.<br>
+      Which of the statements given above is/are correct?</p>
+      <ul class="options" data-qid="pyq1">
+        <li data-opt="a"><span class="opt-letter">A.</span> 1 and 2 only</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> 2 only</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> 1, 2 and 3</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> 3 only</li>
+      </ul>
+      <button class="reveal-btn" data-qid="pyq1" data-answer="c">Reveal Answer</button>
+      <div class="answer-block" id="ans-pyq1">
+        <div class="explanation">
+          <strong>✅ Correct Answer: C — All three statements are correct.</strong><br><br>
+          <strong>Statement 1:</strong> True. Article 368(2) requires special majority (majority of TM + 2/3 P&V) in each House.<br>
+          <strong>Statement 2:</strong> True. There is no provision for a joint sitting for Constitutional Amendment Bills. This is a major difference from ordinary bills (which can have joint sitting under Article 108).<br>
+          <strong>Statement 3:</strong> True. The 24th Constitutional Amendment Act (1971) made it obligatory for the President to give assent to a Constitutional Amendment Bill. He cannot withhold or return it.
+        </div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ UPSC TRAP ANALYSIS</div>
+          <p><strong>Trap Set:</strong> Students often doubt Statement 3 because they know the President can return ordinary bills. UPSC banks on this confusion between the President's powers over ordinary bills vs constitutional amendment bills.</p>
+          <p><strong>Most students get wrong:</strong> Many pick 'A' (1 and 2 only), doubting Statement 3. They forget the 24th Amendment (1971) — passed after the Golak Nath case — which removed Presidential discretion over amendment bills.</p>
+          <p><strong>Elimination strategy:</strong> You can be 100% sure about Statements 1 and 2. If both are correct, only options A or C are possible. Verify Statement 3: the 24th Amendment (post-Golak Nath 1967) makes Presidential assent mandatory. So all three are correct → C.</p>
+          <p><strong>Recurring trick:</strong> UPSC often tests whether you know the <em>24th Amendment's specific changes</em> to Article 368.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYQ 2 -->
+  <div class="pyq-card">
+    <div class="pyq-header">
+      <span>UPSC Prelims 2019</span><span>GS Paper I</span><span>2 Marks</span>
+    </div>
+    <div class="pyq-body">
+      <div class="trap-tag">[PARTIAL TRUTH]</div>
+      <p class="pyq-q">With reference to the removal of a judge of the Supreme Court of India, consider the following statements:<br>
+      1. The Constitution of India defines and gives details of what constitutes 'incapacity and proved misbehaviour' of the judges.<br>
+      2. The details of the process of impeachment of the judges are given in the Judges (Inquiry) Act, 1968.<br>
+      3. If the motion for the impeachment of a judge is taken up for voting, the law requires the motion to be backed by each House of Parliament and supported by a majority of total membership of that House and by not less than two-thirds of the total members of that House present and voting.<br>
+      Which of the statements given above is/are correct?</p>
+      <ul class="options" data-qid="pyq2">
+        <li data-opt="a"><span class="opt-letter">A.</span> 1 and 2</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> 3 only</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> 2 and 3</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> 1, 2 and 3</li>
+      </ul>
+      <button class="reveal-btn" data-qid="pyq2" data-answer="c">Reveal Answer</button>
+      <div class="answer-block" id="ans-pyq2">
+        <div class="explanation">
+          <strong>✅ Correct Answer: C — Statements 2 and 3 are correct.</strong><br><br>
+          <strong>Statement 1: INCORRECT.</strong> The Constitution does NOT define 'incapacity and proved misbehaviour'. It only mentions them as grounds for removal. The details are left to Parliament to specify.<br>
+          <strong>Statement 2: CORRECT.</strong> The Judges (Inquiry) Act, 1968 provides the procedure for impeachment — how the investigation committee is formed, its composition, etc.<br>
+          <strong>Statement 3: CORRECT.</strong> The majority required for removal of SC/HC judges = majority of total membership + 2/3 of members present and voting (same as Article 368(2) formula).
+        </div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ UPSC TRAP ANALYSIS</div>
+          <p><strong>Trap Set:</strong> Statement 1 sounds authoritative ("defines and gives details") — students assume the Constitution must define something as critical as grounds for removal. It does not. It merely uses the phrase without defining it.</p>
+          <p><strong>Key distinction to remember:</strong> Removal of SC/HC Judges uses the Art.368(2) formula. Impeachment of President uses 2/3 of TOTAL membership (stricter). UPSC tests this distinction repeatedly.</p>
+          <p><strong>Statement 3 trap:</strong> The wording "two-thirds of the total members present and voting" — is this different from 2/3 of total membership? YES. Here it says "present and voting" which is less strict than impeachment (which says 2/3 of total TM). This is the Article 368(2) formula applied to judges.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYQ 3 -->
+  <div class="pyq-card">
+    <div class="pyq-header">
+      <span>UPSC Prelims 2022 [Verify]</span><span>GS Paper I</span><span>2 Marks</span>
+    </div>
+    <div class="pyq-body">
+      <div class="trap-tag">[STATEMENT COMBO]</div>
+      <p class="pyq-q">Consider the following statements:<br>
+      1. A Bill amending the Constitution requires a prior recommendation of the President of India.<br>
+      2. When a Constitution Amendment Bill is presented to the President of India, it is obligatory for the President to give his/her assent.<br>
+      Which of the statements given above is/are correct?</p>
+      <ul class="options" data-qid="pyq3">
+        <li data-opt="a"><span class="opt-letter">A.</span> 1 only</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> 2 only</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> Both 1 and 2</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> Neither 1 nor 2</li>
+      </ul>
+      <button class="reveal-btn" data-qid="pyq3" data-answer="b">Reveal Answer</button>
+      <div class="answer-block" id="ans-pyq3">
+        <div class="explanation">
+          <strong>✅ Correct Answer: B — Statement 2 only is correct.</strong><br><br>
+          <strong>Statement 1: INCORRECT.</strong> There is <em>no requirement</em> for prior Presidential recommendation for a Constitutional Amendment Bill. This is only required for certain Money Bills and financial legislation. An amendment bill can be introduced in either House without Presidential recommendation.<br>
+          <strong>Statement 2: CORRECT.</strong> The 24th Amendment (1971) inserted a clause making it obligatory for the President to give assent to a Constitution Amendment Bill. The President has no discretion to withhold assent.
+        </div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ UPSC TRAP ANALYSIS</div>
+          <p><strong>Trap Set:</strong> Statement 1 exploits confusion between "Money Bill requires President's recommendation" and "Constitution Amendment Bill requires President's recommendation." The former is true; the latter is false.</p>
+          <p><strong>Most students pick C:</strong> They are sure about Statement 2 (President must assent) and assume Statement 1 also sounds reasonable — a big amendment surely needs Presidential approval before even being introduced? No. Article 368 has no such condition.</p>
+          <p><strong>Quick rule:</strong> Only Bills involving expenditure from Consolidated Fund of India or taxation require prior Presidential recommendation. Constitution Amendment Bills have no such requirement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAINS PYQ -->
+  <div class="card" style="border-color:var(--tag-mains)">
+    <h3 style="color:var(--tag-mains)">📝 Mains Model Answer — GS2</h3>
+    <p><em>[Verify] UPSC Mains 2013 (GS2) / Related concept question, 150 words, 10 marks</em></p>
+    <p><strong>Q: The Indian Constitution is both rigid and flexible. Examine the statement in light of the amendment procedure.</strong></p>
+    <hr style="border-color:var(--border);margin:0.8rem 0">
+    <p><strong>Introduction:</strong> India's Constitution is often described as a "living document" — rigid enough to protect constitutional values, flexible enough to adapt to changing needs. This dual character is embodied in Article 368's tiered amendment mechanism.</p>
+    <p><strong>Evidence of Rigidity:</strong></p>
+    <ul>
+      <li><strong>Special majority (Art.368(2)):</strong> Most provisions require 2/3 P&V + majority of TM in each House — far stricter than ordinary legislation</li>
+      <li><strong>Federal provisions require state ratification:</strong> Provisions like the 7th Schedule (Lists), Supreme Court powers, and Presidential election require ratification by ≥50% of state legislatures — protecting federalism</li>
+      <li><strong>Basic Structure doctrine (Kesavananda Bharati, 1973):</strong> Even special majority cannot alter fundamental constitutional identity — sovereignty, secularism, democracy, judicial review</li>
+      <li><strong>No joint sitting:</strong> Unlike ordinary bills, amendment bills cannot be passed through a joint sitting, ensuring both Houses independently scrutinize</li>
+    </ul>
+    <p><strong>Evidence of Flexibility:</strong></p>
+    <ul>
+      <li><strong>Simple majority provisions:</strong> Creation/abolition of state legislative councils (Art.169), new states (Art.2/3), schedules 1–4 — Parliament can amend these like ordinary law</li>
+      <li><strong>Frequent amendments:</strong> India has over 106 constitutional amendments — reflecting adaptability</li>
+      <li><strong>No ratification window:</strong> Unlike the USA (7-year deadline for ratification), India has no time limit for state legislatures to ratify, reducing political gridlock</li>
+      <li><strong>No right to secede:</strong> State ratification required to protect federal features, but no state can veto — unlike Switzerland where cantons can block amendments</li>
+    </ul>
+    <p><strong>Conclusion:</strong> India's amendment procedure is a pragmatic middle path — ensuring constitutional stability through graduated thresholds while avoiding the excessive rigidity that can make a Constitution irrelevant to evolving societal needs. As Dr. Ambedkar envisioned, the Constitution must be workable by a great democracy.</p>
+    <p style="font-size:0.82rem;opacity:0.7">Word count: ~220 | Suitable for 10-mark answer</p>
+  </div>
+</section>
+
+<!-- ══════════════ TASK 4 — PROGRESSIVE MCQs ══════════════ -->
+<section id="mcqs">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <h2>🎯 Progressive MCQ Practice (10 Questions)</h2>
+    <button class="revised-btn" data-key="mcqs">✓ Mark as Revised</button>
+  </div>
+  <div class="score-bar">
+    <div>Score: <span class="score-display" id="score-display">0 / 10</span></div>
+    <button class="reset-btn" onclick="resetQuiz()">↺ Reset Quiz</button>
+  </div>
+
+  <!-- MCQ 1 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 1</span><span>Easy — Direct Fact</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[DIRECT FACT]</div>
+      <p class="pyq-q">For passing an ordinary bill in the Indian Parliament, which majority is required?</p>
+      <ul class="options" data-qid="mcq1">
+        <li data-opt="a"><span class="opt-letter">A.</span> Absolute Majority — more than 50% of total membership</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> Simple Majority — more than 50% of members present and voting</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> Effective Majority — more than 50% of effective strength</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> Special Majority — 2/3rd of total membership</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq1" data-answer="b">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq1">
+        <div class="explanation"><strong>✅ Answer: B.</strong> All ordinary bills require only Simple Majority — more than half of members present and voting. Only constitutional amendments (Art.368) need special majority.</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>Option A tricks students who confuse "majority" colloquially meaning "more than half of all" with "more than half of those present." Option D is for constitutional amendments — a common substitution UPSC uses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 2 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 2</span><span>Easy-Medium</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[LOOKALIKE TERM]</div>
+      <p class="pyq-q">The removal of the Speaker of the Lok Sabha requires which type of majority?</p>
+      <ul class="options" data-qid="mcq2">
+        <li data-opt="a"><span class="opt-letter">A.</span> Simple Majority of members present and voting</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> Absolute Majority — majority of total membership</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> Effective Majority — majority of the effective strength of the House</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> Special Majority under Article 368(2)</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq2" data-answer="c">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq2">
+        <div class="explanation"><strong>✅ Answer: C.</strong> Article 94 requires that the Speaker be removed by a resolution passed by a majority of <em>all then-members</em> of the Lok Sabha — this is Effective Majority (majority of effective strength = total members minus vacancies). Also, 14 days' prior notice is required.</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>Most students pick B (Absolute Majority). The difference: Absolute = 50%+1 of total membership (including vacant seats as denominator). Effective = 50%+1 after removing vacancies. For the Speaker's removal, the Constitution says "majority of all the then members" — "then members" means currently filled seats = effective majority. This is a classic terminology trap UPSC uses repeatedly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 3 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 3</span><span>Medium</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[PARTIAL TRUTH]</div>
+      <p class="pyq-q">Which of the following provisions of the Indian Constitution can be amended by Parliament through simple majority — i.e., outside the purview of Article 368?</p>
+      <ul class="options" data-qid="mcq3">
+        <li data-opt="a"><span class="opt-letter">A.</span> Fundamental Rights (Part III)</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> Creation of a new State (Article 2)</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> Powers of the Supreme Court</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> Anti-defection law (10th Schedule)</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq3" data-answer="b">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq3">
+        <div class="explanation"><strong>✅ Answer: B.</strong> Article 2 (admission/establishment of new states) and Article 3 (formation of new states, alteration of boundaries) are outside Article 368 — they can be done by ordinary legislation with simple majority. Options A, C, D all require special majority under Art.368.</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>Option D traps students who know the 10th Schedule was added by a constitutional amendment (52nd Amendment, 1985). Yes, it was added by special majority — but the question asks which provision can be amended by simple majority. The 10th Schedule amendment requires special majority. Option B is the only one outside Art.368's scope.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 4 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 4</span><span>Medium</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[REVERSAL]</div>
+      <p class="pyq-q">The impeachment of the President of India requires a majority of not less than two-thirds of:</p>
+      <ul class="options" data-qid="mcq4">
+        <li data-opt="a"><span class="opt-letter">A.</span> Members of each House present and voting</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> Total membership of each House, in a joint sitting</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> Total membership of each House separately</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> Members present and voting in a joint sitting of both Houses</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq4" data-answer="c">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq4">
+        <div class="explanation"><strong>✅ Answer: C.</strong> Article 61 requires a majority of not less than 2/3 of the <em>total membership</em> of each House, passed in each House <em>separately</em> (not in joint sitting). This is the strictest majority in the Constitution — each House independently needs 2/3 of ALL members, not just those present.</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p><strong>Two traps in one question:</strong> (1) "Joint sitting" — there is NO joint sitting for impeachment. Each House votes separately. (2) "Present and voting" vs "total membership" — UPSC specifically uses "total membership" for impeachment, making it stricter than Art.368(2) which also requires 2/3 but only of P&V. Option A is the Art.368 formula — a classic UPSC reversal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 5 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 5</span><span>Medium-Hard</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[ABSOLUTE WORD]</div>
+      <p class="pyq-q">Which of the following constitutional provisions can be amended by Parliament WITHOUT the need for ratification by State Legislatures?</p>
+      <ul class="options" data-qid="mcq5">
+        <li data-opt="a"><span class="opt-letter">A.</span> Election of the President (Articles 54-55)</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> The 7th Schedule (Union, State, Concurrent Lists)</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> Fundamental Rights under Part III</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> Distribution of legislative powers between Centre and States (Articles 245-255)</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq5" data-answer="c">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq5">
+        <div class="explanation"><strong>✅ Answer: C.</strong> Fundamental Rights (Part III) require only the special majority under Article 368(2) — no state ratification is needed. Options A, B, and D all fall under the provisions that require state ratification because they deal with the federal structure or Presidential election.</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>This question tests knowledge of which provisions need state ratification. The key rule: state ratification is needed only for provisions affecting federal features. Fundamental Rights are individual rights — they don't affect the federal structure, so only special majority is enough. Options A, B, D all touch Centre-State relations or federal organs → require state ratification.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 6 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 6</span><span>Hard</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[STATEMENT COMBO]</div>
+      <p class="pyq-q">Consider the following statements about the removal of the Vice President of India:<br>
+      1. The resolution for removal must be passed by the Rajya Sabha by an absolute majority.<br>
+      2. The resolution must then also be passed by the Lok Sabha by a special majority.<br>
+      3. A 14-day prior notice to the Vice President is mandatory before a removal resolution can be moved.<br>
+      Which of the statements given above is/are correct?</p>
+      <ul class="options" data-qid="mcq6">
+        <li data-opt="a"><span class="opt-letter">A.</span> 1 only</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> 1 and 2</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> 2 and 3</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> 1 and 3</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq6" data-answer="a">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq6">
+        <div class="explanation"><strong>✅ Answer: A — Statement 1 only.</strong><br>
+        <strong>Statement 1: Correct.</strong> Article 67(b) — RS must pass by majority of ALL then-members = absolute majority.<br>
+        <strong>Statement 2: Wrong.</strong> Lok Sabha gives only "agreement" — this is a simple majority, NOT a special majority.<br>
+        <strong>Statement 3: Wrong.</strong> There is NO 14-day prior notice requirement for VP removal. The 14-day notice requirement is for the Speaker/Deputy Speaker removal (Article 94), not the VP.</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>UPSC loves mixing up requirements for different offices. The 14-day notice (Statement 3) is a classic transplant — it belongs to Speaker removal, not VP removal. Statement 2's "special majority" is wrong — Lok Sabha only needs to "agree" (simple majority). Students who know Statement 1 is correct but are unsure about 2 and 3 often pick D instead of A — UPSC exploits this uncertainty.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 7 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 7</span><span>Hard</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[TRICK SEQUENCE]</div>
+      <p class="pyq-q">Which of the following correctly lists constitutional amendments that required ratification by state legislatures after being passed by Parliament with special majority?<br>
+      1. 42nd Constitutional Amendment Act, 1976<br>
+      2. 44th Constitutional Amendment Act, 1978<br>
+      3. 73rd Constitutional Amendment Act, 1992 (Panchayati Raj)<br>
+      4. 101st Constitutional Amendment Act, 2016 (GST)</p>
+      <ul class="options" data-qid="mcq7">
+        <li data-opt="a"><span class="opt-letter">A.</span> 1 and 2 only</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> 3 and 4 only</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> 1, 2 and 4 only</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> 4 only</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq7" data-answer="d">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq7">
+        <div class="explanation"><strong>✅ Answer: D — 4 only (101st Amendment / GST).</strong><br>
+        The 101st Amendment (GST) amended the 7th Schedule (Concurrent List, state taxes) — which falls under provisions requiring state ratification. Over half the state legislatures ratified it before it became law.<br>
+        The 42nd and 44th Amendments were sweeping changes but primarily to FR, DPSP, and emergency provisions — not to the specific federal provisions requiring state ratification.<br>
+        The 73rd Amendment (Panchayati Raj) added a new Part IX — but the Schedule added (11th Schedule) is not among the 8 categories requiring state ratification.<br>
+        [Verify: Cross-check 42nd and 73rd Amendment ratification requirements against standard sources]</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>This question tests real-world application of which amendments actually needed state ratification. Most students know the rule theoretically but can't apply it to specific amendments. Key: State ratification required for 7th Schedule changes → GST (101st) yes. Panchayati Raj (73rd) added 11th Schedule — not in the ratification list. 42nd was entirely passed by Parliament alone (Emergency era, no state ratification needed as it didn't touch the 8 specific provisions).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 8 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 8</span><span>Hard — Statement Eliminator</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[STATEMENT COMBO]</div>
+      <p class="pyq-q">Consider the following statements regarding constitutional amendments in India:<br>
+      1. Parliament alone cannot amend the provisions relating to the election of the President without the concurrence of the state legislatures.<br>
+      2. The President can refer a Constitutional Amendment Bill to the Supreme Court for its advisory opinion before giving assent.<br>
+      3. Once a Constitutional Amendment Bill is passed by Parliament with the requisite majority, the President is constitutionally bound to give his assent.<br>
+      4. The state legislature's ratification of a Constitutional Amendment Bill may be revoked before the President gives assent.</p>
+      <ul class="options" data-qid="mcq8">
+        <li data-opt="a"><span class="opt-letter">A.</span> 1 and 3 only</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> 2 and 4 only</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> 1, 3 and 4 only</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> 1, 2 and 3 only</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq8" data-answer="a">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq8">
+        <div class="explanation"><strong>✅ Answer: A — Statements 1 and 3 only.</strong><br>
+        <strong>S1: Correct.</strong> Presidential election provisions require state ratification — Parliament alone cannot amend them.<br>
+        <strong>S2: Wrong.</strong> The President cannot refer a Constitutional Amendment Bill to the SC for advisory opinion (Art.143 reference power doesn't extend to this, and the 24th Amendment makes assent mandatory — no scope for pre-assent advisory).<br>
+        <strong>S3: Correct.</strong> 24th Amendment — President is bound to assent.<br>
+        <strong>S4: Wrong.</strong> A state legislature CAN revoke its ratification before Presidential assent — held in Kesavananda Bharati context. However, this is a debated point and may vary by interpretation. [Verify with standard sources]</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>Statement 4 is a sophisticated trap — the revocability of state ratification is a nuanced constitutional law point. UPSC may use this to test deep understanding. Statement 2 seems plausible (President referring things to SC under Art.143 is a known power) — but not for constitutional amendment bills. The 24th Amendment specifically removes Presidential discretion, so referring to SC for opinion to delay assent would be an indirect veto — not permitted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 9 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 9</span><span>Hard — Numerical Application</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[TRICK SEQUENCE]</div>
+      <p class="pyq-q">If Rajya Sabha has 244 members (1 vacancy), and a Constitutional Amendment Bill comes to vote — which of the following best describes the minimum votes needed to pass the bill?</p>
+      <ul class="options" data-qid="mcq9">
+        <li data-opt="a"><span class="opt-letter">A.</span> 123 votes (majority of total membership of 245)</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> 123 votes (majority of effective strength of 244) AND at least 163 votes if all 244 members vote</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> 164 votes (2/3 of total membership of 245)</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> 163 votes (2/3 of effective strength of 244)</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq9" data-answer="b">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq9">
+        <div class="explanation"><strong>✅ Answer: B.</strong> Article 368(2) requires: (i) majority of TOTAL membership = 123 (since TM of RS = 245, majority = 123) AND (ii) 2/3 of members present and voting. If all 244 present members vote, 2/3 of 244 = 162.67 → 163 minimum. Both conditions must be met simultaneously. Note: "total membership" (245) is used for Condition i, not effective strength.</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>This numerical question tests whether you understand that Art.368(2) has TWO simultaneous conditions — and they use different denominators. Condition 1 uses TOTAL membership (245 even with vacancy), Condition 2 uses PRESENT AND VOTING (variable). Option D confuses the denominator for Condition 1, using effective strength instead of total membership. Option C applies "2/3 of total membership" — that's the impeachment formula, not Art.368.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ 10 -->
+  <div class="pyq-card">
+    <div class="pyq-header"><span>MCQ 10</span><span>Very Hard — Elite Eliminator</span></div>
+    <div class="pyq-body">
+      <div class="trap-tag">[STATEMENT COMBO + REVERSAL]</div>
+      <p class="pyq-q">Consider the following statements about majority requirements in the Indian Parliament:<br>
+      1. The Rajya Sabha can be dissolved to break a deadlock on a Constitutional Amendment Bill.<br>
+      2. Abolition of a State Legislative Council under Article 169 requires special majority under Article 368(2).<br>
+      3. The resolution to extend the duration of National Emergency requires special majority in each House.<br>
+      4. For removal of a High Court judge, the formula is: majority of total membership AND 2/3 of members present and voting, in each House separately.<br>
+      Select the correct statements:</p>
+      <ul class="options" data-qid="mcq10">
+        <li data-opt="a"><span class="opt-letter">A.</span> 3 and 4 only</li>
+        <li data-opt="b"><span class="opt-letter">B.</span> 1 and 3 only</li>
+        <li data-opt="c"><span class="opt-letter">C.</span> 4 only</li>
+        <li data-opt="d"><span class="opt-letter">D.</span> 2 and 4 only</li>
+      </ul>
+      <button class="reveal-btn" data-qid="mcq10" data-answer="c">Reveal Answer</button>
+      <div class="answer-block" id="ans-mcq10">
+        <div class="explanation"><strong>✅ Answer: C — Statement 4 only.</strong><br>
+        <strong>S1: Wrong.</strong> Rajya Sabha cannot be dissolved at all — it is a permanent House. Only Lok Sabha can be dissolved. No question of dissolving RS to break deadlock on a constitutional amendment.<br>
+        <strong>S2: Wrong.</strong> Article 169 explicitly states that Parliament can create or abolish a State Legislative Council by an ordinary law passed by <em>simple majority</em> — it is NOT covered under Article 368. This is one of the key exceptions.<br>
+        <strong>S3: Wrong.</strong> A resolution for the continuation of National Emergency must be passed by both Houses by special majority (majority of TM + 2/3 P&V) — but the resolution is passed every 6 months. Actually, the initial proclamation and approval require special majority but the continuation/approval resolution: Article 352(6) states "by a resolution of either House of Parliament supported by a majority of the total membership of that House" — this is absolute majority, not special. [Verify exact wording of Art.352(6)]<br>
+        <strong>S4: Correct.</strong> Article 218 (HCs) read with Article 124(4) (SC) — the formula for judge removal is majority of total membership + 2/3 of P&V, identical to Art.368(2). This is distinct from Presidential impeachment (which requires 2/3 of total TM).</div>
+        <div class="trap-analysis">
+          <div class="trap-analysis-label">⚠️ TRAP ANALYSIS</div>
+          <p>This question uses 4 different traps simultaneously: S1 reverses dissolved/not dissolved (common for Rajya Sabha questions). S2 is the classic Article 169 exception — students who haven't memorized this exception will always get it wrong. S3 deliberately confuses Emergency extension majority (which has nuance). S4 is the one correct statement that requires distinguishing judges' removal formula from Presidential impeachment formula. UPSC uses this "only one correct" format to punish over-confident students who pick A (3 and 4) thinking both are correct.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TASK 5 — CURRENT AFFAIRS ══════════════ -->
+<section id="currentaffairs">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <h2>📰 Current Affairs (2024–2026)</h2>
+    <button class="revised-btn" data-key="ca">✓ Mark as Revised</button>
+  </div>
+
+  <div class="ca-item">
+    <div class="ca-badges"><span class="tag-pm">P+M</span></div>
+    <div class="ca-title">106th Constitutional Amendment — Nari Shakti Vandan Adhiniyam (2023)</div>
+    <p>The 106th Constitutional Amendment Act, 2023 provided for reservation of 33% seats for women in Lok Sabha, State Legislative Assemblies, and the NCT of Delhi. It amended Articles 330A, 332A, and 334A. The amendment required <strong>special majority under Article 368(2)</strong> in both Houses. Rajya Sabha passed it unanimously; Lok Sabha passed it with overwhelming majority. This amendment did <strong>not</strong> require state ratification since it does not deal with the specified federal provisions (Presidential election, 7th Schedule etc.) — demonstrating the distinction between the two types of special majority.</p>
+    <div class="box-info" style="font-size:0.9rem">
+      <strong>Prelims Hook:</strong> The 106th Amendment — delimitation is needed before implementation. The actual reservation kicks in only after the next delimitation exercise post-2026 census.
+    </div>
+  </div>
+
+  <div class="ca-item">
+    <div class="ca-badges"><span class="tag-p">P</span></div>
+    <div class="ca-title">Article 370 Abrogation — Constitutional Questions on Majority (2019, upheld 2023)</div>
+    <p>The Supreme Court in <em>In Re: Article 370</em> (December 2023) unanimously upheld the abrogation. While the majority type question is secondary here, the case raised important constitutional questions: the Presidential Proclamation under Art.356 was used to alter Art.370 without Parliament's direct vote using the special majority mechanism. The SC upheld this as a valid exercise of constituent power. <strong>Prelims Relevance:</strong> Art.370 was abrogated through a Presidential Order, not through Art.368 constitutional amendment — an important distinction on which majority applies.</p>
+  </div>
+
+  <div class="ca-item">
+    <div class="ca-badges"><span class="tag-m">M</span></div>
+    <div class="ca-title">ONOE (One Nation One Election) Constitutional Amendments — 2024</div>
+    <p>The Union Cabinet approved the 'One Nation, One Election' report in 2024. Implementation would require amendments to Articles 82A, 83, 85, 172, 174, and 356 — requiring at minimum <strong>special majority under Art.368(2)</strong> in Parliament. Some provisions (relating to state legislative assembly terms) could additionally require state ratification. This is a live example of how the majority requirements serve as a check on rapid constitutional change. The Bill was introduced in December 2024 and referred to a Joint Parliamentary Committee.</p>
+    <div class="box-info" style="font-size:0.9rem"><strong>Mains angle:</strong> ONOE as a test of federal respect — does changing state assembly terms require state ratification? Examine whether Art.172 (state legislature duration) amendment falls within the Art.368 proviso requiring state consent.</div>
+  </div>
+
+  <div class="ca-item">
+    <div class="ca-badges"><span class="tag-pm">P+M</span></div>
+    <div class="ca-title">Basic Structure Doctrine — Renewed Salience (2023–2024)</div>
+    <p>Several Supreme Court pronouncements in 2023–2024 reaffirmed that even a special majority under Art.368 cannot override the Basic Structure. In the <em>Electoral Bonds</em> case (February 2024), the SC struck down amendments to the Representation of People Act despite them being passed by Parliament. This illustrates that the <em>type of majority</em> used is only one part of the constitutional validity test — the content must also not violate Basic Structure.</p>
+    <div class="box-warn" style="font-size:0.9rem"><strong>Mains insight:</strong> Majority is a procedural safeguard; Basic Structure is a substantive safeguard. Both are needed for a valid constitutional amendment.</div>
+  </div>
+
+  <!-- Timeline SVG -->
+  <div class="svg-wrap">
+    <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+      <text x="350" y="20" text-anchor="middle" font-size="13" fill="#ffd700" font-weight="bold">Key Constitutional Amendments Timeline — Majority Types Used</text>
+      <!-- Timeline line -->
+      <line x1="30" y1="80" x2="670" y2="80" stroke="#2a2a4a" stroke-width="2"/>
+      <!-- Points -->
+      <circle cx="80" cy="80" r="7" fill="#7c4dff"/>
+      <text x="80" y="60" text-anchor="middle" font-size="10" fill="#c084fc" font-weight="bold">1971</text>
+      <text x="80" y="73" text-anchor="middle" font-size="9" fill="#c084fc">24th Amend.</text>
+      <text x="80" y="97" text-anchor="middle" font-size="9" fill="#e0e0e0">Special Maj.</text>
+      <text x="80" y="109" text-anchor="middle" font-size="9" fill="#e0e0e0">Pres. assent</text>
+      <text x="80" y="121" text-anchor="middle" font-size="9" fill="#e0e0e0">mandatory</text>
+
+      <circle cx="200" cy="80" r="7" fill="#ff7043"/>
+      <text x="200" y="60" text-anchor="middle" font-size="10" fill="#ff7043" font-weight="bold">1992</text>
+      <text x="200" y="73" text-anchor="middle" font-size="9" fill="#ff7043">73rd/74th</text>
+      <text x="200" y="97" text-anchor="middle" font-size="9" fill="#e0e0e0">Special Maj.</text>
+      <text x="200" y="109" text-anchor="middle" font-size="9" fill="#e0e0e0">Panchayati Raj</text>
+      <text x="200" y="121" text-anchor="middle" font-size="9" fill="#4caf50">(No State Rat.)</text>
+
+      <circle cx="340" cy="80" r="7" fill="#4caf50"/>
+      <text x="340" y="60" text-anchor="middle" font-size="10" fill="#4caf50" font-weight="bold">2016</text>
+      <text x="340" y="73" text-anchor="middle" font-size="9" fill="#4caf50">101st (GST)</text>
+      <text x="340" y="97" text-anchor="middle" font-size="9" fill="#e0e0e0">Special Maj.</text>
+      <text x="340" y="109" text-anchor="middle" font-size="9" fill="#e0e0e0">7th Sch. change</text>
+      <text x="340" y="121" text-anchor="middle" font-size="9" fill="#ff7043">State Rat. needed!</text>
+
+      <circle cx="480" cy="80" r="7" fill="#00d4ff"/>
+      <text x="480" y="60" text-anchor="middle" font-size="10" fill="#00d4ff" font-weight="bold">2023</text>
+      <text x="480" y="73" text-anchor="middle" font-size="9" fill="#00d4ff">106th (Women)</text>
+      <text x="480" y="97" text-anchor="middle" font-size="9" fill="#e0e0e0">Special Maj.</text>
+      <text x="480" y="109" text-anchor="middle" font-size="9" fill="#e0e0e0">Nari Shakti</text>
+      <text x="480" y="121" text-anchor="middle" font-size="9" fill="#4caf50">(No State Rat.)</text>
+
+      <circle cx="600" cy="80" r="7" fill="#ffd700"/>
+      <text x="600" y="60" text-anchor="middle" font-size="10" fill="#ffd700" font-weight="bold">2024</text>
+      <text x="600" y="73" text-anchor="middle" font-size="9" fill="#ffd700">ONOE Bill</text>
+      <text x="600" y="97" text-anchor="middle" font-size="9" fill="#e0e0e0">Proposed</text>
+      <text x="600" y="109" text-anchor="middle" font-size="9" fill="#e0e0e0">Special Maj.</text>
+      <text x="600" y="121" text-anchor="middle" font-size="9" fill="#ff7043">+ State Rat.?</text>
+    </svg>
+    <div class="svg-caption">Constitutional amendments and the type of majority used — exam-ready timeline</div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <p>Last updated: March 2026 &nbsp;|&nbsp; <a href="#">← Back to Home</a></p>
+  <p style="margin-top:0.4rem;font-size:0.8rem">UPSC Prep — Avinash | Topic: Types of Majority in the Constitution</p>
+  <p style="margin-top:0.4rem;font-size:0.75rem;opacity:0.7">35 days to go. You've got this. — Remember Kumbakonam 🐾</p>
+</footer>
+
+<!-- ══════════════ JAVASCRIPT ══════════════ -->
+<script>
+// ── THEME TOGGLE ──────────────────────────────────────────
+const html = document.documentElement;
+const toggleBtn = document.getElementById('theme-toggle');
+
+function applyTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  toggleBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
+}
+
+// Apply saved or default theme before first paint
+const saved = localStorage.getItem('upsc-theme') || 'dark';
+applyTheme(saved);
+
+toggleBtn.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem('upsc-theme', next);
+});
+
+// ── HAMBURGER ─────────────────────────────────────────────
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+// ── QUIZ LOGIC ────────────────────────────────────────────
+let score = 0;
+let attempted = new Set();
+
+function updateScore() {
+  document.getElementById('score-display').textContent = score + ' / ' + attempted.size;
+}
+
+document.querySelectorAll('.reveal-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const qid = this.dataset.qid;
+    const answer = this.dataset.answer;
+    const ansBlock = document.getElementById('ans-' + qid);
+
+    if (ansBlock.classList.contains('open')) {
+      // Hide answer
+      ansBlock.classList.remove('open');
+      this.textContent = 'Reveal Answer';
+      // Reset option colors
+      document.querySelectorAll('.options[data-qid="' + qid + '"] li').forEach(li => {
+        li.classList.remove('correct-opt', 'wrong-opt');
+      });
+    } else {
+      // Show answer
+      ansBlock.classList.add('open');
+      this.textContent = 'Hide Answer';
+      // Color options
+      document.querySelectorAll('.options[data-qid="' + qid + '"] li').forEach(li => {
+        if (li.dataset.opt === answer) li.classList.add('correct-opt');
+        else li.classList.add('wrong-opt');
+      });
+    }
+  });
+});
+
+// Option click tracking
+document.querySelectorAll('.options').forEach(optList => {
+  optList.querySelectorAll('li').forEach(opt => {
+    opt.addEventListener('click', function() {
+      const qid = optList.dataset.qid;
+      const revealBtn = document.querySelector('.reveal-btn[data-qid="' + qid + '"]');
+      const answer = revealBtn ? revealBtn.dataset.answer : null;
+
+      if (!answer) return;
+      if (attempted.has(qid)) return; // Already scored
+
+      attempted.add(qid);
+      if (this.dataset.opt === answer) score++;
+      updateScore();
+
+      // Auto-reveal answer after clicking
+      if (!document.getElementById('ans-' + qid).classList.contains('open')) {
+        revealBtn.click();
+      }
+    });
+  });
+});
+
+function resetQuiz() {
+  score = 0;
+  attempted = new Set();
+  updateScore();
+  // Hide all answer blocks and reset colors
+  document.querySelectorAll('.answer-block').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.reveal-btn').forEach(b => b.textContent = 'Reveal Answer');
+  document.querySelectorAll('.options li').forEach(li => li.classList.remove('correct-opt','wrong-opt'));
+}
+
+// ── REVISED BUTTONS ───────────────────────────────────────
+document.querySelectorAll('.revised-btn').forEach(btn => {
+  const key = 'revised-' + btn.dataset.key;
+  if (localStorage.getItem(key)) {
+    btn.classList.add('done');
+    btn.textContent = '✓ Revised';
+  }
+  btn.addEventListener('click', function() {
+    const isDone = this.classList.toggle('done');
+    if (isDone) {
+      this.textContent = '✓ Revised';
+      localStorage.setItem(key, '1');
+    } else {
+      this.textContent = '✓ Mark as Revised';
+      localStorage.removeItem(key);
+    }
+  });
+});
+
+// ── SMOOTH SCROLL ─────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
